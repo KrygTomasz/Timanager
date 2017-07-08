@@ -1,0 +1,6 @@
+framework module Pods_TimanagerUITests {
+  umbrella header "Pods-TimanagerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

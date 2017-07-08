@@ -15,6 +15,9 @@
 		22EB39401F1136C50079C458 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EB393E1F1136C50079C458 /* LaunchScreen.storyboard */; };
 		22EB394B1F1136C50079C458 /* TimanagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB394A1F1136C50079C458 /* TimanagerTests.swift */; };
 		22EB39561F1136C50079C458 /* TimanagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39551F1136C50079C458 /* TimanagerUITests.swift */; };
+		429E7BA240698BA0D8AB1243 /* Pods_TimanagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D357E536E5EC28DF3B5B104C /* Pods_TimanagerTests.framework */; };
+		5B2C53F3C42C1166148FC75A /* Pods_Timanager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C21959D22B115CB7D402EB /* Pods_Timanager.framework */; };
+		7B6344C0048637578C1215EB /* Pods_TimanagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6815C2D0B1C97954DAAED91 /* Pods_TimanagerUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,15 @@
 		22EB39511F1136C50079C458 /* TimanagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimanagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22EB39551F1136C50079C458 /* TimanagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimanagerUITests.swift; sourceTree = "<group>"; };
 		22EB39571F1136C50079C458 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25C21959D22B115CB7D402EB /* Pods_Timanager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timanager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28963BAFF110F62E52A345BA /* Pods-Timanager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timanager.release.xcconfig"; path = "Pods/Target Support Files/Pods-Timanager/Pods-Timanager.release.xcconfig"; sourceTree = "<group>"; };
+		49FE902E1A2C85546D0D42AC /* Pods-TimanagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimanagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimanagerTests/Pods-TimanagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B2260D21A25A07714A425CBD /* Pods-TimanagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimanagerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimanagerUITests/Pods-TimanagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C6815C2D0B1C97954DAAED91 /* Pods_TimanagerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimanagerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED35C656C61DAD7500EFD52 /* Pods-TimanagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimanagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimanagerTests/Pods-TimanagerTests.release.xcconfig"; sourceTree = "<group>"; };
+		D357E536E5EC28DF3B5B104C /* Pods_TimanagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimanagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6C929170B48207A9E468589 /* Pods-Timanager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timanager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Timanager/Pods-Timanager.debug.xcconfig"; sourceTree = "<group>"; };
+		F03D57FCD13526A23970BB09 /* Pods-TimanagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimanagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimanagerUITests/Pods-TimanagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2C53F3C42C1166148FC75A /* Pods_Timanager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429E7BA240698BA0D8AB1243 /* Pods_TimanagerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B6344C0048637578C1215EB /* Pods_TimanagerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,8 @@
 				22EB39491F1136C50079C458 /* TimanagerTests */,
 				22EB39541F1136C50079C458 /* TimanagerUITests */,
 				22EB39301F1136C50079C458 /* Products */,
+				C560C6017D743CB3D20CCAD2 /* Pods */,
+				772EDE78F7CCF67BB6D3A399 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +145,29 @@
 			path = TimanagerUITests;
 			sourceTree = "<group>";
 		};
+		772EDE78F7CCF67BB6D3A399 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25C21959D22B115CB7D402EB /* Pods_Timanager.framework */,
+				D357E536E5EC28DF3B5B104C /* Pods_TimanagerTests.framework */,
+				C6815C2D0B1C97954DAAED91 /* Pods_TimanagerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C560C6017D743CB3D20CCAD2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D6C929170B48207A9E468589 /* Pods-Timanager.debug.xcconfig */,
+				28963BAFF110F62E52A345BA /* Pods-Timanager.release.xcconfig */,
+				49FE902E1A2C85546D0D42AC /* Pods-TimanagerTests.debug.xcconfig */,
+				CED35C656C61DAD7500EFD52 /* Pods-TimanagerTests.release.xcconfig */,
+				B2260D21A25A07714A425CBD /* Pods-TimanagerUITests.debug.xcconfig */,
+				F03D57FCD13526A23970BB09 /* Pods-TimanagerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22EB395A1F1136C50079C458 /* Build configuration list for PBXNativeTarget "Timanager" */;
 			buildPhases = (
+				7C609030B28CEA6099B1C8FF /* [CP] Check Pods Manifest.lock */,
 				22EB392B1F1136C50079C458 /* Sources */,
 				22EB392C1F1136C50079C458 /* Frameworks */,
 				22EB392D1F1136C50079C458 /* Resources */,
+				EED34720DEE8F7D21E0D10E1 /* [CP] Embed Pods Frameworks */,
+				B8F572F5A6D23F6CD9A26B4A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22EB395D1F1136C50079C458 /* Build configuration list for PBXNativeTarget "TimanagerTests" */;
 			buildPhases = (
+				C2AC41BED30749FF7F47CE28 /* [CP] Check Pods Manifest.lock */,
 				22EB39421F1136C50079C458 /* Sources */,
 				22EB39431F1136C50079C458 /* Frameworks */,
 				22EB39441F1136C50079C458 /* Resources */,
+				1EC9F6F481EEB3024D3D3206 /* [CP] Embed Pods Frameworks */,
+				36F273228C30153F76AF0E8E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22EB39601F1136C50079C458 /* Build configuration list for PBXNativeTarget "TimanagerUITests" */;
 			buildPhases = (
+				76047C3EDFAB110F7227F3C1 /* [CP] Check Pods Manifest.lock */,
 				22EB394D1F1136C50079C458 /* Sources */,
 				22EB394E1F1136C50079C458 /* Frameworks */,
 				22EB394F1F1136C50079C458 /* Resources */,
+				DB99EA373472056AD5E31025 /* [CP] Embed Pods Frameworks */,
+				B08F040F34F6668806CBAC95 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +308,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1EC9F6F481EEB3024D3D3206 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimanagerTests/Pods-TimanagerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36F273228C30153F76AF0E8E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimanagerTests/Pods-TimanagerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76047C3EDFAB110F7227F3C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7C609030B28CEA6099B1C8FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B08F040F34F6668806CBAC95 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimanagerUITests/Pods-TimanagerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8F572F5A6D23F6CD9A26B4A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Timanager/Pods-Timanager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2AC41BED30749FF7F47CE28 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB99EA373472056AD5E31025 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimanagerUITests/Pods-TimanagerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EED34720DEE8F7D21E0D10E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Timanager/Pods-Timanager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		22EB392B1F1136C50079C458 /* Sources */ = {
@@ -417,6 +604,7 @@
 		};
 		22EB395B1F1136C50079C458 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6C929170B48207A9E468589 /* Pods-Timanager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9Q8P88U6B9;
@@ -430,6 +618,7 @@
 		};
 		22EB395C1F1136C50079C458 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28963BAFF110F62E52A345BA /* Pods-Timanager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9Q8P88U6B9;
@@ -443,6 +632,7 @@
 		};
 		22EB395E1F1136C50079C458 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49FE902E1A2C85546D0D42AC /* Pods-TimanagerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -458,6 +648,7 @@
 		};
 		22EB395F1F1136C50079C458 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CED35C656C61DAD7500EFD52 /* Pods-TimanagerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -473,6 +664,7 @@
 		};
 		22EB39611F1136C50079C458 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2260D21A25A07714A425CBD /* Pods-TimanagerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 3FMVQ97S47;
@@ -487,6 +679,7 @@
 		};
 		22EB39621F1136C50079C458 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F03D57FCD13526A23970BB09 /* Pods-TimanagerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 3FMVQ97S47;
