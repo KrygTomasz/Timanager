@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Activity Manager View Controller-->
+        <scene sceneID="RfZ-hV-rn4">
+            <objects>
+                <viewController storyboardIdentifier="ActivityManagerVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="njj-1h-r6o" customClass="ActivityManagerViewController" customModule="Timanager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1by-fa-eRn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Daj-mT-ZBZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6FU-QT-GkY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRy-6y-MNv">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7lj-cG-2Ua">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTe-8p-Jej">
+                                        <rect key="frame" x="0.0" y="607" width="375" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="V8W-F0-cMo"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7lj-cG-2Ua" firstAttribute="top" secondItem="eRy-6y-MNv" secondAttribute="top" id="FJ3-8K-G5P"/>
+                                    <constraint firstItem="fTe-8p-Jej" firstAttribute="top" secondItem="7lj-cG-2Ua" secondAttribute="bottom" id="ICU-0A-ztx"/>
+                                    <constraint firstAttribute="trailing" secondItem="fTe-8p-Jej" secondAttribute="trailing" id="MRd-fd-VDJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="fTe-8p-Jej" secondAttribute="bottom" id="PyY-0b-nJx"/>
+                                    <constraint firstAttribute="trailing" secondItem="7lj-cG-2Ua" secondAttribute="trailing" id="QAG-2s-Wkg"/>
+                                    <constraint firstItem="fTe-8p-Jej" firstAttribute="leading" secondItem="eRy-6y-MNv" secondAttribute="leading" id="e07-TP-rso"/>
+                                    <constraint firstItem="7lj-cG-2Ua" firstAttribute="leading" secondItem="eRy-6y-MNv" secondAttribute="leading" id="fD1-oJ-yH8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eRy-6y-MNv" firstAttribute="top" secondItem="1by-fa-eRn" secondAttribute="bottom" id="0Fd-Db-992"/>
+                            <constraint firstAttribute="trailing" secondItem="eRy-6y-MNv" secondAttribute="trailing" id="AXv-B5-ctn"/>
+                            <constraint firstItem="Daj-mT-ZBZ" firstAttribute="top" secondItem="eRy-6y-MNv" secondAttribute="bottom" id="Fwv-uS-a4b"/>
+                            <constraint firstItem="eRy-6y-MNv" firstAttribute="leading" secondItem="6FU-QT-GkY" secondAttribute="leading" id="ypF-V7-0C4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="fTe-8p-Jej" id="gue-0I-3j3"/>
+                        <outlet property="tableView" destination="7lj-cG-2Ua" id="GI2-9a-HYK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mro-CG-uge" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111" y="136"/>
+        </scene>
+    </scenes>
+</document>

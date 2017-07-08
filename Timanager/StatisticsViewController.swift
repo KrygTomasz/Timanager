@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StatisticsViewController.swift
 //  Timanager
 //
 //  Created by Kryg Tomasz on 08.07.2017.
@@ -8,18 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StatisticsViewController: MainViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        initNavigationBar()
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func initNavigationBar() {
+        self.navigationItem.title = R.string.localizable.statistics()
+    }
 
 }
-

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityTVCell" id="KGk-i7-Jjw" customClass="ActivityTVCell" customModule="Timanager" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rjo-IC-oBo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7v-CP-ZFH">
+                                <rect key="frame" x="8" y="0.0" width="304" height="43.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="T7v-CP-ZFH" firstAttribute="top" secondItem="Rjo-IC-oBo" secondAttribute="top" id="1Yr-3S-lTQ"/>
+                            <constraint firstItem="T7v-CP-ZFH" firstAttribute="leading" secondItem="Rjo-IC-oBo" secondAttribute="leading" constant="8" id="Bl9-ar-WMj"/>
+                            <constraint firstAttribute="bottom" secondItem="T7v-CP-ZFH" secondAttribute="bottom" id="E0a-kG-ojR"/>
+                            <constraint firstAttribute="trailing" secondItem="T7v-CP-ZFH" secondAttribute="trailing" constant="8" id="Ljr-MU-Btn"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Rjo-IC-oBo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Usz-Z3-lHR"/>
+                    <constraint firstAttribute="trailing" secondItem="Rjo-IC-oBo" secondAttribute="trailing" id="lTb-Vd-NQC"/>
+                    <constraint firstItem="Rjo-IC-oBo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wE0-2U-LoT"/>
+                    <constraint firstAttribute="bottom" secondItem="Rjo-IC-oBo" secondAttribute="bottom" id="z9z-uB-Y8H"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="T7v-CP-ZFH" id="FNo-7V-oVO"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

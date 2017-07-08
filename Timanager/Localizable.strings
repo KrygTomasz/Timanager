@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Timanager
+
+  Created by Kryg Tomasz on 08.07.2017.
+  Copyright © 2017 Kryg Tomek. All rights reserved.
+*/
+
+"statistics" = "Statystyki";
+"manageActivities" = "Zarządzaj\naktywnościami";
+"settings" = "Ustawienia";
+"aboutApp" = "Informacje\no aplikacji";
+"activities" = "Aktywności";
+"info" = "Informacje";
+"start" = "Start";
+"stop" = "Stop";
+"chooseActivity" = "Wybierz aktywność";
