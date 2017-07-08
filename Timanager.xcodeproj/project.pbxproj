@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22EB39331F1136C50079C458 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39321F1136C50079C458 /* AppDelegate.swift */; };
+		22EB39351F1136C50079C458 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39341F1136C50079C458 /* ViewController.swift */; };
+		22EB39381F1136C50079C458 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EB39361F1136C50079C458 /* Main.storyboard */; };
+		22EB393B1F1136C50079C458 /* Timanager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39391F1136C50079C458 /* Timanager.xcdatamodeld */; };
+		22EB393D1F1136C50079C458 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22EB393C1F1136C50079C458 /* Assets.xcassets */; };
+		22EB39401F1136C50079C458 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EB393E1F1136C50079C458 /* LaunchScreen.storyboard */; };
+		22EB394B1F1136C50079C458 /* TimanagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB394A1F1136C50079C458 /* TimanagerTests.swift */; };
+		22EB39561F1136C50079C458 /* TimanagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39551F1136C50079C458 /* TimanagerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22EB39471F1136C50079C458 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22EB39271F1136C50079C458 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22EB392E1F1136C50079C458;
+			remoteInfo = Timanager;
+		};
+		22EB39521F1136C50079C458 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22EB39271F1136C50079C458 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22EB392E1F1136C50079C458;
+			remoteInfo = Timanager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22EB392F1F1136C50079C458 /* Timanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22EB39321F1136C50079C458 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		22EB39341F1136C50079C458 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		22EB39371F1136C50079C458 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		22EB393A1F1136C50079C458 /* Timanager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Timanager.xcdatamodel; sourceTree = "<group>"; };
+		22EB393C1F1136C50079C458 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22EB393F1F1136C50079C458 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		22EB39411F1136C50079C458 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22EB39461F1136C50079C458 /* TimanagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimanagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22EB394A1F1136C50079C458 /* TimanagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimanagerTests.swift; sourceTree = "<group>"; };
+		22EB394C1F1136C50079C458 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22EB39511F1136C50079C458 /* TimanagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimanagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22EB39551F1136C50079C458 /* TimanagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimanagerUITests.swift; sourceTree = "<group>"; };
+		22EB39571F1136C50079C458 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22EB392C1F1136C50079C458 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22EB39431F1136C50079C458 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22EB394E1F1136C50079C458 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22EB39261F1136C50079C458 = {
+			isa = PBXGroup;
+			children = (
+				22EB39311F1136C50079C458 /* Timanager */,
+				22EB39491F1136C50079C458 /* TimanagerTests */,
+				22EB39541F1136C50079C458 /* TimanagerUITests */,
+				22EB39301F1136C50079C458 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22EB39301F1136C50079C458 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22EB392F1F1136C50079C458 /* Timanager.app */,
+				22EB39461F1136C50079C458 /* TimanagerTests.xctest */,
+				22EB39511F1136C50079C458 /* TimanagerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22EB39311F1136C50079C458 /* Timanager */ = {
+			isa = PBXGroup;
+			children = (
+				22EB39321F1136C50079C458 /* AppDelegate.swift */,
+				22EB39341F1136C50079C458 /* ViewController.swift */,
+				22EB39361F1136C50079C458 /* Main.storyboard */,
+				22EB393C1F1136C50079C458 /* Assets.xcassets */,
+				22EB393E1F1136C50079C458 /* LaunchScreen.storyboard */,
+				22EB39411F1136C50079C458 /* Info.plist */,
+				22EB39391F1136C50079C458 /* Timanager.xcdatamodeld */,
+			);
+			path = Timanager;
+			sourceTree = "<group>";
+		};
+		22EB39491F1136C50079C458 /* TimanagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				22EB394A1F1136C50079C458 /* TimanagerTests.swift */,
+				22EB394C1F1136C50079C458 /* Info.plist */,
+			);
+			path = TimanagerTests;
+			sourceTree = "<group>";
+		};
+		22EB39541F1136C50079C458 /* TimanagerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				22EB39551F1136C50079C458 /* TimanagerUITests.swift */,
+				22EB39571F1136C50079C458 /* Info.plist */,
+			);
+			path = TimanagerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22EB392E1F1136C50079C458 /* Timanager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22EB395A1F1136C50079C458 /* Build configuration list for PBXNativeTarget "Timanager" */;
+			buildPhases = (
+				22EB392B1F1136C50079C458 /* Sources */,
+				22EB392C1F1136C50079C458 /* Frameworks */,
+				22EB392D1F1136C50079C458 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Timanager;
+			productName = Timanager;
+			productReference = 22EB392F1F1136C50079C458 /* Timanager.app */;
+			productType = "com.apple.product-type.application";
+		};
+		22EB39451F1136C50079C458 /* TimanagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22EB395D1F1136C50079C458 /* Build configuration list for PBXNativeTarget "TimanagerTests" */;
+			buildPhases = (
+				22EB39421F1136C50079C458 /* Sources */,
+				22EB39431F1136C50079C458 /* Frameworks */,
+				22EB39441F1136C50079C458 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22EB39481F1136C50079C458 /* PBXTargetDependency */,
+			);
+			name = TimanagerTests;
+			productName = TimanagerTests;
+			productReference = 22EB39461F1136C50079C458 /* TimanagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		22EB39501F1136C50079C458 /* TimanagerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22EB39601F1136C50079C458 /* Build configuration list for PBXNativeTarget "TimanagerUITests" */;
+			buildPhases = (
+				22EB394D1F1136C50079C458 /* Sources */,
+				22EB394E1F1136C50079C458 /* Frameworks */,
+				22EB394F1F1136C50079C458 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22EB39531F1136C50079C458 /* PBXTargetDependency */,
+			);
+			name = TimanagerUITests;
+			productName = TimanagerUITests;
+			productReference = 22EB39511F1136C50079C458 /* TimanagerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22EB39271F1136C50079C458 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Kryg Tomek";
+				TargetAttributes = {
+					22EB392E1F1136C50079C458 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9Q8P88U6B9;
+						ProvisioningStyle = Automatic;
+					};
+					22EB39451F1136C50079C458 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3FMVQ97S47;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 22EB392E1F1136C50079C458;
+					};
+					22EB39501F1136C50079C458 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3FMVQ97S47;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 22EB392E1F1136C50079C458;
+					};
+				};
+			};
+			buildConfigurationList = 22EB392A1F1136C50079C458 /* Build configuration list for PBXProject "Timanager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22EB39261F1136C50079C458;
+			productRefGroup = 22EB39301F1136C50079C458 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22EB392E1F1136C50079C458 /* Timanager */,
+				22EB39451F1136C50079C458 /* TimanagerTests */,
+				22EB39501F1136C50079C458 /* TimanagerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22EB392D1F1136C50079C458 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22EB39401F1136C50079C458 /* LaunchScreen.storyboard in Resources */,
+				22EB393D1F1136C50079C458 /* Assets.xcassets in Resources */,
+				22EB39381F1136C50079C458 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22EB39441F1136C50079C458 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22EB394F1F1136C50079C458 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22EB392B1F1136C50079C458 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22EB39351F1136C50079C458 /* ViewController.swift in Sources */,
+				22EB39331F1136C50079C458 /* AppDelegate.swift in Sources */,
+				22EB393B1F1136C50079C458 /* Timanager.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22EB39421F1136C50079C458 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22EB394B1F1136C50079C458 /* TimanagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22EB394D1F1136C50079C458 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22EB39561F1136C50079C458 /* TimanagerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		22EB39481F1136C50079C458 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22EB392E1F1136C50079C458 /* Timanager */;
+			targetProxy = 22EB39471F1136C50079C458 /* PBXContainerItemProxy */;
+		};
+		22EB39531F1136C50079C458 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22EB392E1F1136C50079C458 /* Timanager */;
+			targetProxy = 22EB39521F1136C50079C458 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		22EB39361F1136C50079C458 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22EB39371F1136C50079C458 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		22EB393E1F1136C50079C458 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22EB393F1F1136C50079C458 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22EB39581F1136C50079C458 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		22EB39591F1136C50079C458 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		22EB395B1F1136C50079C458 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9Q8P88U6B9;
+				INFOPLIST_FILE = Timanager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kryg.Timanager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		22EB395C1F1136C50079C458 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9Q8P88U6B9;
+				INFOPLIST_FILE = Timanager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kryg.Timanager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		22EB395E1F1136C50079C458 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3FMVQ97S47;
+				INFOPLIST_FILE = TimanagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kryg.TimanagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timanager.app/Timanager";
+			};
+			name = Debug;
+		};
+		22EB395F1F1136C50079C458 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3FMVQ97S47;
+				INFOPLIST_FILE = TimanagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kryg.TimanagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timanager.app/Timanager";
+			};
+			name = Release;
+		};
+		22EB39611F1136C50079C458 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3FMVQ97S47;
+				INFOPLIST_FILE = TimanagerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kryg.TimanagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Timanager;
+			};
+			name = Debug;
+		};
+		22EB39621F1136C50079C458 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3FMVQ97S47;
+				INFOPLIST_FILE = TimanagerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kryg.TimanagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Timanager;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22EB392A1F1136C50079C458 /* Build configuration list for PBXProject "Timanager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22EB39581F1136C50079C458 /* Debug */,
+				22EB39591F1136C50079C458 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22EB395A1F1136C50079C458 /* Build configuration list for PBXNativeTarget "Timanager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22EB395B1F1136C50079C458 /* Debug */,
+				22EB395C1F1136C50079C458 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		22EB395D1F1136C50079C458 /* Build configuration list for PBXNativeTarget "TimanagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22EB395E1F1136C50079C458 /* Debug */,
+				22EB395F1F1136C50079C458 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		22EB39601F1136C50079C458 /* Build configuration list for PBXNativeTarget "TimanagerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22EB39611F1136C50079C458 /* Debug */,
+				22EB39621F1136C50079C458 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		22EB39391F1136C50079C458 /* Timanager.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				22EB393A1F1136C50079C458 /* Timanager.xcdatamodel */,
+			);
+			currentVersion = 22EB393A1F1136C50079C458 /* Timanager.xcdatamodel */;
+			path = Timanager.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 22EB39271F1136C50079C458 /* Project object */;
+}
