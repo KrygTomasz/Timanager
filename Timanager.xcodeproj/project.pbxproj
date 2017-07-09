@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		223A7DA31F12468F00879EAD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A7DA21F12468F00879EAD /* UIView+Extensions.swift */; };
+		223A7DA51F12643500879EAD /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A7DA41F12643500879EAD /* PieChartViewController.swift */; };
+		223A7DA71F12737D00879EAD /* NumberFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */; };
 		22EB39331F1136C50079C458 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39321F1136C50079C458 /* AppDelegate.swift */; };
 		22EB39381F1136C50079C458 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EB39361F1136C50079C458 /* Main.storyboard */; };
 		22EB393B1F1136C50079C458 /* Timanager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39391F1136C50079C458 /* Timanager.xcdatamodeld */; };
@@ -63,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		223A7DA21F12468F00879EAD /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		223A7DA41F12643500879EAD /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
+		223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		22EB392F1F1136C50079C458 /* Timanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22EB39321F1136C50079C458 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22EB39371F1136C50079C458 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 			children = (
 				22EB39881F1151CD0079C458 /* UIColor+Extensions.swift */,
 				223A7DA21F12468F00879EAD /* UIView+Extensions.swift */,
+				223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 			children = (
 				22EB398B1F115DE10079C458 /* StatisticsStoryboard.storyboard */,
 				22EB398E1F115E1E0079C458 /* StatisticsViewController.swift */,
+				223A7DA41F12643500879EAD /* PieChartViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -667,6 +673,7 @@
 				22EB39C51F11B3F60079C458 /* MenuIdentifiers.swift in Sources */,
 				22EB393B1F1136C50079C458 /* Timanager.xcdatamodeld in Sources */,
 				22EB39BC1F11B25C0079C458 /* PlannedActivity+CoreDataClass.swift in Sources */,
+				223A7DA71F12737D00879EAD /* NumberFormatter+Extensions.swift in Sources */,
 				22EB39C31F11B3640079C458 /* ChooseActivityViewController.swift in Sources */,
 				22EB39BD1F11B25C0079C458 /* PlannedActivity+CoreDataProperties.swift in Sources */,
 				22EB39911F116D6C0079C458 /* StatisticsIdentifiers.swift in Sources */,
@@ -676,6 +683,7 @@
 				22EB39A11F1172090079C458 /* ActivityManagerIdentifiers.swift in Sources */,
 				22EB399D1F1170F70079C458 /* SettingsViewController.swift in Sources */,
 				22EB39A31F1172300079C458 /* SettingsIdentifiers.swift in Sources */,
+				223A7DA51F12643500879EAD /* PieChartViewController.swift in Sources */,
 				22EB39C11F11B2C40079C458 /* Activity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -195,7 +195,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CsN-xf-6TV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MTI-PM-ep4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MTI-PM-ep4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -143,12 +143,14 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 16 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 18 localization keys.
     struct localizable {
       /// Value: Aktywności
       static let activities = Rswift.StringResource(key: "activities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Aktywność
       static let activity = Rswift.StringResource(key: "activity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Analiza
+      static let analysis = Rswift.StringResource(key: "analysis", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Brak rozpoczętej aktywności
       static let noCurrentActivity = Rswift.StringResource(key: "noCurrentActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Dodaj aktywność
@@ -175,6 +177,8 @@ struct R: Rswift.Validatable {
       static let back = Rswift.StringResource(key: "back", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Wybierz aktywność
       static let chooseActivity = Rswift.StringResource(key: "chooseActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Wykres kołowy
+      static let pieChart = Rswift.StringResource(key: "pieChart", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Zarządzaj aktywnościami
       static let manageActivities = Rswift.StringResource(key: "manageActivities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
@@ -186,6 +190,11 @@ struct R: Rswift.Validatable {
       /// Value: Aktywność
       static func activity(_: Void = ()) -> String {
         return NSLocalizedString("activity", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Analiza
+      static func analysis(_: Void = ()) -> String {
+        return NSLocalizedString("analysis", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Brak rozpoczętej aktywności
@@ -251,6 +260,11 @@ struct R: Rswift.Validatable {
       /// Value: Wybierz aktywność
       static func chooseActivity(_: Void = ()) -> String {
         return NSLocalizedString("chooseActivity", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Wykres kołowy
+      static func pieChart(_: Void = ()) -> String {
+        return NSLocalizedString("pieChart", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Zarządzaj aktywnościami
@@ -390,13 +404,19 @@ struct _R: Rswift.Validatable {
     struct statisticsStoryboard: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "StatisticsStoryboard"
+      let pieChartVC = StoryboardViewControllerResource<PieChartViewController>(identifier: "PieChartVC")
       let statisticsVC = StoryboardViewControllerResource<StatisticsViewController>(identifier: "StatisticsVC")
+      
+      func pieChartVC(_: Void = ()) -> PieChartViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: pieChartVC)
+      }
       
       func statisticsVC(_: Void = ()) -> StatisticsViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: statisticsVC)
       }
       
       static func validate() throws {
+        if _R.storyboard.statisticsStoryboard().pieChartVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'pieChartVC' could not be loaded from storyboard 'StatisticsStoryboard' as 'PieChartViewController'.") }
         if _R.storyboard.statisticsStoryboard().statisticsVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'statisticsVC' could not be loaded from storyboard 'StatisticsStoryboard' as 'StatisticsViewController'.") }
       }
       

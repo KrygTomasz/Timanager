@@ -10,12 +10,19 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    fileprivate var color: UIColor?
+    var color: UIColor? {
+        didSet {
+            if let mainColor = self.color {
+//                self.view.addGradientBackground(using: [mainColor.cgColor, UIColor.white.cgColor])
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.backgroundColor = color
         navigationController?.navigationBar.barTintColor = color
 
         // Do any additional setup after loading the view.
@@ -28,6 +35,12 @@ class MainViewController: UIViewController {
     
     func prepare(using color: UIColor?) {
         self.color = color
+    }
+    
+    func setGradientBackground() {
+        if let mainColor = self.color {
+            self.view.addGradientBackground(using: [mainColor.cgColor, UIColor.white.cgColor])
+        }
     }
 
 }

@@ -22,3 +22,5 @@
 "startHour" = "Godzina rozpoczęcia";
 "activity" = "Aktywność";
 "noCurrentActivity" = "Brak rozpoczętej aktywności";
+"pieChart" = "Wykres kołowy";
+"analysis" = "Analiza";

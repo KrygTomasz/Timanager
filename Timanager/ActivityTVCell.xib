@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rjo-IC-oBo">
@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="T7v-CP-ZFH" firstAttribute="top" secondItem="Rjo-IC-oBo" secondAttribute="top" id="1Yr-3S-lTQ"/>
                             <constraint firstItem="T7v-CP-ZFH" firstAttribute="leading" secondItem="Rjo-IC-oBo" secondAttribute="leading" constant="8" id="Bl9-ar-WMj"/>
@@ -37,6 +37,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="Rjo-IC-oBo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Usz-Z3-lHR"/>
                     <constraint firstAttribute="trailing" secondItem="Rjo-IC-oBo" secondAttribute="trailing" id="lTb-Vd-NQC"/>
@@ -44,6 +45,7 @@
                     <constraint firstAttribute="bottom" secondItem="Rjo-IC-oBo" secondAttribute="bottom" id="z9z-uB-Y8H"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="nameLabel" destination="T7v-CP-ZFH" id="FNo-7V-oVO"/>
             </connections>

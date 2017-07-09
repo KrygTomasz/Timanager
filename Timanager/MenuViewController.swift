@@ -114,7 +114,9 @@ class MenuViewController: MainViewController {
             let objects = try context.fetch(fetchRequest)
             currentActivity = objects.first
         } catch {
-            print("Couldn't fetch PlannedActivities")
+            let fetchError = error as NSError
+            print("Unable to Perform Fetch Request for PlannedActivites")
+            print("\(fetchError), \(fetchError.localizedDescription)")
         }
     }
     

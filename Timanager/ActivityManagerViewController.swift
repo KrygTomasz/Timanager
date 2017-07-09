@@ -71,6 +71,7 @@ class ActivityManagerViewController: MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initNavigationBar()
+        self.setGradientBackground()
         initFetchedResultsController()
         newActivityBottom.constant = -newActivityView.bounds.height
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
