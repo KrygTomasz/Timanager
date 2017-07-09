@@ -136,7 +136,7 @@ extension ActivityManagerViewController: UITableViewDelegate, UITableViewDataSou
             return
         }
         let object = fetchedResultsController?.object(at: indexPath)
-        activityCell.nameLabel.text = object?.name
+        activityCell.prepare(with: object?.name)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -167,6 +167,7 @@ extension ActivityManagerViewController: UITableViewDelegate, UITableViewDataSou
     
 }
 
+//MARK: NSFetchedResultController delegates
 extension ActivityManagerViewController: NSFetchedResultsControllerDelegate {
     
     func initFetchedResultsController() {
@@ -208,6 +209,7 @@ extension ActivityManagerViewController: NSFetchedResultsControllerDelegate {
     
 }
 
+//MARK: TextField delegates
 extension ActivityManagerViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
