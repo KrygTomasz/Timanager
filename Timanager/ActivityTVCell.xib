@@ -15,25 +15,33 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rjo-IC-oBo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7v-CP-ZFH">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUy-yD-P3B">
+                                <rect key="frame" x="4" y="4" width="312" height="35.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9bo-hP-DJA">
                                 <rect key="frame" x="8" y="0.0" width="304" height="43.5"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="T7v-CP-ZFH" firstAttribute="top" secondItem="Rjo-IC-oBo" secondAttribute="top" id="1Yr-3S-lTQ"/>
-                            <constraint firstItem="T7v-CP-ZFH" firstAttribute="leading" secondItem="Rjo-IC-oBo" secondAttribute="leading" constant="8" id="Bl9-ar-WMj"/>
-                            <constraint firstAttribute="bottom" secondItem="T7v-CP-ZFH" secondAttribute="bottom" id="E0a-kG-ojR"/>
-                            <constraint firstAttribute="trailing" secondItem="T7v-CP-ZFH" secondAttribute="trailing" constant="8" id="Ljr-MU-Btn"/>
+                            <constraint firstAttribute="bottom" secondItem="9bo-hP-DJA" secondAttribute="bottom" id="11u-nh-jFY"/>
+                            <constraint firstAttribute="trailing" secondItem="BUy-yD-P3B" secondAttribute="trailing" constant="4" id="2KY-MJ-h9h"/>
+                            <constraint firstItem="9bo-hP-DJA" firstAttribute="top" secondItem="Rjo-IC-oBo" secondAttribute="top" id="RaO-6Y-Lkd"/>
+                            <constraint firstItem="BUy-yD-P3B" firstAttribute="top" secondItem="Rjo-IC-oBo" secondAttribute="top" constant="4" id="U1n-Iv-RlC"/>
+                            <constraint firstItem="9bo-hP-DJA" firstAttribute="leading" secondItem="Rjo-IC-oBo" secondAttribute="leading" constant="8" id="bVN-Jz-CH0"/>
+                            <constraint firstAttribute="trailing" secondItem="9bo-hP-DJA" secondAttribute="trailing" constant="8" id="eUX-fK-uyg"/>
+                            <constraint firstItem="BUy-yD-P3B" firstAttribute="leading" secondItem="Rjo-IC-oBo" secondAttribute="leading" constant="4" id="fyu-dS-Gph"/>
+                            <constraint firstAttribute="bottom" secondItem="BUy-yD-P3B" secondAttribute="bottom" constant="4" id="z27-dH-OpF"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -47,7 +55,8 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="nameLabel" destination="T7v-CP-ZFH" id="FNo-7V-oVO"/>
+                <outlet property="nameBackgroundView" destination="BUy-yD-P3B" id="qjj-IA-We8"/>
+                <outlet property="nameTextField" destination="9bo-hP-DJA" id="tVj-mB-oQd"/>
             </connections>
         </tableViewCell>
     </objects>

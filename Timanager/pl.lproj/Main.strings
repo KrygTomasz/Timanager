@@ -1,1 +1,15 @@
 
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7F8-Bo-bqr"; */
+"7F8-Bo-bqr.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Aktywność: Wyprowadzanie psa na spacer"; ObjectID = "Bp2-Ph-cQG"; */
+"Bp2-Ph-cQG.text" = "Aktywność: Wyprowadzanie psa na spacer";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Pr8-DT-A0B"; */
+"Pr8-DT-A0B.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Godzina rozpoczęcia: 23:42"; ObjectID = "SsE-QM-jAv"; */
+"SsE-QM-jAv.text" = "Godzina rozpoczęcia: 23:42";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dRz-zT-Ywh"; */
+"dRz-zT-Ywh.normalTitle" = "Button";

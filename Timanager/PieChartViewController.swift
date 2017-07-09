@@ -17,7 +17,6 @@ class PieChartViewController: MainViewController {
             pieChartView.holeRadiusPercent = 0
             pieChartView.drawHoleEnabled = false
             pieChartView.usePercentValuesEnabled = true
-            pieChartView.legend.enabled = false
             pieChartView.highlightPerTapEnabled = false
             pieChartView.chartDescription?.text = ""
         }
@@ -49,6 +48,9 @@ class PieChartViewController: MainViewController {
             guard let plannedActivities = activity.plannedActivity?.allObjects as? [PlannedActivity] else {
                 continue
             }
+            if hasNotFinishedAnyActivity(in: plannedActivities) {
+                continue
+            }
             var duration: Int64 = 0
             for plannedActivity in plannedActivities {
                 if plannedActivity.stopDate != 0 {
@@ -60,12 +62,30 @@ class PieChartViewController: MainViewController {
             dataEntries.append(dataEntry)
         }
 
-        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Aktywności")
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
         pieChartDataSet.sliceSpace = 3.0
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartView.data = pieChartData
         pieChartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
-        pieChartDataSet.colors = ChartColorTemplates.colorful()
+        pieChartData.setValueTextColor(UIColor.black)
+//        pieChartDataSet.colors = ChartColorTemplates.material()
+        
+        let pieChartColors = UIColor.generateColorSet(ofSize: dataEntries.count, saturation: 0.5, brightness: 1, alpha: 1)
+        pieChartDataSet.colors = pieChartColors
+        
+        pieChartView.animate(yAxisDuration: 1.0, easingOption: .easeInOutQuart)
+    }
+    
+    func hasNotFinishedAnyActivity(in plannedActivities: [PlannedActivity]) -> Bool {
+        if plannedActivities.isEmpty {
+            return true
+        }
+        else if plannedActivities.count == 1 {
+            if plannedActivities.first?.stopDate == 0 {
+                return true
+            }
+        }
+        return false
     }
     
 }

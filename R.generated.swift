@@ -141,8 +141,13 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
   struct string {
+    /// This `R.string.launchScreen` struct is generated, and contains static references to 0 localization keys.
+    struct launchScreen {
+      fileprivate init() {}
+    }
+    
     /// This `R.string.localizable` struct is generated, and contains static references to 18 localization keys.
     struct localizable {
       /// Value: Aktywności
@@ -270,6 +275,67 @@ struct R: Rswift.Validatable {
       /// Value: Zarządzaj aktywnościami
       static func manageActivities(_: Void = ()) -> String {
         return NSLocalizedString("manageActivities", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.main` struct is generated, and contains static references to 5 localization keys.
+    struct main {
+      /// pl translation: Aktywność: Wyprowadzanie psa na spacer
+      /// 
+      /// Locales: pl
+      static let bp2PhCQGText = Rswift.StringResource(key: "Bp2-Ph-cQG.text", tableName: "Main", bundle: R.hostingBundle, locales: ["pl"], comment: nil)
+      /// pl translation: Button
+      /// 
+      /// Locales: pl
+      static let dRzZTYwhNormalTitle = Rswift.StringResource(key: "dRz-zT-Ywh.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["pl"], comment: nil)
+      /// pl translation: Button
+      /// 
+      /// Locales: pl
+      static let f8BoBqrNormalTitle = Rswift.StringResource(key: "7F8-Bo-bqr.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["pl"], comment: nil)
+      /// pl translation: Button
+      /// 
+      /// Locales: pl
+      static let pr8DTA0BNormalTitle = Rswift.StringResource(key: "Pr8-DT-A0B.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["pl"], comment: nil)
+      /// pl translation: Godzina rozpoczęcia: 23:42
+      /// 
+      /// Locales: pl
+      static let ssEQMJAvText = Rswift.StringResource(key: "SsE-QM-jAv.text", tableName: "Main", bundle: R.hostingBundle, locales: ["pl"], comment: nil)
+      
+      /// pl translation: Aktywność: Wyprowadzanie psa na spacer
+      /// 
+      /// Locales: pl
+      static func bp2PhCQGText(_: Void = ()) -> String {
+        return NSLocalizedString("Bp2-Ph-cQG.text", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// pl translation: Button
+      /// 
+      /// Locales: pl
+      static func dRzZTYwhNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("dRz-zT-Ywh.normalTitle", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// pl translation: Button
+      /// 
+      /// Locales: pl
+      static func f8BoBqrNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("7F8-Bo-bqr.normalTitle", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// pl translation: Button
+      /// 
+      /// Locales: pl
+      static func pr8DTA0BNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("Pr8-DT-A0B.normalTitle", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// pl translation: Godzina rozpoczęcia: 23:42
+      /// 
+      /// Locales: pl
+      static func ssEQMJAvText(_: Void = ()) -> String {
+        return NSLocalizedString("SsE-QM-jAv.text", tableName: "Main", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

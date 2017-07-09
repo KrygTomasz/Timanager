@@ -69,7 +69,7 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
                 return
         }
         let object = filteredActivities[indexPath.row]
-        activityCell.prepare(with: object.name)
+        activityCell.prepare(withName: object.name)
         
     }
     
@@ -147,7 +147,7 @@ extension ChooseActivityViewController: UISearchBarDelegate {
         filterContentForSearchText(searchText: searchBar.text)
     }
     
-    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         filterContentForSearchText(searchText: searchBar.text, scope: searchBar.scopeButtonTitles?[selectedScope])
     }
     

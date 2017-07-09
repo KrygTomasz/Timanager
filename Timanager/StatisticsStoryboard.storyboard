@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -95,17 +94,15 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-co-Trr" customClass="PieChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="JyC-co-Trr" secondAttribute="height" multiplier="1:1" id="wGH-VM-2Cs"/>
-                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="JyC-co-Trr" firstAttribute="top" secondItem="hgb-xp-Qbs" secondAttribute="top" id="34E-Qp-kCE"/>
                                     <constraint firstAttribute="trailing" secondItem="JyC-co-Trr" secondAttribute="trailing" id="Hp1-b7-e69"/>
+                                    <constraint firstAttribute="bottom" secondItem="JyC-co-Trr" secondAttribute="bottom" id="TWq-m6-5fY"/>
                                     <constraint firstItem="JyC-co-Trr" firstAttribute="leading" secondItem="hgb-xp-Qbs" secondAttribute="leading" id="zGx-mE-XO4"/>
                                 </constraints>
                             </view>

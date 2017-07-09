@@ -122,6 +122,7 @@ class MenuViewController: MainViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.navigationBar.barTintColor = .black
         super.viewWillAppear(animated)
     }
     

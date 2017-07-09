@@ -67,6 +67,8 @@
 		223A7DA21F12468F00879EAD /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		223A7DA41F12643500879EAD /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		22606A571F12D3B400C1C201 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		22606A581F12D3B400C1C201 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		22EB392F1F1136C50079C458 /* Timanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22EB39321F1136C50079C458 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22EB39371F1136C50079C458 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -724,6 +726,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				22EB39371F1136C50079C458 /* Base */,
+				22606A581F12D3B400C1C201 /* pl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				22EB393F1F1136C50079C458 /* Base */,
+				22606A571F12D3B400C1C201 /* pl */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

@@ -71,4 +71,16 @@ extension UIColor {
         
     }
     
+    static func generateColorSet(ofSize size: Int, saturation: CGFloat = 1, brightness: CGFloat = 1, alpha: CGFloat = 1) -> [UIColor] {
+        
+        var colors: [UIColor] = []
+        for i in 0...size {
+            let hue = CGFloat(i)/CGFloat(size)
+            let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+            colors.append(color)
+        }
+        return colors
+        
+    }
+    
 }

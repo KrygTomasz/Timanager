@@ -127,6 +127,7 @@ class ActivityManagerViewController: MainViewController {
 
 }
 
+//MARK: TableView delegates
 extension ActivityManagerViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -139,7 +140,7 @@ extension ActivityManagerViewController: UITableViewDelegate, UITableViewDataSou
             return
         }
         let object = fetchedResultsController?.object(at: indexPath)
-        activityCell.prepare(with: object?.name)
+        activityCell.prepare(withActivity: object)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -148,6 +149,15 @@ extension ActivityManagerViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController?.fetchedObjects?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let activityCell = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
+            return
+        }
+        let object = fetchedResultsController?.object(at: indexPath)
+        activityCell.nameTextField.isEnabled = true
+        activityCell.nameTextField.becomeFirstResponder()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -231,19 +241,23 @@ extension ActivityManagerViewController {
         var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         
-        newActivityBottom.constant = keyboardFrame.size.height
-        UIView.animate(withDuration: 0.2, animations: {
-            self.view.layoutIfNeeded()
-        })
+        if newActivityTextField.isFirstResponder {
+            newActivityBottom.constant = keyboardFrame.size.height
+            UIView.animate(withDuration: 0.2, animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
 
     }
     
     func keyboardWillHide(notification:NSNotification){
         
-        newActivityBottom.constant = 0
-        UIView.animate(withDuration: 0.2, animations: {
-            self.view.layoutIfNeeded()
-        })
+        if isShowingNewActivity {
+            newActivityBottom.constant = 0
+            UIView.animate(withDuration: 0.2, animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
         
     }
 }
