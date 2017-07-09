@@ -40,6 +40,7 @@ class MenuViewController: MainViewController {
             chooseActivityButton.layer.cornerRadius = 10.0
             chooseActivityButton.backgroundColor = UIColor.black
             chooseActivityButton.setTitleColor(.white, for: .normal)
+            chooseActivityButton.addTarget(self, action: #selector(onChooseActivityButtonClicked), for: .touchUpInside)
         }
     }
     @IBOutlet weak var startButton: UIButton! {
@@ -76,6 +77,17 @@ class MenuViewController: MainViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillDisappear(animated)
+    }
+    
+    func onChooseActivityButtonClicked() {
+        let storyboard = R.storyboard.main()
+        guard let vc = storyboard.instantiateViewController(withIdentifier: MenuIdentifiers.ChooseActivityVC) as? ChooseActivityViewController else {
+            return
+        }
+        vc.prepare(using: .black)
+        let navController = UINavigationController(rootViewController: vc)
+
+        present(navController, animated: true, completion: nil)
     }
 
 }

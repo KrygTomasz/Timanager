@@ -2,8 +2,15 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Activity" representedClassName="Activity" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="plannedActivity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlannedActivity" inverseName="activity" inverseEntity="PlannedActivity" syncable="YES"/>
+    </entity>
+    <entity name="PlannedActivity" representedClassName="PlannedActivity" syncable="YES">
+        <attribute name="startDate" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="stopDate" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="activity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="plannedActivity" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Activity" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="PlannedActivity" positionX="-54" positionY="0" width="128" height="90"/>
     </elements>
 </model>

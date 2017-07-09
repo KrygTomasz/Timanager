@@ -15,3 +15,7 @@
 "start" = "Start";
 "stop" = "Stop";
 "chooseActivity" = "Wybierz aktywność";
+"newActivity" = "Nowa aktywność";
+"typeActivityName" = "Podaj nazwę aktywności";
+"addActivity" = "Dodaj aktywność";
+"back" = "Wróć";

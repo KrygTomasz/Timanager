@@ -143,14 +143,20 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 9 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 13 localization keys.
     struct localizable {
       /// Value: Aktywności
       static let activities = Rswift.StringResource(key: "activities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Dodaj aktywność
+      static let addActivity = Rswift.StringResource(key: "addActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Informacje
       static let info = Rswift.StringResource(key: "info", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Informacje o aplikacji
       static let aboutApp = Rswift.StringResource(key: "aboutApp", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Nowa aktywność
+      static let newActivity = Rswift.StringResource(key: "newActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Podaj nazwę aktywności
+      static let typeActivityName = Rswift.StringResource(key: "typeActivityName", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Start
       static let start = Rswift.StringResource(key: "start", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Statystyki
@@ -159,6 +165,8 @@ struct R: Rswift.Validatable {
       static let stop = Rswift.StringResource(key: "stop", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Ustawienia
       static let settings = Rswift.StringResource(key: "settings", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Wróć
+      static let back = Rswift.StringResource(key: "back", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Wybierz aktywność
       static let chooseActivity = Rswift.StringResource(key: "chooseActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Zarządzaj aktywnościami
@@ -169,6 +177,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("activities", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Dodaj aktywność
+      static func addActivity(_: Void = ()) -> String {
+        return NSLocalizedString("addActivity", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Informacje
       static func info(_: Void = ()) -> String {
         return NSLocalizedString("info", bundle: R.hostingBundle, comment: "")
@@ -177,6 +190,16 @@ struct R: Rswift.Validatable {
       /// Value: Informacje o aplikacji
       static func aboutApp(_: Void = ()) -> String {
         return NSLocalizedString("aboutApp", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Nowa aktywność
+      static func newActivity(_: Void = ()) -> String {
+        return NSLocalizedString("newActivity", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Podaj nazwę aktywności
+      static func typeActivityName(_: Void = ()) -> String {
+        return NSLocalizedString("typeActivityName", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Start
@@ -197,6 +220,11 @@ struct R: Rswift.Validatable {
       /// Value: Ustawienia
       static func settings(_: Void = ()) -> String {
         return NSLocalizedString("settings", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Wróć
+      static func back(_: Void = ()) -> String {
+        return NSLocalizedString("back", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Wybierz aktywność
@@ -267,6 +295,7 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try main.validate()
       try activityManagerStoryboard.validate()
       try settingsStoryboard.validate()
       try statisticsStoryboard.validate()
@@ -297,11 +326,26 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct main: Rswift.StoryboardResourceWithInitialControllerType {
+    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
+      let chooseActivityVC = StoryboardViewControllerResource<ChooseActivityViewController>(identifier: "ChooseActivityVC")
+      let menuVC = StoryboardViewControllerResource<MenuViewController>(identifier: "MenuVC")
       let name = "Main"
+      
+      func chooseActivityVC(_: Void = ()) -> ChooseActivityViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: chooseActivityVC)
+      }
+      
+      func menuVC(_: Void = ()) -> MenuViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: menuVC)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.main().chooseActivityVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chooseActivityVC' could not be loaded from storyboard 'Main' as 'ChooseActivityViewController'.") }
+        if _R.storyboard.main().menuVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuVC' could not be loaded from storyboard 'Main' as 'MenuViewController'.") }
+      }
       
       fileprivate init() {}
     }

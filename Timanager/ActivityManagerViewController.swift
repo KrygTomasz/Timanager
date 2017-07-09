@@ -18,26 +18,107 @@ class ActivityManagerViewController: MainViewController {
             tableView.dataSource = self
         }
     }
-    @IBOutlet weak var addButton: UIButton! {
+    @IBOutlet weak var newActivityButton: UIButton! {
         didSet {
-            addButton.addTarget(self, action: #selector(onAddButtonClicked), for: .touchUpInside)
+            newActivityButton.setTitle(R.string.localizable.newActivity(), for: .normal)
+            newActivityButton.setTitleColor(.white, for: .normal)
+            newActivityButton.backgroundColor = UIColor.clear
+            newActivityButton.addTarget(self, action: #selector(onNewActivityButtonClicked), for: .touchUpInside)
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        initFetchedResultsController()
+    @IBOutlet weak var mainNewActivityView: UIView! {
+        didSet {
+            let path = UIBezierPath(roundedRect:mainNewActivityView.bounds,
+                                    byRoundingCorners:[.topLeft, .topRight],
+                                    cornerRadii: CGSize(width: 20, height:  20))
+            
+            let maskLayer = CAShapeLayer()
+            
+            maskLayer.path = path.cgPath
+            mainNewActivityView.layer.mask = maskLayer
+            
+            mainNewActivityView.backgroundColor = UIColor.mainRed
+        }
+    }
+    @IBOutlet weak var newActivityView: UIView! {
+        didSet {
+            newActivityView.backgroundColor = UIColor.clear
+        }
+    }
+    @IBOutlet weak var newActivityBottom: NSLayoutConstraint!
+    @IBOutlet weak var newActivityTextField: UITextField! {
+        didSet {
+            newActivityTextField.placeholder = R.string.localizable.typeActivityName()
+            newActivityTextField.returnKeyType = .done
+            newActivityTextField.delegate = self
+        }
+    }
+    @IBOutlet weak var addActivityButton: UIButton! {
+        didSet {
+            addActivityButton.layer.cornerRadius = 10.0
+            addActivityButton.setTitle(R.string.localizable.addActivity(), for: .normal)
+            addActivityButton.setTitleColor(UIColor.mainRed, for: .normal)
+            addActivityButton.backgroundColor = .white
+            addActivityButton.addTarget(self, action: #selector(onAddActivityButtonClicked), for: .touchUpInside)
+        }
     }
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var fetchedResultsController: NSFetchedResultsController<Activity>?
     
-    func onAddButtonClicked() {
+    var isShowingNewActivity: Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initNavigationBar()
+        initFetchedResultsController()
+        newActivityBottom.constant = -newActivityView.bounds.height
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func initNavigationBar() {
+        self.navigationItem.title = R.string.localizable.activities()
+    }
+    
+    func onNewActivityButtonClicked() {
+        if isShowingNewActivity {
+            newActivityTextField.resignFirstResponder()
+            showNewActivityView(false)
+        } else {
+            showNewActivityView(true)
+        }
+    }
+    
+    func onAddActivityButtonClicked() {
+        guard let activityName = newActivityTextField.text else {
+            return
+        }
+        if activityName.isEmpty {
+            return
+        }
         let object = Activity(context: context)
-        object.fill(using: "Testowa aktywność")
+        object.fill(using: activityName)
         do {
             try object.managedObjectContext?.save()
         } catch {
             print("Error saving activity object")
+        }
+        newActivityTextField.text = ""
+    }
+    
+    func showNewActivityView(_ show: Bool) {
+        isShowingNewActivity = show
+        if show {
+            newActivityBottom.constant = 0
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+        } else {
+            newActivityBottom.constant = -newActivityView.bounds.height
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
         }
     }
 
@@ -125,4 +206,39 @@ extension ActivityManagerViewController: NSFetchedResultsControllerDelegate {
         }
     }
     
+}
+
+extension ActivityManagerViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        newActivityBottom.constant = 0
+        return true
+    }
+    
+}
+
+//MARK: Keyboard handling
+extension ActivityManagerViewController {
+    func keyboardWillShow(notification:NSNotification){
+        
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        newActivityBottom.constant = keyboardFrame.size.height
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+        })
+
+    }
+    
+    func keyboardWillHide(notification:NSNotification){
+        
+        newActivityBottom.constant = 0
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+    }
 }

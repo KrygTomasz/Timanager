@@ -13,7 +13,7 @@
         <!--Menu View Controller-->
         <scene sceneID="p1B-yB-EZS">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="602-I1-wyL" customClass="MenuViewController" customModule="Timanager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="602-I1-wyL" customClass="MenuViewController" customModule="Timanager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UBR-Uz-iqF"/>
                         <viewControllerLayoutGuide type="bottom" id="5iV-ht-QLM"/>
@@ -49,23 +49,23 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pr8-DT-A0B">
-                                                <rect key="frame" x="16" y="112" width="311" height="30"/>
+                                                <rect key="frame" x="16" y="112" width="311" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="0Ho-ee-s1e"/>
+                                                    <constraint firstAttribute="height" constant="40" id="0Ho-ee-s1e"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
                                                 <state key="normal" title="Button"/>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6a4-VM-qOY">
-                                                <rect key="frame" x="16" y="158" width="311" height="67"/>
+                                                <rect key="frame" x="16" y="168" width="311" height="57"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7F8-Bo-bqr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="147.5" height="67"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="147.5" height="57"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRz-zT-Ywh">
-                                                        <rect key="frame" x="163.5" y="0.0" width="147.5" height="67"/>
+                                                        <rect key="frame" x="163.5" y="0.0" width="147.5" height="57"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
@@ -136,6 +136,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZZ-BF-Oza" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="696.79999999999995" y="71.514242878560722"/>
+        </scene>
+        <!--Choose Activity View Controller-->
+        <scene sceneID="MtE-fX-Jif">
+            <objects>
+                <viewController storyboardIdentifier="ChooseActivityVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uSs-oQ-ZEH" customClass="ChooseActivityViewController" customModule="Timanager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ueM-Dw-FPA"/>
+                        <viewControllerLayoutGuide type="bottom" id="dhW-5J-tpX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rP5-jr-RRg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FT2-uV-9bW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="697" y="-603"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DR9-5N-3lx">

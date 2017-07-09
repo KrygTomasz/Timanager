@@ -33,8 +33,12 @@
 		22EB39A71F11789C0079C458 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22EB39A61F11789C0079C458 /* Localizable.strings */; };
 		22EB39AB1F11912F0079C458 /* ActivityTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39A91F11912F0079C458 /* ActivityTVCell.swift */; };
 		22EB39AC1F1191300079C458 /* ActivityTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EB39AA1F11912F0079C458 /* ActivityTVCell.xib */; };
-		22EB39B71F1193C10079C458 /* Activity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39B61F1193C10079C458 /* Activity+CoreDataClass.swift */; };
-		22EB39B91F1193D00079C458 /* Activity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39B81F1193D00079C458 /* Activity+CoreDataProperties.swift */; };
+		22EB39BC1F11B25C0079C458 /* PlannedActivity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39BA1F11B25C0079C458 /* PlannedActivity+CoreDataClass.swift */; };
+		22EB39BD1F11B25C0079C458 /* PlannedActivity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39BB1F11B25C0079C458 /* PlannedActivity+CoreDataProperties.swift */; };
+		22EB39C01F11B2C40079C458 /* Activity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39BE1F11B2C40079C458 /* Activity+CoreDataClass.swift */; };
+		22EB39C11F11B2C40079C458 /* Activity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39BF1F11B2C40079C458 /* Activity+CoreDataProperties.swift */; };
+		22EB39C31F11B3640079C458 /* ChooseActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39C21F11B3640079C458 /* ChooseActivityViewController.swift */; };
+		22EB39C51F11B3F60079C458 /* MenuIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39C41F11B3F60079C458 /* MenuIdentifiers.swift */; };
 		429E7BA240698BA0D8AB1243 /* Pods_TimanagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D357E536E5EC28DF3B5B104C /* Pods_TimanagerTests.framework */; };
 		5B2C53F3C42C1166148FC75A /* Pods_Timanager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C21959D22B115CB7D402EB /* Pods_Timanager.framework */; };
 		7B6344C0048637578C1215EB /* Pods_TimanagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6815C2D0B1C97954DAAED91 /* Pods_TimanagerUITests.framework */; };
@@ -90,8 +94,12 @@
 		22EB39A61F11789C0079C458 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		22EB39A91F11912F0079C458 /* ActivityTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTVCell.swift; sourceTree = "<group>"; };
 		22EB39AA1F11912F0079C458 /* ActivityTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityTVCell.xib; sourceTree = "<group>"; };
-		22EB39B61F1193C10079C458 /* Activity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		22EB39B81F1193D00079C458 /* Activity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		22EB39BA1F11B25C0079C458 /* PlannedActivity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlannedActivity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		22EB39BB1F11B25C0079C458 /* PlannedActivity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlannedActivity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		22EB39BE1F11B2C40079C458 /* Activity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		22EB39BF1F11B2C40079C458 /* Activity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		22EB39C21F11B3640079C458 /* ChooseActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseActivityViewController.swift; sourceTree = "<group>"; };
+		22EB39C41F11B3F60079C458 /* MenuIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuIdentifiers.swift; sourceTree = "<group>"; };
 		25C21959D22B115CB7D402EB /* Pods_Timanager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timanager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28963BAFF110F62E52A345BA /* Pods-Timanager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timanager.release.xcconfig"; path = "Pods/Target Support Files/Pods-Timanager/Pods-Timanager.release.xcconfig"; sourceTree = "<group>"; };
 		49FE902E1A2C85546D0D42AC /* Pods-TimanagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimanagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimanagerTests/Pods-TimanagerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +212,7 @@
 			children = (
 				22EB39751F113E6E0079C458 /* Views */,
 				22EB396B1F113B990079C458 /* Cells */,
+				22EB39C41F11B3F60079C458 /* MenuIdentifiers.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -240,6 +249,7 @@
 			children = (
 				22EB39361F1136C50079C458 /* Main.storyboard */,
 				22EB39681F1139F70079C458 /* MenuViewController.swift */,
+				22EB39C21F11B3640079C458 /* ChooseActivityViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -311,8 +321,10 @@
 		22EB39AD1F1193400079C458 /* Database Models */ = {
 			isa = PBXGroup;
 			children = (
-				22EB39B81F1193D00079C458 /* Activity+CoreDataProperties.swift */,
-				22EB39B61F1193C10079C458 /* Activity+CoreDataClass.swift */,
+				22EB39BE1F11B2C40079C458 /* Activity+CoreDataClass.swift */,
+				22EB39BF1F11B2C40079C458 /* Activity+CoreDataProperties.swift */,
+				22EB39BA1F11B25C0079C458 /* PlannedActivity+CoreDataClass.swift */,
+				22EB39BB1F11B25C0079C458 /* PlannedActivity+CoreDataProperties.swift */,
 			);
 			name = "Database Models";
 			sourceTree = "<group>";
@@ -645,15 +657,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				22EB39671F1139D60079C458 /* MainViewController.swift in Sources */,
-				22EB39B91F1193D00079C458 /* Activity+CoreDataProperties.swift in Sources */,
 				22EB39A51F1174170079C458 /* R.generated.swift in Sources */,
 				22EB39871F114BEE0079C458 /* ViewTool.swift in Sources */,
 				22EB39331F1136C50079C458 /* AppDelegate.swift in Sources */,
+				22EB39C01F11B2C40079C458 /* Activity+CoreDataClass.swift in Sources */,
 				22EB396E1F113BB50079C458 /* MenuCVCell.swift in Sources */,
 				22EB39971F1170980079C458 /* ActivityManagerViewController.swift in Sources */,
 				22EB39AB1F11912F0079C458 /* ActivityTVCell.swift in Sources */,
+				22EB39C51F11B3F60079C458 /* MenuIdentifiers.swift in Sources */,
 				22EB393B1F1136C50079C458 /* Timanager.xcdatamodeld in Sources */,
-				22EB39B71F1193C10079C458 /* Activity+CoreDataClass.swift in Sources */,
+				22EB39BC1F11B25C0079C458 /* PlannedActivity+CoreDataClass.swift in Sources */,
+				22EB39C31F11B3640079C458 /* ChooseActivityViewController.swift in Sources */,
+				22EB39BD1F11B25C0079C458 /* PlannedActivity+CoreDataProperties.swift in Sources */,
 				22EB39911F116D6C0079C458 /* StatisticsIdentifiers.swift in Sources */,
 				22EB39691F1139F70079C458 /* MenuViewController.swift in Sources */,
 				22EB39891F1151CD0079C458 /* UIColor+Extensions.swift in Sources */,
@@ -661,6 +676,7 @@
 				22EB39A11F1172090079C458 /* ActivityManagerIdentifiers.swift in Sources */,
 				22EB399D1F1170F70079C458 /* SettingsViewController.swift in Sources */,
 				22EB39A31F1172300079C458 /* SettingsIdentifiers.swift in Sources */,
+				22EB39C11F11B2C40079C458 /* Activity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
