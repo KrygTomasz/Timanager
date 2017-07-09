@@ -86,7 +86,9 @@ class ActivityManagerViewController: MainViewController {
             newActivityTextField.resignFirstResponder()
             showNewActivityView(false)
         } else {
+            
             showNewActivityView(true)
+            newActivityTextField.becomeFirstResponder()
         }
     }
     

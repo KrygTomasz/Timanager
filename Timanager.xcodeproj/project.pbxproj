@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223A7DA31F12468F00879EAD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A7DA21F12468F00879EAD /* UIView+Extensions.swift */; };
 		22EB39331F1136C50079C458 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39321F1136C50079C458 /* AppDelegate.swift */; };
 		22EB39381F1136C50079C458 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EB39361F1136C50079C458 /* Main.storyboard */; };
 		22EB393B1F1136C50079C458 /* Timanager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39391F1136C50079C458 /* Timanager.xcdatamodeld */; };
@@ -18,7 +19,6 @@
 		22EB39691F1139F70079C458 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39681F1139F70079C458 /* MenuViewController.swift */; };
 		22EB396E1F113BB50079C458 /* MenuCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB396C1F113BB50079C458 /* MenuCVCell.swift */; };
 		22EB396F1F113BB50079C458 /* MenuCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EB396D1F113BB50079C458 /* MenuCVCell.xib */; };
-		22EB39871F114BEE0079C458 /* ViewTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39861F114BEE0079C458 /* ViewTool.swift */; };
 		22EB39891F1151CD0079C458 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39881F1151CD0079C458 /* UIColor+Extensions.swift */; };
 		22EB398C1F115DE10079C458 /* StatisticsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EB398B1F115DE10079C458 /* StatisticsStoryboard.storyboard */; };
 		22EB398F1F115E1E0079C458 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB398E1F115E1E0079C458 /* StatisticsViewController.swift */; };
@@ -62,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		223A7DA21F12468F00879EAD /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		22EB392F1F1136C50079C458 /* Timanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22EB39321F1136C50079C458 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22EB39371F1136C50079C458 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		22EB39681F1139F70079C458 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		22EB396C1F113BB50079C458 /* MenuCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCVCell.swift; sourceTree = "<group>"; };
 		22EB396D1F113BB50079C458 /* MenuCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCVCell.xib; sourceTree = "<group>"; };
-		22EB39861F114BEE0079C458 /* ViewTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTool.swift; sourceTree = "<group>"; };
 		22EB39881F1151CD0079C458 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		22EB398B1F115DE10079C458 /* StatisticsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StatisticsStoryboard.storyboard; sourceTree = "<group>"; };
 		22EB398E1F115E1E0079C458 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
@@ -222,7 +222,6 @@
 			children = (
 				22EB39A41F1174170079C458 /* R.generated.swift */,
 				22EB39321F1136C50079C458 /* AppDelegate.swift */,
-				22EB39861F114BEE0079C458 /* ViewTool.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -231,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				22EB39881F1151CD0079C458 /* UIColor+Extensions.swift */,
+				223A7DA21F12468F00879EAD /* UIView+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -656,9 +656,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223A7DA31F12468F00879EAD /* UIView+Extensions.swift in Sources */,
 				22EB39671F1139D60079C458 /* MainViewController.swift in Sources */,
 				22EB39A51F1174170079C458 /* R.generated.swift in Sources */,
-				22EB39871F114BEE0079C458 /* ViewTool.swift in Sources */,
 				22EB39331F1136C50079C458 /* AppDelegate.swift in Sources */,
 				22EB39C01F11B2C40079C458 /* Activity+CoreDataClass.swift in Sources */,
 				22EB396E1F113BB50079C458 /* MenuCVCell.swift in Sources */,

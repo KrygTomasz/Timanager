@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+protocol ChooseActivityDelegate: class {
+    func chooseActivity(_ activity: Activity)
+}
+
 class ChooseActivityViewController: MainViewController {
 
     @IBOutlet weak var searchBar: UISearchBar! {
@@ -35,6 +39,8 @@ class ChooseActivityViewController: MainViewController {
     
     var activities: [Activity] = []
     var filteredActivities: [Activity] = []
+    
+    weak var delegate: ChooseActivityDelegate?
 
     func initNavigationBar() {
         let backButton = UIBarButtonItem(title: R.string.localizable.back(), style: .plain, target: self, action: #selector(onBackButtonClicked))
@@ -62,14 +68,8 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
             let searchText = searchBar.text else {
                 return
         }
-        
-        if searchText.isEmpty {
-            let object = fetchedResultsController?.object(at: indexPath)
-            activityCell.prepare(with: object?.name)
-        } else {
-            let object = filteredActivities[indexPath.row]
-            activityCell.prepare(with: object.name)
-        }
+        let object = filteredActivities[indexPath.row]
+        activityCell.prepare(with: object.name)
         
     }
     
@@ -79,17 +79,20 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let searchText = searchBar.text else {
-            return activities.count
-        }
-        if searchText.isEmpty {
-            return activities.count
-        } else {
+            filteredActivities = activities
             return filteredActivities.count
         }
+        if searchText.isEmpty {
+            filteredActivities = activities
+        }
+        return filteredActivities.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+        let object = filteredActivities[indexPath.row]
+        delegate?.chooseActivity(object)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
@@ -107,6 +110,7 @@ extension ChooseActivityViewController: NSFetchedResultsControllerDelegate {
         do {
             try self.fetchedResultsController?.performFetch()
             self.activities = self.fetchedResultsController?.fetchedObjects ?? []
+            self.filteredActivities = self.activities
         } catch {
             let fetchError = error as NSError
             print("Unable to Perform Fetch Request")

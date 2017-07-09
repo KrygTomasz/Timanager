@@ -19,3 +19,6 @@
 "typeActivityName" = "Podaj nazwę aktywności";
 "addActivity" = "Dodaj aktywność";
 "back" = "Wróć";
+"startHour" = "Godzina rozpoczęcia";
+"activity" = "Aktywność";
+"noCurrentActivity" = "Brak rozpoczętej aktywności";

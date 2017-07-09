@@ -19,5 +19,10 @@ extension PlannedActivity {
     @NSManaged public var stopDate: Int64
     @NSManaged public var startDate: Int64
     @NSManaged public var activity: Activity?
+    
+    func fill(with activity: Activity?, startDate: Int64) {
+        self.activity = activity
+        self.startDate = startDate
+    }
 
 }

@@ -24,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="456" height="275"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22c-n5-hcf">
-                                <rect key="frame" x="16" y="8" width="424" height="259"/>
+                                <rect key="frame" x="16" y="8" width="440" height="259"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3h-gz-wTw">
                                         <rect key="frame" x="16" y="0.0" width="46.5" height="259"/>
@@ -33,7 +33,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-bl-P7a">
-                                        <rect key="frame" x="278" y="64.5" width="130" height="129.5"/>
+                                        <rect key="frame" x="294" y="64.5" width="130" height="129.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="UBC-bl-P7a" secondAttribute="height" multiplier="1:1" id="2G1-0f-aF2"/>
                                         </constraints>
@@ -52,7 +52,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="22c-n5-hcf" secondAttribute="trailing" constant="16" id="Ffo-HS-zpz"/>
+                            <constraint firstAttribute="trailing" secondItem="22c-n5-hcf" secondAttribute="trailing" id="Ffo-HS-zpz"/>
                             <constraint firstItem="22c-n5-hcf" firstAttribute="leading" secondItem="KaP-dB-nDu" secondAttribute="leading" constant="16" id="HKb-Gb-l9K"/>
                             <constraint firstAttribute="bottom" secondItem="22c-n5-hcf" secondAttribute="bottom" constant="8" id="mtc-6K-lKc"/>
                             <constraint firstItem="22c-n5-hcf" firstAttribute="top" secondItem="KaP-dB-nDu" secondAttribute="top" constant="8" id="o97-Jh-PSD"/>

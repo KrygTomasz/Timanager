@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MenuViewController: MainViewController {
 
@@ -21,7 +22,7 @@ class MenuViewController: MainViewController {
         didSet {
             activityView.layer.cornerRadius = 10.0
             activityView.backgroundColor = .gray
-            ViewTool.addShadow(to: activityView)
+            activityView.addShadow()
         }
     }
     @IBOutlet weak var currentActivityLabel: UILabel! {
@@ -41,6 +42,7 @@ class MenuViewController: MainViewController {
             chooseActivityButton.backgroundColor = UIColor.black
             chooseActivityButton.setTitleColor(.white, for: .normal)
             chooseActivityButton.addTarget(self, action: #selector(onChooseActivityButtonClicked), for: .touchUpInside)
+            chooseActivityButton.addShadow()
         }
     }
     @IBOutlet weak var startButton: UIButton! {
@@ -49,7 +51,8 @@ class MenuViewController: MainViewController {
             startButton.layer.cornerRadius = 10.0
             startButton.backgroundColor = UIColor.mainDarkGreen
             startButton.setTitleColor(.white, for: .normal)
-//            ViewTool.addShadow(to: startButton)
+            startButton.addTarget(self, action: #selector(onStartButtonClicked), for: .touchUpInside)
+            startButton.addShadow()
         }
     }
     @IBOutlet weak var stopButton: UIButton! {
@@ -58,15 +61,61 @@ class MenuViewController: MainViewController {
             stopButton.layer.cornerRadius = 10.0
             stopButton.backgroundColor = UIColor.mainDarkRed
             stopButton.setTitleColor(.white, for: .normal)
-//            ViewTool.addShadow(to: stopButton)
+            stopButton.addTarget(self, action: #selector(onStopButtonClicked), for: .touchUpInside)
+            stopButton.addShadow()
         }
     }
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     let NUMBER_OF_CELLS: CGFloat = 3
+    
+    var choosenActivity: Activity? {
+        didSet {
+            guard let name = choosenActivity?.name else {
+                return
+            }
+            chooseActivityButton.setTitle("\(name)", for: .normal)
+        }
+    }
+    var currentActivity: PlannedActivity? {
+        didSet {
+            guard let name = currentActivity?.activity?.name else {
+                currentActivityLabel.text = R.string.localizable.noCurrentActivity()
+                timeLabel.text = ""
+                enableButton(startButton, enable: true)
+                enableButton(stopButton, enable: false)
+                enableButton(chooseActivityButton, enable: true)
+                return
+            }
+            currentActivityLabel.text = "\(R.string.localizable.activity()): \(name)"
+            guard let startDate = currentActivity?.startDate else {
+                return
+            }
+            let date = Date(timeIntervalSince1970: TimeInterval(startDate))
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            
+            let timeString = dateFormatter.string(from: date)
+            timeLabel.text = "\(R.string.localizable.startHour()): \(timeString)"
+            enableButton(startButton, enable: false)
+            enableButton(stopButton, enable: true)
+            enableButton(chooseActivityButton, enable: false)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ViewTool.addGradientBackground(to: self.view, using: [UIColor.darkGray.cgColor, UIColor.white.cgColor])
+        self.view.addGradientBackground(using: [UIColor.darkGray.cgColor, UIColor.white.cgColor])
+        let fetchRequest = NSFetchRequest<PlannedActivity>(entityName: "PlannedActivity")
+        fetchRequest.fetchLimit = 1
+        fetchRequest.predicate = NSPredicate(format: "stopDate == 0")
+        do {
+            let objects = try context.fetch(fetchRequest)
+            currentActivity = objects.first
+        } catch {
+            print("Couldn't fetch PlannedActivities")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,9 +134,51 @@ class MenuViewController: MainViewController {
             return
         }
         vc.prepare(using: .black)
+        vc.delegate = self
         let navController = UINavigationController(rootViewController: vc)
 
         present(navController, animated: true, completion: nil)
+    }
+    
+    func onStartButtonClicked() {
+        guard let activity = choosenActivity else {
+            // CHOOSE ACTIVITY ALERT
+            return
+        }
+        let date = Date()
+        let startDate = Int64(date.timeIntervalSince1970)
+        let object = PlannedActivity(context: context)
+        object.fill(with: activity, startDate: startDate)
+        do {
+            try object.managedObjectContext?.save()
+        } catch {
+            print("Error saving activity object")
+        }
+        currentActivity = object
+    }
+    
+    func onStopButtonClicked() {
+        guard let activity = currentActivity else {
+            return
+        }
+        let date = Date()
+        let stopDate = Int64(date.timeIntervalSince1970)
+        activity.stopDate = stopDate
+        do {
+            try activity.managedObjectContext?.save()
+        } catch {
+            print("Error saving activity object")
+        }
+        currentActivity = nil
+    }
+    
+    func enableButton(_ button: UIButton, enable: Bool) {
+        button.isEnabled = enable
+        if enable {
+            button.addShadow()
+        } else {
+            button.removeShadow()
+        }
     }
 
 }
@@ -129,20 +220,6 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
         default:
             break
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        guard let menuCell = collectionView.cellForItem(at: indexPath) as? MenuCVCell else {
-            return
-        }
-        ViewTool.removeShadow(from: menuCell.container)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        guard let menuCell = collectionView.cellForItem(at: indexPath) as? MenuCVCell else {
-            return
-        }
-        ViewTool.addShadow(to: menuCell.container)
     }
     
 }
@@ -193,6 +270,15 @@ extension MenuViewController {
         }
         vc.prepare(using: color)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+//MARK: ChooseActivity delegates
+extension MenuViewController: ChooseActivityDelegate {
+    
+    func chooseActivity(_ activity: Activity) {
+        choosenActivity = activity
     }
     
 }

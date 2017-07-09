@@ -143,12 +143,18 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 13 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 16 localization keys.
     struct localizable {
       /// Value: Aktywności
       static let activities = Rswift.StringResource(key: "activities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Aktywność
+      static let activity = Rswift.StringResource(key: "activity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Brak rozpoczętej aktywności
+      static let noCurrentActivity = Rswift.StringResource(key: "noCurrentActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Dodaj aktywność
       static let addActivity = Rswift.StringResource(key: "addActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Godzina rozpoczęcia
+      static let startHour = Rswift.StringResource(key: "startHour", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Informacje
       static let info = Rswift.StringResource(key: "info", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Informacje o aplikacji
@@ -177,9 +183,24 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("activities", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Aktywność
+      static func activity(_: Void = ()) -> String {
+        return NSLocalizedString("activity", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Brak rozpoczętej aktywności
+      static func noCurrentActivity(_: Void = ()) -> String {
+        return NSLocalizedString("noCurrentActivity", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Dodaj aktywność
       static func addActivity(_: Void = ()) -> String {
         return NSLocalizedString("addActivity", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Godzina rozpoczęcia
+      static func startHour(_: Void = ()) -> String {
+        return NSLocalizedString("startHour", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Informacje

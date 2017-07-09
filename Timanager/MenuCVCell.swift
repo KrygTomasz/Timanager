@@ -41,7 +41,7 @@ class MenuCVCell: UICollectionViewCell {
 
     @IBOutlet weak var container: UIView! {
         didSet {
-            container.layer.cornerRadius = 10.0
+//            container.layer.cornerRadius = 10.0
         }
     }
     @IBOutlet weak var titleLabel: UILabel! {
@@ -59,13 +59,18 @@ class MenuCVCell: UICollectionViewCell {
         titleLabel.text = data.title
         prepareImage(data.image)
         container.backgroundColor = data.color
-        ViewTool.addShadow(to: container)
+        prepareContainer()
     }
     
-    func prepareImage(_ image: UIImage?) {
+    fileprivate func prepareImage(_ image: UIImage?) {
         titleImageView.image = image
         titleImageView.image = titleImageView.image?.withRenderingMode(.alwaysTemplate)
         titleImageView.tintColor = .white
+    }
+    
+    fileprivate func prepareContainer() {
+        layoutIfNeeded()
+        container.roundCornersWithLayerMask(cornerRadii: container.bounds.height/2, corners: [.bottomLeft, .topLeft])
     }
 
 }
