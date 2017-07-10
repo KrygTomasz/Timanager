@@ -12,13 +12,30 @@ import Charts
 
 class PieChartViewController: MainViewController {
 
+    @IBOutlet weak var dateTextField: UITextField! {
+        didSet {
+            dateTextField.delegate = self
+            dateTextField.textColor = .white
+            dateTextField.addShadow()
+            dateTextField.text = "Wybierz datę"
+            dateTextField.tintColor = .clear
+            
+            datePicker = UIDatePicker()
+            datePicker?.datePickerMode = .date
+            datePicker?.addTarget(self, action: #selector(onDatePickerChange), for: .valueChanged)
+            
+            dateTextField.inputView = datePicker
+        }
+    }
     @IBOutlet weak var pieChartView: PieChartView! {
         didSet {
             pieChartView.holeRadiusPercent = 0
             pieChartView.drawHoleEnabled = false
             pieChartView.usePercentValuesEnabled = true
-            pieChartView.highlightPerTapEnabled = false
+//            pieChartView.drawEntryLabelsEnabled = false
+//            pieChartView.highlightPerTapEnabled = false
             pieChartView.chartDescription?.text = ""
+            pieChartView.delegate = self
         }
     }
     override func viewDidLoad() {
@@ -26,7 +43,18 @@ class PieChartViewController: MainViewController {
         if let mainColor = self.color {
             self.view.addGradientBackground(using: [mainColor.cgColor, UIColor.white.cgColor])
         }
+        date = Date()
         initFetchedResultsController()
+    }
+    
+    var datePicker: UIDatePicker?
+    var date: Date = Date() {
+        didSet {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMM, yyyy"
+            let dateString = dateFormatter.string(from: date)
+            dateTextField.text = dateString
+        }
     }
     
     var activities: [Activity]? = [] {
@@ -40,10 +68,28 @@ class PieChartViewController: MainViewController {
     
     func setChart(activities: [Activity]?) {
         
+        let dataEntries = getChartDataEntries(forActivities: activities)
+
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
+        pieChartDataSet.sliceSpace = 3.0
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
+        pieChartData.setValueTextColor(UIColor.black)
+        pieChartView.data = pieChartData
+        
+        let pieChartColors = UIColor.generateColorSet(ofSize: dataEntries.count, saturation: 0.5, brightness: 1, alpha: 1)
+        pieChartDataSet.colors = pieChartColors
+        
+        pieChartView.animate(yAxisDuration: 1.0, easingOption: .easeInOutQuart)
+    }
+    
+    func getChartDataEntries(forActivities activities: [Activity]?) -> [ChartDataEntry] {
+        
         var dataEntries: [ChartDataEntry] = []
         guard let activities = activities else {
-            return
+            return []
         }
+        
         for activity in activities {
             guard let plannedActivities = activity.plannedActivity?.allObjects as? [PlannedActivity] else {
                 continue
@@ -61,19 +107,8 @@ class PieChartViewController: MainViewController {
             
             dataEntries.append(dataEntry)
         }
-
-        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
-        pieChartDataSet.sliceSpace = 3.0
-        let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        pieChartView.data = pieChartData
-        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
-        pieChartData.setValueTextColor(UIColor.black)
-//        pieChartDataSet.colors = ChartColorTemplates.material()
+        return dataEntries
         
-        let pieChartColors = UIColor.generateColorSet(ofSize: dataEntries.count, saturation: 0.5, brightness: 1, alpha: 1)
-        pieChartDataSet.colors = pieChartColors
-        
-        pieChartView.animate(yAxisDuration: 1.0, easingOption: .easeInOutQuart)
     }
     
     func hasNotFinishedAnyActivity(in plannedActivities: [PlannedActivity]) -> Bool {
@@ -86,6 +121,19 @@ class PieChartViewController: MainViewController {
             }
         }
         return false
+    }
+    
+}
+
+//MARK: ChartView delegates
+extension PieChartViewController: ChartViewDelegate {
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        
+        guard let data = entry.data as? String else {
+            return
+        }
+        print(data)
     }
     
 }
@@ -110,5 +158,21 @@ extension PieChartViewController: NSFetchedResultsControllerDelegate {
         }
         
     }
+    
+}
+
+//MARK: DatePicker
+extension PieChartViewController {
+    
+    func onDatePickerChange(_ sender: UIDatePicker) {
+        date = sender.date
+    }
+    
+}
+
+//MARK: TextField delegates
+extension PieChartViewController: UITextFieldDelegate {
+    
+    
     
 }
