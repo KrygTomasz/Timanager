@@ -10,6 +10,7 @@
 		223A7DA31F12468F00879EAD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A7DA21F12468F00879EAD /* UIView+Extensions.swift */; };
 		223A7DA51F12643500879EAD /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A7DA41F12643500879EAD /* PieChartViewController.swift */; };
 		223A7DA71F12737D00879EAD /* NumberFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */; };
+		224FD2B71F142CBF0096EE45 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD2B61F142CBF0096EE45 /* Date+Extensions.swift */; };
 		22EB39331F1136C50079C458 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39321F1136C50079C458 /* AppDelegate.swift */; };
 		22EB39381F1136C50079C458 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EB39361F1136C50079C458 /* Main.storyboard */; };
 		22EB393B1F1136C50079C458 /* Timanager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39391F1136C50079C458 /* Timanager.xcdatamodeld */; };
@@ -67,6 +68,7 @@
 		223A7DA21F12468F00879EAD /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		223A7DA41F12643500879EAD /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		224FD2B61F142CBF0096EE45 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		22606A571F12D3B400C1C201 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		22606A581F12D3B400C1C201 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		22EB392F1F1136C50079C458 /* Timanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +240,7 @@
 				22EB39881F1151CD0079C458 /* UIColor+Extensions.swift */,
 				223A7DA21F12468F00879EAD /* UIView+Extensions.swift */,
 				223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */,
+				224FD2B61F142CBF0096EE45 /* Date+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				22EB39911F116D6C0079C458 /* StatisticsIdentifiers.swift in Sources */,
 				22EB39691F1139F70079C458 /* MenuViewController.swift in Sources */,
 				22EB39891F1151CD0079C458 /* UIColor+Extensions.swift in Sources */,
+				224FD2B71F142CBF0096EE45 /* Date+Extensions.swift in Sources */,
 				22EB398F1F115E1E0079C458 /* StatisticsViewController.swift in Sources */,
 				22EB39A11F1172090079C458 /* ActivityManagerIdentifiers.swift in Sources */,
 				22EB399D1F1170F70079C458 /* SettingsViewController.swift in Sources */,

@@ -44,7 +44,7 @@ class PieChartViewController: MainViewController {
             self.view.addGradientBackground(using: [mainColor.cgColor, UIColor.white.cgColor])
         }
         date = Date()
-        initFetchedResultsController()
+        addDoneButtonToKeyboard()
     }
     
     var datePicker: UIDatePicker?
@@ -54,6 +54,7 @@ class PieChartViewController: MainViewController {
             dateFormatter.dateFormat = "dd MMM, yyyy"
             let dateString = dateFormatter.string(from: date)
             dateTextField.text = dateString
+            initFetchedResultsController()
         }
     }
     
@@ -69,16 +70,16 @@ class PieChartViewController: MainViewController {
     func setChart(activities: [Activity]?) {
         
         let dataEntries = getChartDataEntries(forActivities: activities)
-
+        
         let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
         pieChartDataSet.sliceSpace = 3.0
+        let pieChartColors = UIColor.generateColorSet(ofSize: dataEntries.count, saturation: 0.5, brightness: 1, alpha: 1)
+        pieChartDataSet.colors = pieChartColors
+        
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
         pieChartData.setValueTextColor(UIColor.black)
         pieChartView.data = pieChartData
-        
-        let pieChartColors = UIColor.generateColorSet(ofSize: dataEntries.count, saturation: 0.5, brightness: 1, alpha: 1)
-        pieChartDataSet.colors = pieChartColors
         
         pieChartView.animate(yAxisDuration: 1.0, easingOption: .easeInOutQuart)
     }
@@ -86,14 +87,29 @@ class PieChartViewController: MainViewController {
     func getChartDataEntries(forActivities activities: [Activity]?) -> [ChartDataEntry] {
         
         var dataEntries: [ChartDataEntry] = []
+        
         guard let activities = activities else {
             return []
         }
         
+        let dateInterval = getDateInterval(forDate: self.date)
+        let predicate = NSPredicate(format: "startDate >= %d AND stopDate <= %d",
+                                    Int64(dateInterval.minDate.timeIntervalSince1970),
+                                    Int64(dateInterval.maxDate.timeIntervalSince1970))
+        
         for activity in activities {
-            guard let plannedActivities = activity.plannedActivity?.allObjects as? [PlannedActivity] else {
-                continue
+            
+//            guard let plannedActivities = activity.plannedActivity?.allObjects as? [PlannedActivity] else {
+//                continue
+//            }
+
+            let filteredPlannedActivities = activity.plannedActivity?.filtered(using: predicate)
+            guard let plannedActivitiesSet = filteredPlannedActivities as NSSet?,
+                let plannedActivities = plannedActivitiesSet.allObjects as? [PlannedActivity]
+            else {
+                return []
             }
+            
             if hasNotFinishedAnyActivity(in: plannedActivities) {
                 continue
             }
@@ -121,6 +137,14 @@ class PieChartViewController: MainViewController {
             }
         }
         return false
+    }
+    
+    func getDateInterval(forDate date: Date) -> (minDate: Date, maxDate: Date) {
+        
+        let minDate = Date.getStartDate(forDate: date)
+        let maxDate = Date.getEndDate(forDate: date)
+        return (minDate, maxDate)
+        
     }
     
 }
@@ -173,6 +197,15 @@ extension PieChartViewController {
 //MARK: TextField delegates
 extension PieChartViewController: UITextFieldDelegate {
     
-    
+    func addDoneButtonToKeyboard() {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                            target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                            target: view, action: #selector(UIView.endEditing(_:)))
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        dateTextField.inputAccessoryView = keyboardToolbar
+    }
     
 }
