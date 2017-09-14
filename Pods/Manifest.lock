@@ -1,8 +1,8 @@
 PODS:
-  - Charts (3.0.1):
-    - Charts/Core (= 3.0.1)
-  - Charts/Core (3.0.1)
-  - R.swift (3.2.0):
+  - Charts (3.0.3):
+    - Charts/Core (= 3.0.3)
+  - Charts/Core (3.0.3)
+  - R.swift (3.3.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
 
@@ -11,8 +11,8 @@ DEPENDENCIES:
   - R.swift
 
 SPEC CHECKSUMS:
-  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
-  R.swift: 207a372a2b5977caef440c696a368009460641d1
+  Charts: bcde37724c161958c1438dd4883971fcb2d50c06
+  R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
 
 PODFILE CHECKSUM: 3e4200cc815d4f417a97e91084b9d1abf1ecc188
