@@ -57,20 +57,22 @@ class MenuCVCell: UICollectionViewCell {
     
     func prepare(with data: MenuCVCellData) {
         titleLabel.text = data.title
-        prepareImage(data.image)
-        container.backgroundColor = data.color
+        titleLabel.textColor = data.color
+        prepareImage(data.image, color: data.color)
+        container.backgroundColor = .white
         prepareContainer()
     }
     
-    fileprivate func prepareImage(_ image: UIImage?) {
+    fileprivate func prepareImage(_ image: UIImage?, color: UIColor?) {
         titleImageView.image = image
         titleImageView.image = titleImageView.image?.withRenderingMode(.alwaysTemplate)
-        titleImageView.tintColor = .white
+        titleImageView.tintColor = color
     }
     
     fileprivate func prepareContainer() {
         layoutIfNeeded()
-        container.roundCornersWithLayerMask(cornerRadii: container.bounds.height/2, corners: [.bottomLeft, .topLeft])
+        container.layer.cornerRadius = 16//container.bounds.height/2
+//        container.roundCornersWithLayerMask(cornerRadii: container.bounds.height/2, corners: [.bottomLeft, .topLeft])
     }
 
 }

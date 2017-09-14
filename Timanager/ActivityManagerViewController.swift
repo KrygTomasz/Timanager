@@ -238,8 +238,10 @@ extension ActivityManagerViewController {
     func keyboardWillShow(notification:NSNotification){
         
         var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height, 0.0);
         
         if newActivityTextField.isFirstResponder {
             newActivityBottom.constant = keyboardFrame.size.height
@@ -251,6 +253,12 @@ extension ActivityManagerViewController {
     }
     
     func keyboardWillHide(notification:NSNotification){
+        
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
         
         if isShowingNewActivity {
             newActivityBottom.constant = 0

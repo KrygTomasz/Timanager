@@ -152,6 +152,8 @@ struct R: Rswift.Validatable {
     struct localizable {
       /// Value: Aktywności
       static let activities = Rswift.StringResource(key: "activities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Aktywności
+      static let manageActivities = Rswift.StringResource(key: "manageActivities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Aktywność
       static let activity = Rswift.StringResource(key: "activity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Analiza
@@ -184,12 +186,15 @@ struct R: Rswift.Validatable {
       static let chooseActivity = Rswift.StringResource(key: "chooseActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Wykres kołowy
       static let pieChart = Rswift.StringResource(key: "pieChart", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Zarządzaj aktywnościami
-      static let manageActivities = Rswift.StringResource(key: "manageActivities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
       /// Value: Aktywności
       static func activities(_: Void = ()) -> String {
         return NSLocalizedString("activities", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Aktywności
+      static func manageActivities(_: Void = ()) -> String {
+        return NSLocalizedString("manageActivities", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Aktywność
@@ -270,11 +275,6 @@ struct R: Rswift.Validatable {
       /// Value: Wykres kołowy
       static func pieChart(_: Void = ()) -> String {
         return NSLocalizedString("pieChart", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// Value: Zarządzaj aktywnościami
-      static func manageActivities(_: Void = ()) -> String {
-        return NSLocalizedString("manageActivities", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

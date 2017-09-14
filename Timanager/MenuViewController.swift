@@ -230,8 +230,8 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension MenuViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = collectionView.bounds.width/1
-        let cellHeight = collectionView.bounds.height/NUMBER_OF_CELLS
+        let cellWidth = collectionView.bounds.width
+        let cellHeight = collectionView.bounds.height
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
