@@ -11,7 +11,38 @@ import Hero
 
 class SettingsViewController: MainViewController {
 
-
+    @IBOutlet weak var navigationView: UIView! {
+        didSet {
+            navigationView.backgroundColor = self.color
+        }
+    }
+    @IBOutlet weak var closeButton: UIButton! {
+        didSet {
+            closeButton.setTitle("", for: .normal)
+            closeButton.setImage(#imageLiteral(resourceName: "down"), for: .normal)
+            closeButton.tintColor = .white
+            closeButton.scaleImage(height: 24, width: 24)
+            closeButton.backgroundColor = .clear
+            closeButton.addTarget(self, action: #selector(onCloseButtonClicked), for: .touchUpInside)
+        }
+    }
+    @IBOutlet weak var navigationLabel: UILabel! {
+        didSet {
+            navigationLabel.heroID = "navigation"
+            navigationLabel.textColor = .white
+            navigationLabel.text = R.string.localizable.settings()
+        }
+    }
+    @IBOutlet weak var navigationImageView: UIImageView! {
+        didSet {
+            navigationImageView.heroID = "navigationImageView"
+            navigationImageView.image = #imageLiteral(resourceName: "settings")
+            navigationImageView.image = navigationImageView.image?.withRenderingMode(.alwaysTemplate)
+            navigationImageView.tintColor = .white
+            
+        }
+    }
+    
     @IBOutlet weak var startButton: UIButton! {
         didSet {
             startButton.heroID = "play"
@@ -28,6 +59,10 @@ class SettingsViewController: MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setGradientBackground()
+    }
+    
+    func onCloseButtonClicked() {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

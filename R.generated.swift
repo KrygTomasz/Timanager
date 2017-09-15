@@ -31,8 +31,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 7 images.
   struct image {
+    /// Image `activity`.
+    static let activity = Rswift.ImageResource(bundle: R.hostingBundle, name: "activity")
+    /// Image `down`.
+    static let down = Rswift.ImageResource(bundle: R.hostingBundle, name: "down")
     /// Image `info`.
     static let info = Rswift.ImageResource(bundle: R.hostingBundle, name: "info")
     /// Image `pause`.
@@ -43,8 +47,16 @@ struct R: Rswift.Validatable {
     static let play = Rswift.ImageResource(bundle: R.hostingBundle, name: "play")
     /// Image `settings`.
     static let settings = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings")
-    /// Image `time`.
-    static let time = Rswift.ImageResource(bundle: R.hostingBundle, name: "time")
+    
+    /// `UIImage(named: "activity", bundle: ..., traitCollection: ...)`
+    static func activity(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.activity, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "down", bundle: ..., traitCollection: ...)`
+    static func down(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.down, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "info", bundle: ..., traitCollection: ...)`
     static func info(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -69,11 +81,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "settings", bundle: ..., traitCollection: ...)`
     static func settings(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.settings, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "time", bundle: ..., traitCollection: ...)`
-    static func time(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.time, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -442,7 +449,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = MenuViewController
       
       let bundle = R.hostingBundle
       let chooseActivityVC = StoryboardViewControllerResource<ChooseActivityViewController>(identifier: "ChooseActivityVC")

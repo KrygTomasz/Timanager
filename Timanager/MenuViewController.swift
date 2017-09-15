@@ -20,9 +20,7 @@ class MenuViewController: MainViewController {
     }
     @IBOutlet weak var activityView: UIView! {
         didSet {
-            activityView.layer.cornerRadius = 10.0
             activityView.backgroundColor = .gray
-            activityView.addShadow()
         }
     }
     @IBOutlet weak var currentActivityLabel: UILabel! {
@@ -259,7 +257,8 @@ extension MenuViewController {
             return
         }
         vc.prepare(using: color)
-        navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func pushActivityManagerVC(usingColor color: UIColor?) {
@@ -268,7 +267,8 @@ extension MenuViewController {
             return
         }
         vc.prepare(using: color)
-        navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func pushSettingsVC(usingColor color: UIColor?) {
@@ -277,7 +277,8 @@ extension MenuViewController {
             return
         }
         vc.prepare(using: color)
-        navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

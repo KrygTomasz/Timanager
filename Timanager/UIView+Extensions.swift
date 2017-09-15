@@ -8,6 +8,14 @@
 
 import UIKit
 
+extension UIButton {
+    
+    func scaleImage(height: CGFloat, width: CGFloat) {
+        self.imageEdgeInsets = UIEdgeInsetsMake(self.frame.size.height/2 - height/2, self.frame.size.width/2 - width/2, self.frame.size.height/2 - height/2, self.frame.size.width/2 - width/2)
+    }
+    
+}
+
 extension UIView {
     
     func addShadow() {

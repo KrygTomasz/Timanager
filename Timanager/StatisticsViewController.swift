@@ -11,6 +11,37 @@ import CoreData
 
 class StatisticsViewController: MainViewController {
 
+    @IBOutlet weak var navigationView: UIView! {
+        didSet {
+            navigationView.backgroundColor = self.color
+        }
+    }
+    @IBOutlet weak var navigationLabel: UILabel! {
+        didSet {
+            navigationLabel.heroID = "navigation"
+            navigationLabel.textColor = .white
+            navigationLabel.text = R.string.localizable.statistics()
+        }
+    }
+    @IBOutlet weak var navigationImageView: UIImageView! {
+        didSet {
+            navigationImageView.heroID = "navigationImageView"
+            navigationImageView.image = #imageLiteral(resourceName: "pieChart")
+            navigationImageView.image = navigationImageView.image?.withRenderingMode(.alwaysTemplate)
+            navigationImageView.tintColor = .white
+            
+        }
+    }
+    @IBOutlet weak var closeButton: UIButton! {
+        didSet {
+            closeButton.setTitle("", for: .normal)
+            closeButton.setImage(#imageLiteral(resourceName: "down"), for: .normal)
+            closeButton.tintColor = .white
+            closeButton.scaleImage(height: 24, width: 24)
+            closeButton.backgroundColor = .clear
+            closeButton.addTarget(self, action: #selector(onCloseButtonClicked), for: .touchUpInside)
+        }
+    }
     @IBOutlet weak var segmentedControlView: UIView! {
         didSet {
             segmentedControlView.backgroundColor = self.color
@@ -73,6 +104,10 @@ class StatisticsViewController: MainViewController {
         childViewController.view.frame = mainView.bounds
         childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         childViewController.didMove(toParentViewController: self)
+    }
+    
+    func onCloseButtonClicked() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func onSegmentedControlChange() {

@@ -17,7 +17,7 @@ struct MenuCVCellData {
             color = .mainYellow
         case 1:
             title = R.string.localizable.manageActivities()
-            image = R.image.time()
+            image = R.image.activity()
             color = .mainRed
         case 2:
             title = R.string.localizable.settings()
@@ -49,18 +49,28 @@ class MenuCVCell: UICollectionViewCell {
             titleLabel.textColor = .white
         }
     }
-    @IBOutlet weak var titleImageView: UIImageView!
+    @IBOutlet weak var titleImageView: UIImageView! {
+        didSet {
+            titleImageView.heroID = "navigationImageView"
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    @IBOutlet weak var bottomView: UIView!
     
     func prepare(with data: MenuCVCellData) {
+        
+        titleLabel.heroID = "navigation"
+        
+        bottomView.backgroundColor = data.color
         titleLabel.text = data.title
-        titleLabel.textColor = data.color
+        titleLabel.textColor = .white
         prepareImage(data.image, color: data.color)
         container.backgroundColor = .white
         prepareContainer()
+        
     }
     
     fileprivate func prepareImage(_ image: UIImage?, color: UIColor?) {
@@ -71,6 +81,7 @@ class MenuCVCell: UICollectionViewCell {
     
     fileprivate func prepareContainer() {
         layoutIfNeeded()
+        bottomView.layer.cornerRadius = 16
         container.layer.cornerRadius = 16//container.bounds.height/2
 //        container.roundCornersWithLayerMask(cornerRadii: container.bounds.height/2, corners: [.bottomLeft, .topLeft])
     }

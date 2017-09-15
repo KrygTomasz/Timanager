@@ -36,15 +36,9 @@ class PieChartViewController: MainViewController {
 //            pieChartView.highlightPerTapEnabled = false
             pieChartView.chartDescription?.text = ""
             pieChartView.delegate = self
+            
+            pieChartView.isHidden = true
         }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if let mainColor = self.color {
-            self.view.addGradientBackground(using: [mainColor.cgColor, UIColor.white.cgColor])
-        }
-        date = Date()
-        addDoneButtonToKeyboard()
     }
     
     var datePicker: UIDatePicker?
@@ -67,6 +61,19 @@ class PieChartViewController: MainViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var fetchedResultsController: NSFetchedResultsController<Activity>?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let mainColor = self.color {
+            self.view.addGradientBackground(using: [mainColor.cgColor, UIColor.white.cgColor])
+        }
+        date = Date()
+        addDoneButtonToKeyboard()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        pieChartView.isHidden = false
+    }
+    
     func setChart(activities: [Activity]?) {
         
         let dataEntries = getChartDataEntries(forActivities: activities)
@@ -81,7 +88,7 @@ class PieChartViewController: MainViewController {
         pieChartData.setValueTextColor(UIColor.black)
         pieChartView.data = pieChartData
         
-        pieChartView.animate(yAxisDuration: 1.0, easingOption: .easeInOutQuart)
+        pieChartView.animate(yAxisDuration: 1.5, easingOption: .easeInOutQuint)
     }
     
     func getChartDataEntries(forActivities activities: [Activity]?) -> [ChartDataEntry] {
