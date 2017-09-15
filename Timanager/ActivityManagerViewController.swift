@@ -16,6 +16,7 @@ class ActivityManagerViewController: MainViewController {
             tableView.register(R.nib.activityTVCell(), forCellReuseIdentifier: R.reuseIdentifier.activityTVCell.identifier)
             tableView.delegate = self
             tableView.dataSource = self
+            tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, newActivityButton.frame.height, 0.0)
         }
     }
     @IBOutlet weak var newActivityButton: UIButton! {
@@ -70,10 +71,15 @@ class ActivityManagerViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initObservers()
         initNavigationBar()
         self.setGradientBackground()
         initFetchedResultsController()
         newActivityBottom.constant = -newActivityView.bounds.height
+    }
+    
+    func initObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -87,7 +93,6 @@ class ActivityManagerViewController: MainViewController {
             newActivityTextField.resignFirstResponder()
             showNewActivityView(false)
         } else {
-            
             showNewActivityView(true)
             newActivityTextField.becomeFirstResponder()
         }
@@ -241,13 +246,13 @@ extension ActivityManagerViewController {
         var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         
-        tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height, 0.0);
-        
         if newActivityTextField.isFirstResponder {
             newActivityBottom.constant = keyboardFrame.size.height
             UIView.animate(withDuration: 0.2, animations: {
                 self.view.layoutIfNeeded()
             })
+        } else {
+            tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height, 0.0)
         }
 
     }
@@ -258,7 +263,7 @@ extension ActivityManagerViewController {
         var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         
-        tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+        tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, newActivityButton.frame.height, 0.0)
         
         if isShowingNewActivity {
             newActivityBottom.constant = 0

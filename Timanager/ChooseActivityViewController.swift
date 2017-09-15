@@ -30,6 +30,7 @@ class ChooseActivityViewController: MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        initObservers()
         initNavigationBar()
         initFetchedResultsController()
     }
@@ -42,6 +43,11 @@ class ChooseActivityViewController: MainViewController {
     
     weak var delegate: ChooseActivityDelegate?
 
+    func initObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
     func initNavigationBar() {
         let backButton = UIBarButtonItem(title: R.string.localizable.back(), style: .plain, target: self, action: #selector(onBackButtonClicked))
         
@@ -165,4 +171,27 @@ extension ChooseActivityViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
     
+}
+
+//MARK: Keyboard handling
+extension ChooseActivityViewController {
+    func keyboardWillShow(notification:NSNotification){
+        
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.size.height, 0.0)
+        
+    }
+    
+    func keyboardWillHide(notification:NSNotification){
+//
+//        var userInfo = notification.userInfo!
+//        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+        
+    }
 }

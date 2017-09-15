@@ -29,29 +29,29 @@ extension UIColor
         )
     }
     
-    public class var mainRed: UIColor
-    {
+    public class var mainRed: UIColor{
         return UIColor(hex: "#B24640")
     }
-    public class var mainYellow: UIColor
-    {
+    public class var mainYellow: UIColor{
         return UIColor(hex: "#FFC556")
     }
-    public class var mainBlue: UIColor
-    {
+    public class var mainBlue: UIColor{
         return UIColor(hex: "#5556C9")
     }
-    public class var mainGreen: UIColor
-    {
+    public class var mainGreen: UIColor{
         return UIColor(hex: "#55BF53")
     }
-    public class var mainDarkGreen: UIColor
-    {
+    public class var mainDarkGreen: UIColor{
         return UIColor(hex: "#096E16")
     }
-    public class var mainDarkRed: UIColor
-    {
+    public class var mainDarkRed: UIColor{
         return UIColor(hex: "#9E1E16")
+    }
+    public class var mainPastelGreen: UIColor{
+        return UIColor(hex: "8FCF7A")
+    }
+    public class var mainPastelRed: UIColor {
+        return UIColor(hex: "C75957")
     }
     
 }

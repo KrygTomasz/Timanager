@@ -8,6 +8,7 @@ target 'Timanager' do
   # Pods for Timanager
     pod 'Charts'
     pod 'R.swift'
+    pod 'Hero'
 
   target 'TimanagerTests' do
     inherit! :search_paths

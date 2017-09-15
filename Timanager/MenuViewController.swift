@@ -47,9 +47,12 @@ class MenuViewController: MainViewController {
     }
     @IBOutlet weak var startButton: UIButton! {
         didSet {
-            startButton.setTitle(R.string.localizable.start(), for: .normal)
+            startButton.heroID = "play"
+            startButton.setTitle("", for: .normal)
+            startButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+            startButton.tintColor = .mainDarkGreen
             startButton.layer.cornerRadius = 10.0
-            startButton.backgroundColor = UIColor.mainDarkGreen
+            startButton.backgroundColor = .mainPastelGreen
             startButton.setTitleColor(.white, for: .normal)
             startButton.addTarget(self, action: #selector(onStartButtonClicked), for: .touchUpInside)
             startButton.addShadow()
@@ -57,9 +60,11 @@ class MenuViewController: MainViewController {
     }
     @IBOutlet weak var stopButton: UIButton! {
         didSet {
-            stopButton.setTitle(R.string.localizable.stop(), for: .normal)
+            stopButton.setTitle("", for: .normal)
+            stopButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            stopButton.tintColor = .mainDarkRed
             stopButton.layer.cornerRadius = 10.0
-            stopButton.backgroundColor = UIColor.mainDarkRed
+            stopButton.backgroundColor = .mainPastelRed
             stopButton.setTitleColor(.white, for: .normal)
             stopButton.addTarget(self, action: #selector(onStopButtonClicked), for: .touchUpInside)
             stopButton.addShadow()

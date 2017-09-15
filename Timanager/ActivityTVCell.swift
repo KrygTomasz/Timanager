@@ -14,13 +14,16 @@ class ActivityTVCell: UITableViewCell {
         didSet {
             nameTextField.delegate = self
             nameTextField.isEnabled = false
+            nameTextField.textColor = .white
+            nameTextField.tintColor = .white
         }
     }
     @IBOutlet weak var nameBackgroundView: UIView! {
         didSet {
             nameBackgroundView.layer.borderWidth = 1.0
             nameBackgroundView.layer.borderColor = UIColor.mainRed.cgColor
-            nameBackgroundView.layer.cornerRadius = nameBackgroundView.frame.height/2
+            nameBackgroundView.backgroundColor = .mainPastelRed
+            nameBackgroundView.layer.cornerRadius = 8//nameBackgroundView.frame.height/2
         }
     }
     
