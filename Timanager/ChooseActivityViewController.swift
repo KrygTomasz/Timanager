@@ -31,7 +31,7 @@ class ChooseActivityViewController: MainViewController {
         super.viewDidLoad()
 
         initObservers()
-        initNavigationBar()
+//        initNavigationBar()
         initFetchedResultsController()
     }
     
@@ -96,6 +96,10 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+        guard let selectedCell = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
+            return
+        }
+        selectedCell.nameTextField.heroID = "choosenActivityLabel"
         let object = filteredActivities[indexPath.row]
         delegate?.chooseActivity(object)
         self.dismiss(animated: true, completion: nil)

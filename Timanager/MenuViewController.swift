@@ -35,12 +35,13 @@ class MenuViewController: MainViewController {
     }
     @IBOutlet weak var chooseActivityButton: UIButton! {
         didSet {
+            chooseActivityButton.titleLabel?.heroID = "choosenActivityLabel"
             chooseActivityButton.setTitle(R.string.localizable.chooseActivity(), for: .normal)
             chooseActivityButton.layer.cornerRadius = 10.0
             chooseActivityButton.backgroundColor = UIColor.black
             chooseActivityButton.setTitleColor(.white, for: .normal)
             chooseActivityButton.addTarget(self, action: #selector(onChooseActivityButtonClicked), for: .touchUpInside)
-            chooseActivityButton.addShadow()
+//            chooseActivityButton.addShadow()
         }
     }
     @IBOutlet weak var startButton: UIButton! {
@@ -53,7 +54,7 @@ class MenuViewController: MainViewController {
             startButton.backgroundColor = .mainPastelGreen
             startButton.setTitleColor(.white, for: .normal)
             startButton.addTarget(self, action: #selector(onStartButtonClicked), for: .touchUpInside)
-            startButton.addShadow()
+//            startButton.addShadow()
         }
     }
     @IBOutlet weak var stopButton: UIButton! {
@@ -65,7 +66,7 @@ class MenuViewController: MainViewController {
             stopButton.backgroundColor = .mainPastelRed
             stopButton.setTitleColor(.white, for: .normal)
             stopButton.addTarget(self, action: #selector(onStopButtonClicked), for: .touchUpInside)
-            stopButton.addShadow()
+//            stopButton.addShadow()
         }
     }
     
@@ -141,9 +142,9 @@ class MenuViewController: MainViewController {
         }
         vc.prepare(using: .black)
         vc.delegate = self
-        let navController = UINavigationController(rootViewController: vc)
+//        let navController = UINavigationController(rootViewController: vc)
 
-        present(navController, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
     
     func onStartButtonClicked() {
@@ -181,9 +182,9 @@ class MenuViewController: MainViewController {
     func enableButton(_ button: UIButton, enable: Bool) {
         button.isEnabled = enable
         if enable {
-            button.addShadow()
+//            button.addShadow()
         } else {
-            button.removeShadow()
+//            button.removeShadow()
         }
     }
 

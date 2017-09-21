@@ -137,7 +137,7 @@ class ActivityManagerViewController: MainViewController {
         guard let activityName = newActivityTextField.text else {
             return
         }
-        if activityName.isEmpty {
+        if activityName.isEmpty || activityExists(name: activityName) {
             return
         }
         let object = Activity(context: context)
@@ -148,6 +148,22 @@ class ActivityManagerViewController: MainViewController {
             print("Error saving activity object")
         }
         newActivityTextField.text = ""
+    }
+    
+    func activityExists(name: String?) -> Bool {
+        let activityWithGivenNameOptional = fetchedResultsController?.fetchedObjects?.filter { activity in
+            guard let activityName = activity.name else {
+                return false
+            }
+            return name == activityName
+        }
+        guard let activityWithGivenName = activityWithGivenNameOptional else {
+            return false
+        }
+        if activityWithGivenName.isEmpty { } else {
+            return true
+        }
+        return false
     }
     
     func showNewActivityView(_ show: Bool) {
