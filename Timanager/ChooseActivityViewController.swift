@@ -15,9 +15,15 @@ protocol ChooseActivityDelegate: class {
 
 class ChooseActivityViewController: MainViewController {
 
+    @IBOutlet var contentView: UIView! {
+        didSet {
+            contentView.backgroundColor = .darkGray
+        }
+    }
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.delegate = self
+            searchBar.barTintColor = .darkGray
         }
     }
     @IBOutlet weak var tableView: UITableView! {
@@ -74,6 +80,7 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
             let searchText = searchBar.text else {
                 return
         }
+        activityCell.contentView.heroID = "choosenActivity"
         let object = filteredActivities[indexPath.row]
         activityCell.prepare(withName: object.name)
         
@@ -99,10 +106,27 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
         guard let selectedCell = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
             return
         }
-        selectedCell.nameTextField.heroID = "choosenActivityLabel"
+//        selectedCell.activityButton.heroID = "choosenActivityLabel"
         let object = filteredActivities[indexPath.row]
         delegate?.chooseActivity(object)
+        tableView.deselectRow(at: indexPath, animated: false)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        guard let selectedCell = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
+            return
+        }
+        selectedCell.nameBackgroundView.backgroundColor = .mainRed
+//        selectedCell.contentView.backgroundColor = .black
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        guard let selectedCell = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
+            return
+        }
+        selectedCell.nameBackgroundView.backgroundColor = .mainPastelRed
+//        selectedCell.contentView.backgroundColor = .black
     }
     
 }

@@ -51,7 +51,7 @@ class MenuCVCell: UICollectionViewCell {
     }
     @IBOutlet weak var titleImageView: UIImageView! {
         didSet {
-            titleImageView.heroID = "navigationImageView"
+//            titleImageView.heroID = "navigationImageView"
         }
     }
     override func awakeFromNib() {
@@ -68,7 +68,7 @@ class MenuCVCell: UICollectionViewCell {
         titleLabel.text = data.title
         titleLabel.textColor = .white
         prepareImage(data.image, color: data.color)
-        container.backgroundColor = .white
+        container.backgroundColor = .clear
         prepareContainer()
         
     }
@@ -76,7 +76,7 @@ class MenuCVCell: UICollectionViewCell {
     fileprivate func prepareImage(_ image: UIImage?, color: UIColor?) {
         titleImageView.image = image
         titleImageView.image = titleImageView.image?.withRenderingMode(.alwaysTemplate)
-        titleImageView.tintColor = color
+        titleImageView.tintColor = .white
     }
     
     fileprivate func prepareContainer() {

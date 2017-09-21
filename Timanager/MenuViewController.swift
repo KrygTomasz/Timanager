@@ -21,6 +21,7 @@ class MenuViewController: MainViewController {
     @IBOutlet weak var activityView: UIView! {
         didSet {
             activityView.backgroundColor = .gray
+            activityView.roundCornersWithLayerMask(cornerRadii: 10.0, corners: [.topLeft, .topRight])
         }
     }
     @IBOutlet weak var currentActivityLabel: UILabel! {
@@ -35,10 +36,12 @@ class MenuViewController: MainViewController {
     }
     @IBOutlet weak var chooseActivityButton: UIButton! {
         didSet {
-            chooseActivityButton.titleLabel?.heroID = "choosenActivityLabel"
+            chooseActivityButton.heroID = "choosenActivity"
             chooseActivityButton.setTitle(R.string.localizable.chooseActivity(), for: .normal)
-            chooseActivityButton.layer.cornerRadius = 10.0
-            chooseActivityButton.backgroundColor = UIColor.black
+            chooseActivityButton.layer.cornerRadius = 8
+            chooseActivityButton.layer.borderWidth = 1.0
+            chooseActivityButton.layer.borderColor = UIColor.mainRed.cgColor
+            chooseActivityButton.backgroundColor = .mainPastelRed
             chooseActivityButton.setTitleColor(.white, for: .normal)
             chooseActivityButton.addTarget(self, action: #selector(onChooseActivityButtonClicked), for: .touchUpInside)
 //            chooseActivityButton.addShadow()
@@ -80,6 +83,7 @@ class MenuViewController: MainViewController {
                 return
             }
             chooseActivityButton.setTitle("\(name)", for: .normal)
+            chooseActivityButton.setTitleColor(.white, for: .normal)
         }
     }
     var currentActivity: PlannedActivity? {
@@ -143,7 +147,8 @@ class MenuViewController: MainViewController {
         vc.prepare(using: .black)
         vc.delegate = self
 //        let navController = UINavigationController(rootViewController: vc)
-
+        self.modalPresentationStyle = .overCurrentContext
+        vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)
     }
     
@@ -216,6 +221,18 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
+        guard let menuCell = collectionView.cellForItem(at: indexPath) as? MenuCVCell else {
+            return
+        }
+        for cell in collectionView.visibleCells {
+            guard let tempCell = cell as? MenuCVCell else {
+                return
+            }
+            tempCell.titleImageView.heroID = nil
+            tempCell.titleLabel.heroID = nil
+        }
+        menuCell.titleImageView.heroID = "navigationImageView"
+        menuCell.titleLabel.heroID = "navigation"
        let data = MenuCVCellData(forIndexPath: indexPath)
         switch indexPath.row {
         case 0:
@@ -235,7 +252,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = collectionView.bounds.width
-        let cellHeight = collectionView.bounds.height
+        let cellHeight = collectionView.bounds.height/3
         return CGSize(width: cellWidth, height: cellHeight)
     }
     

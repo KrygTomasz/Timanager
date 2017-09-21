@@ -23,7 +23,7 @@ class ActivityTVCell: UITableViewCell {
             nameBackgroundView.layer.borderWidth = 1.0
             nameBackgroundView.layer.borderColor = UIColor.mainRed.cgColor
             nameBackgroundView.backgroundColor = .mainPastelRed
-            nameBackgroundView.layer.cornerRadius = 8//nameBackgroundView.frame.height/2
+            nameBackgroundView.layer.cornerRadius = 8
         }
     }
     
@@ -33,6 +33,10 @@ class ActivityTVCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: animated)
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(false, animated: animated)
     }
     
     var activity: Activity?

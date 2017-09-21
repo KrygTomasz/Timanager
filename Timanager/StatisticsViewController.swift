@@ -65,7 +65,7 @@ class StatisticsViewController: MainViewController {
         guard let vc = storyboard.instantiateViewController(withIdentifier: StatisticsIdentifiers.PieChartVC) as? PieChartViewController else {
             return PieChartViewController()
         }
-        vc.prepare(using: self.color)
+//        vc.prepare(using: .clear)
         self.addViewControllerAsChildViewController(childViewController: vc)
         return vc
     }()
