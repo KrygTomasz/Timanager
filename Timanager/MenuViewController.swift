@@ -43,6 +43,7 @@ class MenuViewController: MainViewController {
             chooseActivityButton.layer.borderColor = UIColor.mainRed.cgColor
             chooseActivityButton.backgroundColor = .mainPastelRed
             chooseActivityButton.setTitleColor(.white, for: .normal)
+            chooseActivityButton.setTitleColor(.darkGray, for: .disabled)
             chooseActivityButton.addTarget(self, action: #selector(onChooseActivityButtonClicked), for: .touchUpInside)
 //            chooseActivityButton.addShadow()
         }
@@ -96,20 +97,15 @@ class MenuViewController: MainViewController {
                 return
             }
             currentActivityLabel.text = "\(R.string.localizable.activity()): \(name)"
-            guard let startDate = currentActivity?.startDate else {
-                return
-            }
-            let date = Date(timeIntervalSince1970: TimeInterval(startDate))
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH:mm:ss"
-            
-            let timeString = dateFormatter.string(from: date)
-            timeLabel.text = "\(R.string.localizable.startHour()): \(timeString)"
             enableButton(startButton, enable: false)
             enableButton(stopButton, enable: true)
             enableButton(chooseActivityButton, enable: false)
+            startTimer()
+            onTimerUpdate()
         }
     }
+    
+    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -181,15 +177,40 @@ class MenuViewController: MainViewController {
             print("Error saving activity object")
         }
         currentActivity = nil
+        stopTimer()
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerUpdate), userInfo: nil, repeats: true)
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+    }
+    
+    func onTimerUpdate() {
+        guard let startDate = currentActivity?.startDate else {
+            return
+        }
+        
+        let start = Date(timeIntervalSince1970: TimeInterval(startDate))
+        let durationInSeconds = -start.timeIntervalSinceNow
+        let parsedDuration = parseDuration(using: durationInSeconds)
+        let hours = String(format: "%02d", parsedDuration.hours)
+        let minutes = String(format: "%02d", parsedDuration.minutes)
+        let seconds = String(format: "%02d", parsedDuration.seconds)
+        timeLabel.text = "Czas trwania: \(hours):\(minutes):\(seconds)"
+    }
+    
+    func parseDuration(using seconds: TimeInterval) -> (hours: Int, minutes: Int, seconds: Int) {
+        let hours = Int(seconds/3600)
+        let minutes = Int(seconds/60)%60
+        let seconds = Int(seconds)%60
+        return (hours, minutes, seconds)
     }
     
     func enableButton(_ button: UIButton, enable: Bool) {
         button.isEnabled = enable
-        if enable {
-//            button.addShadow()
-        } else {
-//            button.removeShadow()
-        }
     }
 
 }
