@@ -20,15 +20,33 @@ class ChooseActivityViewController: MainViewController {
             contentView.backgroundColor = UIColor.mainPastelRed
         }
     }
+    @IBOutlet weak var closeButton: UIButton! {
+        didSet {
+            closeButton.setTitle("", for: .normal)
+            closeButton.setImage(#imageLiteral(resourceName: "down"), for: .normal)
+            closeButton.tintColor = .white
+            closeButton.scaleImage(height: 24, width: 24)
+            closeButton.backgroundColor = .clear
+            closeButton.addTarget(self, action: #selector(onCloseButtonClicked), for: .touchUpInside)
+        }
+    }
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.delegate = self
             searchBar.barTintColor = .mainPastelRed
+            searchBar.layer.borderWidth = 1
+            searchBar.layer.borderColor = UIColor.mainPastelRed.cgColor
+//            searchBar.setImage(#imageLiteral(resourceName: "search"), for: .search, state: .normal)
             for subview in searchBar.subviews {
-                for view in subview.subviews {
-                    if let textField = view as? UITextField {
-                        textField.tintColor = UIColor.mainRed
-                        textField.textColor = UIColor.mainRed
+                for subsubview in subview.subviews {
+                    if let textField = subsubview as? UITextField {
+                        textField.tintColor = .white
+                        textField.textColor = .white
+                        textField.backgroundColor = .mainRed
+                        if let imageView = textField.leftView as? UIImageView {
+                            let searchImage = #imageLiteral(resourceName: "search").withRenderingMode(.alwaysTemplate)
+                            imageView.image = searchImage
+                        }
                     }
                 }
                 
@@ -38,6 +56,7 @@ class ChooseActivityViewController: MainViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.backgroundColor = .mainPastelRed
+            tableView.keyboardDismissMode = .interactive
             tableView.register(R.nib.activityTVCell(), forCellReuseIdentifier: R.reuseIdentifier.activityTVCell.identifier)
             tableView.delegate = self
             tableView.dataSource = self
@@ -47,7 +66,6 @@ class ChooseActivityViewController: MainViewController {
         super.viewDidLoad()
 
         initObservers()
-//        initNavigationBar()
         initFetchedResultsController()
     }
     
@@ -64,14 +82,8 @@ class ChooseActivityViewController: MainViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func initNavigationBar() {
-        let backButton = UIBarButtonItem(title: R.string.localizable.back(), style: .plain, target: self, action: #selector(onBackButtonClicked))
-        
-        self.navigationItem.rightBarButtonItem = backButton
-    }
-    
-    func onBackButtonClicked() {
-        dismiss(animated: true, completion: nil)
+    func onCloseButtonClicked() {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }
@@ -116,7 +128,6 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
         guard let selectedCell = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
             return
         }
-//        selectedCell.activityButton.heroID = "choosenActivityLabel"
         let object = filteredActivities[indexPath.row]
         delegate?.chooseActivity(object)
         tableView.deselectRow(at: indexPath, animated: false)
@@ -128,7 +139,6 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
             return
         }
         selectedCell.nameBackgroundView.backgroundColor = .mainRed
-//        selectedCell.contentView.backgroundColor = .black
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
@@ -136,7 +146,6 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
             return
         }
         selectedCell.nameBackgroundView.backgroundColor = .mainPastelRed
-//        selectedCell.contentView.backgroundColor = .black
     }
     
 }

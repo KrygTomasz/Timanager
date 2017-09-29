@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -156,25 +157,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Lh-nS-IrW">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXn-9x-GZh">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="64"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Hcw-7i-nl1">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                        <rect key="frame" x="64" y="0.0" width="311" height="64"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xH4-Nv-GI8">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="xH4-Nv-GI8" secondAttribute="height" multiplier="1:1" id="99C-Vp-Sj9"/>
+                                            <constraint firstAttribute="height" constant="64" id="yJj-4X-Fro"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="xH4-Nv-GI8" firstAttribute="leading" secondItem="nXn-9x-GZh" secondAttribute="leading" id="9DT-Sk-rma"/>
+                                    <constraint firstItem="xH4-Nv-GI8" firstAttribute="top" secondItem="nXn-9x-GZh" secondAttribute="top" id="Q3i-hG-bUB"/>
+                                    <constraint firstItem="Hcw-7i-nl1" firstAttribute="leading" secondItem="xH4-Nv-GI8" secondAttribute="trailing" id="S9k-2F-70C"/>
                                     <constraint firstAttribute="trailing" secondItem="Hcw-7i-nl1" secondAttribute="trailing" id="gew-QD-uUh"/>
+                                    <constraint firstAttribute="bottom" secondItem="xH4-Nv-GI8" secondAttribute="bottom" id="iPD-P1-Eer"/>
                                     <constraint firstItem="Hcw-7i-nl1" firstAttribute="top" secondItem="nXn-9x-GZh" secondAttribute="top" id="s8Z-ah-ybE"/>
                                     <constraint firstAttribute="bottom" secondItem="Hcw-7i-nl1" secondAttribute="bottom" id="vH9-ue-iuE"/>
-                                    <constraint firstItem="Hcw-7i-nl1" firstAttribute="leading" secondItem="nXn-9x-GZh" secondAttribute="leading" id="y4R-ba-QFP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -193,6 +205,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="closeButton" destination="xH4-Nv-GI8" id="b4v-0q-dcT"/>
                         <outlet property="contentView" destination="rP5-jr-RRg" id="cll-b8-ifm"/>
                         <outlet property="searchBar" destination="Hcw-7i-nl1" id="9pR-Gu-Htd"/>
                         <outlet property="tableView" destination="9Lh-nS-IrW" id="9iJ-KV-93b"/>
@@ -200,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FT2-uV-9bW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="-603"/>
+            <point key="canvasLocation" x="696.79999999999995" y="-603.14842578710648"/>
         </scene>
     </scenes>
 </document>
