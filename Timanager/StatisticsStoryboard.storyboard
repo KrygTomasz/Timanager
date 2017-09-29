@@ -119,6 +119,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="closeButton" destination="7JP-QF-N3j" id="oKp-DD-KAr"/>
+                        <outlet property="containerView" destination="xJA-xS-vc6" id="w8K-tC-bz5"/>
                         <outlet property="mainView" destination="HZe-Pz-AbE" id="gvd-DE-r8z"/>
                         <outlet property="navigationImageView" destination="nEY-vg-nUw" id="h8K-sG-he1"/>
                         <outlet property="navigationLabel" destination="ydR-yE-X0z" id="Lnh-LS-0b1"/>

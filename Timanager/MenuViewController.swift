@@ -49,7 +49,6 @@ class MenuViewController: MainViewController {
     }
     @IBOutlet weak var startButton: UIButton! {
         didSet {
-            startButton.heroID = "play"
             startButton.setTitle("", for: .normal)
             startButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             startButton.tintColor = .mainDarkGreen
@@ -228,11 +227,11 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let tempCell = cell as? MenuCVCell else {
                 return
             }
-            tempCell.titleImageView.heroID = nil
-            tempCell.titleLabel.heroID = nil
+            tempCell.resetHeroIds()
         }
         menuCell.titleImageView.heroID = "navigationImageView"
-        menuCell.titleLabel.heroID = "navigation"
+        menuCell.titleLabel.heroID = "navigationTitle"
+        menuCell.bottomView.heroID = "navigation"
        let data = MenuCVCellData(forIndexPath: indexPath)
         switch indexPath.row {
         case 0:

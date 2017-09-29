@@ -11,6 +11,12 @@ import CoreData
 
 class StatisticsViewController: MainViewController {
 
+    @IBOutlet var containerView: UIView! {
+        didSet {
+            containerView.heroID = "navigation"
+            containerView.backgroundColor = self.color
+        }
+    }
     @IBOutlet weak var navigationView: UIView! {
         didSet {
             navigationView.backgroundColor = self.color
@@ -18,7 +24,7 @@ class StatisticsViewController: MainViewController {
     }
     @IBOutlet weak var navigationLabel: UILabel! {
         didSet {
-            navigationLabel.heroID = "navigation"
+            navigationLabel.heroID = "navigationTitle"
             navigationLabel.textColor = .white
             navigationLabel.text = R.string.localizable.statistics()
         }
@@ -56,7 +62,7 @@ class StatisticsViewController: MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initNavigationBar()
-        self.setGradientBackground()
+//        self.setGradientBackground()
         setupView()
     }
     

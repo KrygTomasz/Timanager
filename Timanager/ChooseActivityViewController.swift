@@ -17,17 +17,27 @@ class ChooseActivityViewController: MainViewController {
 
     @IBOutlet var contentView: UIView! {
         didSet {
-            contentView.backgroundColor = .darkGray
+            contentView.backgroundColor = UIColor.mainPastelRed
         }
     }
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.delegate = self
-            searchBar.barTintColor = .darkGray
+            searchBar.barTintColor = .mainPastelRed
+            for subview in searchBar.subviews {
+                for view in subview.subviews {
+                    if let textField = view as? UITextField {
+                        textField.tintColor = UIColor.mainRed
+                        textField.textColor = UIColor.mainRed
+                    }
+                }
+                
+            }
         }
     }
     @IBOutlet weak var tableView: UITableView! {
         didSet {
+            tableView.backgroundColor = .mainPastelRed
             tableView.register(R.nib.activityTVCell(), forCellReuseIdentifier: R.reuseIdentifier.activityTVCell.identifier)
             tableView.delegate = self
             tableView.dataSource = self

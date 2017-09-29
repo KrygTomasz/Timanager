@@ -62,7 +62,8 @@ class MenuCVCell: UICollectionViewCell {
     
     func prepare(with data: MenuCVCellData) {
         
-        titleLabel.heroID = "navigation"
+        bottomView.heroID = "navigation"
+        titleLabel.heroID = "navigationTitle"
         
         bottomView.backgroundColor = data.color
         titleLabel.text = data.title
@@ -73,6 +74,12 @@ class MenuCVCell: UICollectionViewCell {
         
     }
     
+    func resetHeroIds() {
+        bottomView.heroID = nil
+        titleLabel.heroID = nil
+        titleImageView.heroID = nil
+    }
+    
     fileprivate func prepareImage(_ image: UIImage?, color: UIColor?) {
         titleImageView.image = image
         titleImageView.image = titleImageView.image?.withRenderingMode(.alwaysTemplate)
@@ -81,8 +88,8 @@ class MenuCVCell: UICollectionViewCell {
     
     fileprivate func prepareContainer() {
         layoutIfNeeded()
-        bottomView.layer.cornerRadius = 16
-        container.layer.cornerRadius = 16//container.bounds.height/2
+//        bottomView.layer.cornerRadius = 16
+//        container.layer.cornerRadius = 16//container.bounds.height/2
 //        container.roundCornersWithLayerMask(cornerRadii: container.bounds.height/2, corners: [.bottomLeft, .topLeft])
     }
 

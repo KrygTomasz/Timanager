@@ -11,6 +11,12 @@ import Hero
 
 class SettingsViewController: MainViewController {
 
+    @IBOutlet var containerView: UIView! {
+        didSet {
+            containerView.heroID = "navigation"
+            containerView.backgroundColor = self.color
+        }
+    }
     @IBOutlet weak var navigationView: UIView! {
         didSet {
             navigationView.backgroundColor = self.color
@@ -28,7 +34,7 @@ class SettingsViewController: MainViewController {
     }
     @IBOutlet weak var navigationLabel: UILabel! {
         didSet {
-            navigationLabel.heroID = "navigation"
+            navigationLabel.heroID = "navigationTitle"
             navigationLabel.textColor = .white
             navigationLabel.text = R.string.localizable.settings()
         }
@@ -43,22 +49,9 @@ class SettingsViewController: MainViewController {
         }
     }
     
-    @IBOutlet weak var startButton: UIButton! {
-        didSet {
-            startButton.heroID = "play"
-            startButton.setTitle("", for: .normal)
-            startButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
-            startButton.tintColor = .mainDarkGreen
-            startButton.layer.cornerRadius = 10.0
-            startButton.backgroundColor = .mainPastelGreen
-            startButton.setTitleColor(.white, for: .normal)
-            startButton.addShadow()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setGradientBackground()
+//        self.setGradientBackground()
     }
     
     func onCloseButtonClicked() {

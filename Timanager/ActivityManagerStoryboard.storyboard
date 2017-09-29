@@ -158,6 +158,7 @@
                     <connections>
                         <outlet property="addActivityButton" destination="Aec-dy-ipK" id="XNp-fc-tjC"/>
                         <outlet property="closeButton" destination="X89-Ch-UH9" id="Ul1-So-NKo"/>
+                        <outlet property="containerView" destination="6FU-QT-GkY" id="3oc-m0-J60"/>
                         <outlet property="mainNewActivityView" destination="FYc-js-aHK" id="Q6C-hF-yfl"/>
                         <outlet property="navigationImageView" destination="UBu-01-dsu" id="rIs-Dl-r5M"/>
                         <outlet property="navigationLabel" destination="vlJ-4R-Mv7" id="6Ut-Eu-30v"/>
