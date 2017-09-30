@@ -11,4 +11,5 @@ import UIKit
 struct StatisticsIdentifiers {
     static let StatisticsVC = "StatisticsVC"
     static let PieChartVC = "PieChartVC"
+    static let BarChartVC = "BarChartVC"
 }

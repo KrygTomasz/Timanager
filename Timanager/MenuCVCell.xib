@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,7 +54,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="424" height="179"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-bl-P7a">
-                                                <rect key="frame" x="179" y="0.0" width="229" height="229"/>
+                                                <rect key="frame" x="179" y="15" width="229" height="229"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="UBC-bl-P7a" secondAttribute="height" multiplier="1:1" id="2G1-0f-aF2"/>
                                                 </constraints>
@@ -66,12 +66,12 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.095184233300000004" blue="0.16577543650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="sgr-ge-t39" firstAttribute="leading" secondItem="22c-n5-hcf" secondAttribute="leading" id="1NJ-Uu-bGh"/>
                                     <constraint firstAttribute="bottom" secondItem="sgr-ge-t39" secondAttribute="bottom" id="9cQ-TU-p78"/>
                                     <constraint firstItem="EOl-dv-Lwd" firstAttribute="top" secondItem="22c-n5-hcf" secondAttribute="top" id="GIB-gq-NOR"/>
-                                    <constraint firstAttribute="bottom" secondItem="UBC-bl-P7a" secondAttribute="bottom" constant="30" id="HFa-S0-nez"/>
+                                    <constraint firstAttribute="bottom" secondItem="UBC-bl-P7a" secondAttribute="bottom" constant="15" id="HFa-S0-nez"/>
                                     <constraint firstAttribute="trailing" secondItem="sgr-ge-t39" secondAttribute="trailing" id="OJz-8H-KjP"/>
                                     <constraint firstAttribute="trailing" secondItem="EOl-dv-Lwd" secondAttribute="trailing" id="ZDe-d2-e0V"/>
                                     <constraint firstItem="EOl-dv-Lwd" firstAttribute="leading" secondItem="22c-n5-hcf" secondAttribute="leading" id="cqJ-Om-frM"/>

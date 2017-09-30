@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -198,6 +198,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Yf-VP-yDy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1016.8" y="62.518740629685162"/>
+        </scene>
+        <!--Bar Chart View Controller-->
+        <scene sceneID="JUk-2I-f1T">
+            <objects>
+                <viewController storyboardIdentifier="BarChartVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P4W-HP-v2y" customClass="BarChartViewController" customModule="Timanager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ytx-Mp-TIN"/>
+                        <viewControllerLayoutGuide type="bottom" id="4hp-NG-oho"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GZP-qt-bTc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6I-0P-aug">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BlQ-4R-Bxa" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="42" width="375" height="605"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZf-FJ-KKi">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DVm-Oc-lTV">
+                                                <rect key="frame" x="32" y="8" width="311" height="26"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="DVm-Oc-lTV" secondAttribute="trailing" constant="32" id="8fp-tZ-b72"/>
+                                            <constraint firstItem="DVm-Oc-lTV" firstAttribute="leading" secondItem="FZf-FJ-KKi" secondAttribute="leading" constant="32" id="V51-5z-avE"/>
+                                            <constraint firstAttribute="bottom" secondItem="DVm-Oc-lTV" secondAttribute="bottom" constant="8" id="WhW-oT-zL5"/>
+                                            <constraint firstItem="DVm-Oc-lTV" firstAttribute="top" secondItem="FZf-FJ-KKi" secondAttribute="top" constant="8" id="ZlE-xA-EXE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="BlQ-4R-Bxa" secondAttribute="bottom" id="Ma4-dR-feG"/>
+                                    <constraint firstAttribute="trailing" secondItem="BlQ-4R-Bxa" secondAttribute="trailing" id="QCE-nL-3b5"/>
+                                    <constraint firstAttribute="trailing" secondItem="FZf-FJ-KKi" secondAttribute="trailing" id="XCF-XB-iCS"/>
+                                    <constraint firstItem="BlQ-4R-Bxa" firstAttribute="leading" secondItem="v6I-0P-aug" secondAttribute="leading" id="gG1-1P-SlY"/>
+                                    <constraint firstItem="FZf-FJ-KKi" firstAttribute="top" secondItem="v6I-0P-aug" secondAttribute="top" id="gfU-N3-hth"/>
+                                    <constraint firstItem="BlQ-4R-Bxa" firstAttribute="top" secondItem="FZf-FJ-KKi" secondAttribute="bottom" id="hTN-Nt-LcH"/>
+                                    <constraint firstItem="FZf-FJ-KKi" firstAttribute="leading" secondItem="v6I-0P-aug" secondAttribute="leading" id="xVU-Fo-gaQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v6I-0P-aug" firstAttribute="top" secondItem="ytx-Mp-TIN" secondAttribute="bottom" id="eVI-8E-vNH"/>
+                            <constraint firstItem="v6I-0P-aug" firstAttribute="leading" secondItem="GZP-qt-bTc" secondAttribute="leading" id="hpf-Bb-Dqs"/>
+                            <constraint firstItem="4hp-NG-oho" firstAttribute="top" secondItem="v6I-0P-aug" secondAttribute="bottom" id="iy5-j4-73s"/>
+                            <constraint firstAttribute="trailing" secondItem="v6I-0P-aug" secondAttribute="trailing" id="p42-mq-GA4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="barChartView" destination="BlQ-4R-Bxa" id="rpa-af-LT9"/>
+                        <outlet property="dateTextField" destination="DVm-Oc-lTV" id="kMg-rA-owZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqR-9A-pNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1880.8" y="62.518740629685162"/>
         </scene>
     </scenes>
 </document>

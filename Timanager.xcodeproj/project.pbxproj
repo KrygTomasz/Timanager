@@ -10,6 +10,7 @@
 		223A7DA31F12468F00879EAD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A7DA21F12468F00879EAD /* UIView+Extensions.swift */; };
 		223A7DA51F12643500879EAD /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A7DA41F12643500879EAD /* PieChartViewController.swift */; };
 		223A7DA71F12737D00879EAD /* NumberFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */; };
+		224D09D01F7FAAB100361542 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D09CF1F7FAAB100361542 /* BarChartViewController.swift */; };
 		224FD2B71F142CBF0096EE45 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD2B61F142CBF0096EE45 /* Date+Extensions.swift */; };
 		22EB39331F1136C50079C458 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39321F1136C50079C458 /* AppDelegate.swift */; };
 		22EB39381F1136C50079C458 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EB39361F1136C50079C458 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		223A7DA21F12468F00879EAD /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		223A7DA41F12643500879EAD /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		224D09CF1F7FAAB100361542 /* BarChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
 		224FD2B61F142CBF0096EE45 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		22606A571F12D3B400C1C201 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		22606A581F12D3B400C1C201 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				22EB398B1F115DE10079C458 /* StatisticsStoryboard.storyboard */,
 				22EB398E1F115E1E0079C458 /* StatisticsViewController.swift */,
 				223A7DA41F12643500879EAD /* PieChartViewController.swift */,
+				224D09CF1F7FAAB100361542 /* BarChartViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				223A7DA71F12737D00879EAD /* NumberFormatter+Extensions.swift in Sources */,
 				22EB39C31F11B3640079C458 /* ChooseActivityViewController.swift in Sources */,
 				22EB39BD1F11B25C0079C458 /* PlannedActivity+CoreDataProperties.swift in Sources */,
+				224D09D01F7FAAB100361542 /* BarChartViewController.swift in Sources */,
 				22EB39911F116D6C0079C458 /* StatisticsIdentifiers.swift in Sources */,
 				22EB39691F1139F70079C458 /* MenuViewController.swift in Sources */,
 				22EB39891F1151CD0079C458 /* UIColor+Extensions.swift in Sources */,

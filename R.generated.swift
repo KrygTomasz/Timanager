@@ -184,8 +184,6 @@ struct R: Rswift.Validatable {
       static let manageActivities = Rswift.StringResource(key: "manageActivities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Aktywność
       static let activity = Rswift.StringResource(key: "activity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Analiza
-      static let analysis = Rswift.StringResource(key: "analysis", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Brak rozpoczętej aktywności
       static let noCurrentActivity = Rswift.StringResource(key: "noCurrentActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Dodaj aktywność
@@ -214,6 +212,8 @@ struct R: Rswift.Validatable {
       static let chooseActivity = Rswift.StringResource(key: "chooseActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Wykres kołowy
       static let pieChart = Rswift.StringResource(key: "pieChart", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Wykres słupkowy
+      static let barChart = Rswift.StringResource(key: "barChart", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
       /// Value: Aktywności
       static func activities(_: Void = ()) -> String {
@@ -228,11 +228,6 @@ struct R: Rswift.Validatable {
       /// Value: Aktywność
       static func activity(_: Void = ()) -> String {
         return NSLocalizedString("activity", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// Value: Analiza
-      static func analysis(_: Void = ()) -> String {
-        return NSLocalizedString("analysis", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Brak rozpoczętej aktywności
@@ -303,6 +298,11 @@ struct R: Rswift.Validatable {
       /// Value: Wykres kołowy
       static func pieChart(_: Void = ()) -> String {
         return NSLocalizedString("pieChart", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Wykres słupkowy
+      static func barChart(_: Void = ()) -> String {
+        return NSLocalizedString("barChart", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -496,10 +496,15 @@ struct _R: Rswift.Validatable {
     }
     
     struct statisticsStoryboard: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let barChartVC = StoryboardViewControllerResource<BarChartViewController>(identifier: "BarChartVC")
       let bundle = R.hostingBundle
       let name = "StatisticsStoryboard"
       let pieChartVC = StoryboardViewControllerResource<PieChartViewController>(identifier: "PieChartVC")
       let statisticsVC = StoryboardViewControllerResource<StatisticsViewController>(identifier: "StatisticsVC")
+      
+      func barChartVC(_: Void = ()) -> BarChartViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: barChartVC)
+      }
       
       func pieChartVC(_: Void = ()) -> PieChartViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: pieChartVC)
@@ -510,6 +515,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if _R.storyboard.statisticsStoryboard().barChartVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'barChartVC' could not be loaded from storyboard 'StatisticsStoryboard' as 'BarChartViewController'.") }
         if _R.storyboard.statisticsStoryboard().pieChartVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'pieChartVC' could not be loaded from storyboard 'StatisticsStoryboard' as 'PieChartViewController'.") }
         if _R.storyboard.statisticsStoryboard().statisticsVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'statisticsVC' could not be loaded from storyboard 'StatisticsStoryboard' as 'StatisticsViewController'.") }
       }

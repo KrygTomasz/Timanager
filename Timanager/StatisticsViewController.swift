@@ -75,6 +75,16 @@ class StatisticsViewController: MainViewController {
         self.addViewControllerAsChildViewController(childViewController: vc)
         return vc
     }()
+    
+    lazy var barChartViewController: BarChartViewController = {
+        let storyboard = R.storyboard.statisticsStoryboard()
+        guard let vc = storyboard.instantiateViewController(withIdentifier: StatisticsIdentifiers.BarChartVC) as? BarChartViewController else {
+            return BarChartViewController()
+        }
+        //        vc.prepare(using: .clear)
+        self.addViewControllerAsChildViewController(childViewController: vc)
+        return vc
+    }()
 
 //    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 //    var fetchedResultsController: NSFetchedResultsController<PlannedActivity>?
@@ -91,13 +101,16 @@ class StatisticsViewController: MainViewController {
     
     private func updateView() {
         pieChartViewController.view.isHidden = !(segmentedControl.selectedSegmentIndex == 0)
+        barChartViewController.view.isHidden = !(segmentedControl.selectedSegmentIndex == 1)
+        pieChartViewController.animateChart()
+        barChartViewController.animateChart()
     }
     
     private func setupSegmentedControl() {
         segmentedControl.tintColor = .white
         segmentedControl.removeAllSegments()
         segmentedControl.insertSegment(withTitle: R.string.localizable.pieChart(), at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: R.string.localizable.analysis(), at: 1, animated: false)
+        segmentedControl.insertSegment(withTitle: R.string.localizable.barChart(), at: 1, animated: false)
         segmentedControl.addTarget(self, action: #selector(onSegmentedControlChange), for: .valueChanged)
         
         segmentedControl.selectedSegmentIndex = 0

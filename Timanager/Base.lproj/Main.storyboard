@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="602-I1-wyL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="602-I1-wyL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
+            <string>Avenir-Heavy</string>
             <string>Avenir-Light</string>
         </array>
     </customFonts>
@@ -97,7 +98,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="acY-Xd-pSj">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="381.5"/>
+                                        <rect key="frame" x="0.0" y="76" width="375" height="306"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qyv-Aq-LD5">
                                             <size key="itemSize" width="50" height="50"/>
@@ -107,16 +108,24 @@
                                         </collectionViewFlowLayout>
                                         <cells/>
                                     </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timanager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="niV-7k-dlO">
+                                        <rect key="frame" x="108.5" y="16" width="158.5" height="44"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="eTM-Wr-Mn8" firstAttribute="top" secondItem="acY-Xd-pSj" secondAttribute="bottom" constant="8" id="48k-5G-wNq"/>
                                     <constraint firstItem="eTM-Wr-Mn8" firstAttribute="height" secondItem="ltl-fY-g8V" secondAttribute="height" multiplier="2/5" id="7io-zT-CwJ"/>
+                                    <constraint firstItem="niV-7k-dlO" firstAttribute="centerX" secondItem="ltl-fY-g8V" secondAttribute="centerX" id="FSO-Tp-TK1"/>
                                     <constraint firstAttribute="bottom" secondItem="eTM-Wr-Mn8" secondAttribute="bottom" constant="-1" id="Had-M1-1bK"/>
+                                    <constraint firstItem="niV-7k-dlO" firstAttribute="top" secondItem="ltl-fY-g8V" secondAttribute="top" constant="16" id="Ihw-TL-fFF"/>
                                     <constraint firstAttribute="trailing" secondItem="acY-Xd-pSj" secondAttribute="trailing" id="XCO-V3-4Rm"/>
                                     <constraint firstItem="acY-Xd-pSj" firstAttribute="leading" secondItem="ltl-fY-g8V" secondAttribute="leading" id="dte-Tb-4bY"/>
                                     <constraint firstAttribute="trailing" secondItem="eTM-Wr-Mn8" secondAttribute="trailing" id="hy6-Ah-Wuw"/>
-                                    <constraint firstItem="acY-Xd-pSj" firstAttribute="top" secondItem="ltl-fY-g8V" secondAttribute="top" id="ruD-g0-b10"/>
+                                    <constraint firstItem="acY-Xd-pSj" firstAttribute="top" secondItem="niV-7k-dlO" secondAttribute="bottom" constant="16" id="vDK-sq-nvS"/>
                                     <constraint firstItem="eTM-Wr-Mn8" firstAttribute="leading" secondItem="ltl-fY-g8V" secondAttribute="leading" id="vWv-5G-xdm"/>
                                 </constraints>
                             </view>
