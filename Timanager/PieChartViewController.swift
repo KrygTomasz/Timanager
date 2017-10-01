@@ -48,7 +48,7 @@ class PieChartViewController: MainViewController {
             dateFormatter.dateFormat = "dd MMM, yyyy"
             let dateString = dateFormatter.string(from: date)
             dateTextField.text = dateString
-            initFetchedResultsController()
+            animateChart()
         }
     }
     
@@ -162,6 +162,10 @@ class PieChartViewController: MainViewController {
         let maxDate = Date.getEndDate(forDate: date)
         return (minDate, maxDate)
         
+    }
+    
+    func animateChart() {
+        initFetchedResultsController()
     }
     
 }

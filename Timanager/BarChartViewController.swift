@@ -29,18 +29,24 @@ class BarChartViewController: MainViewController {
     }
     @IBOutlet weak var barChartView: BarChartView! {
         didSet {
-            barChartView.highlightPerTapEnabled = false
+//            barChartView.highlightPerTapEnabled = false
             barChartView.chartDescription?.text = ""
             barChartView.delegate = self
             
+            barChartView.leftAxis.axisMinimum = 0
+            barChartView.rightAxis.axisMinimum = 0
             barChartView.leftAxis.drawGridLinesEnabled = false
             barChartView.leftAxis.drawAxisLineEnabled = false
             barChartView.rightAxis.drawGridLinesEnabled = false
             barChartView.rightAxis.drawAxisLineEnabled = false
-            
             barChartView.xAxis.drawGridLinesEnabled = false
             barChartView.xAxis.drawAxisLineEnabled = false
-            barChartView.xAxis.drawLabelsEnabled = false
+            barChartView.xAxis.drawLabelsEnabled = true
+            barChartView.xAxis.granularity = 1.0
+            barChartView.drawMarkers = true
+            barChartView.highlightPerDragEnabled = false
+            barChartView.doubleTapToZoomEnabled = false
+            
             barChartView.isHidden = true
         }
     }
@@ -52,7 +58,7 @@ class BarChartViewController: MainViewController {
             dateFormatter.dateFormat = "dd MMM, yyyy"
             let dateString = dateFormatter.string(from: date)
             dateTextField.text = dateString
-            initFetchedResultsController()
+            animateChart()
         }
     }
     
@@ -86,18 +92,22 @@ class BarChartViewController: MainViewController {
         let barChartColors = UIColor.generateColorSet(ofSize: dataEntries.count, saturation: 0.5, brightness: 1, alpha: 1)
         barChartDataSet.colors = barChartColors
         
-        let barChartData = BarChartData(dataSets: [barChartDataSet])
-        
+        let barChartData = BarChartData(dataSet: barChartDataSet)
+        barChartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
 //        barChartDataSet.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
 //        barChartDataSet.setValueTextColor(UIColor.black)
         barChartView.data = barChartData
+//        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["asd","dfg","htreg","yutr","etrr","wert","asd","dfg","htreg","yutr","etrr","wert"])
+//        barChartView.leftAxis.valueFormatter = PercentFormatter(max: 40000)
         
+//        barChartView.barData?.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
         barChartView.animate(yAxisDuration: 1.5, easingOption: .easeInOutQuint)
+        
     }
     
     func getChartDataEntries(forActivities activities: [Activity]?) -> [ChartDataEntry] {
         
-        var dataEntries: [ChartDataEntry] = []
+        var dataEntries: [BarChartDataEntry] = []
         var dataNumber: Double = 0
         
         guard let activities = activities else {
@@ -170,6 +180,10 @@ class BarChartViewController: MainViewController {
         
     }
     
+    func animateChart() {
+        initFetchedResultsController()
+    }
+    
 }
 
 //MARK: ChartView delegates
@@ -180,6 +194,12 @@ extension BarChartViewController: ChartViewDelegate {
         guard let data = entry.data as? String else {
             return
         }
+        
+        let marker:BalloonMarker = BalloonMarker(color: UIColor.white, font: UIFont(name: "Helvetica", size: 12)!, textColor: UIColor.black, insets: UIEdgeInsets(top: 7.0, left: 0.0, bottom: 7.0, right: 0.0))
+        marker.minimumSize = CGSize(width: 36.0, height: 36.0)
+        marker.setLabel("")
+        chartView.marker = marker
+        
         print(data)
     }
     
@@ -187,10 +207,6 @@ extension BarChartViewController: ChartViewDelegate {
 
 //MARK: NSFetchedResultController delegates
 extension BarChartViewController: NSFetchedResultsControllerDelegate {
-    
-    func animateChart() {
-        initFetchedResultsController()
-    }
     
     func initFetchedResultsController() {
         
@@ -235,4 +251,44 @@ extension BarChartViewController: UITextFieldDelegate {
         dateTextField.inputAccessoryView = keyboardToolbar
     }
     
+}
+
+class PercentFormatter: NSObject, IAxisValueFormatter {
+    
+    let numFormatter: NumberFormatter
+    var max: Double?
+    
+    override init() {
+        numFormatter = NumberFormatter()
+        numFormatter.minimumFractionDigits = 0
+        numFormatter.maximumFractionDigits = 1
+        
+        // if number is less than 1 add 0 before decimal
+        numFormatter.minimumIntegerDigits = 1 // how many digits do want before decimal
+        numFormatter.paddingPosition = .beforePrefix
+        numFormatter.paddingCharacter = "0"
+    }
+    
+    init(max: Double) {
+        numFormatter = NumberFormatter()
+        numFormatter.minimumFractionDigits = 0
+        numFormatter.maximumFractionDigits = 1
+        
+        // if number is less than 1 add 0 before decimal
+        numFormatter.minimumIntegerDigits = 1 // how many digits do want before decimal
+        numFormatter.paddingPosition = .beforePrefix
+        numFormatter.paddingCharacter = "0"
+        
+        self.max = max
+    }
+    
+    public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        guard let maxValue = max else {
+            return numFormatter.string(from: NSNumber(floatLiteral: value))!
+        }
+        let percentValue = value/maxValue * 100.0
+        var valueString = numFormatter.string(from: NSNumber(floatLiteral: percentValue))!
+        valueString.append("%")
+        return valueString
+    }
 }

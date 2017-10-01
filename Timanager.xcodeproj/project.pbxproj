@@ -43,6 +43,7 @@
 		22EB39C11F11B2C40079C458 /* Activity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39BF1F11B2C40079C458 /* Activity+CoreDataProperties.swift */; };
 		22EB39C31F11B3640079C458 /* ChooseActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39C21F11B3640079C458 /* ChooseActivityViewController.swift */; };
 		22EB39C51F11B3F60079C458 /* MenuIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39C41F11B3F60079C458 /* MenuIdentifiers.swift */; };
+		22F55CBD1F81275600403F9D /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F55CBC1F81275600403F9D /* BalloonMarker.swift */; };
 		429E7BA240698BA0D8AB1243 /* Pods_TimanagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D357E536E5EC28DF3B5B104C /* Pods_TimanagerTests.framework */; };
 		5B2C53F3C42C1166148FC75A /* Pods_Timanager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C21959D22B115CB7D402EB /* Pods_Timanager.framework */; };
 		7B6344C0048637578C1215EB /* Pods_TimanagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6815C2D0B1C97954DAAED91 /* Pods_TimanagerUITests.framework */; };
@@ -110,6 +111,7 @@
 		22EB39BF1F11B2C40079C458 /* Activity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		22EB39C21F11B3640079C458 /* ChooseActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseActivityViewController.swift; sourceTree = "<group>"; };
 		22EB39C41F11B3F60079C458 /* MenuIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuIdentifiers.swift; sourceTree = "<group>"; };
+		22F55CBC1F81275600403F9D /* BalloonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		25C21959D22B115CB7D402EB /* Pods_Timanager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timanager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28963BAFF110F62E52A345BA /* Pods-Timanager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timanager.release.xcconfig"; path = "Pods/Target Support Files/Pods-Timanager/Pods-Timanager.release.xcconfig"; sourceTree = "<group>"; };
 		49FE902E1A2C85546D0D42AC /* Pods-TimanagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimanagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimanagerTests/Pods-TimanagerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				223A7DA21F12468F00879EAD /* UIView+Extensions.swift */,
 				223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */,
 				224FD2B61F142CBF0096EE45 /* Date+Extensions.swift */,
+				22F55CBC1F81275600403F9D /* BalloonMarker.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				224D09D01F7FAAB100361542 /* BarChartViewController.swift in Sources */,
 				22EB39911F116D6C0079C458 /* StatisticsIdentifiers.swift in Sources */,
 				22EB39691F1139F70079C458 /* MenuViewController.swift in Sources */,
+				22F55CBD1F81275600403F9D /* BalloonMarker.swift in Sources */,
 				22EB39891F1151CD0079C458 /* UIColor+Extensions.swift in Sources */,
 				224FD2B71F142CBF0096EE45 /* Date+Extensions.swift in Sources */,
 				22EB398F1F115E1E0079C458 /* StatisticsViewController.swift in Sources */,
