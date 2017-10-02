@@ -43,7 +43,7 @@ class MenuViewController: MainViewController {
             chooseActivityButton.layer.borderColor = UIColor.mainRed.cgColor
             chooseActivityButton.backgroundColor = .mainPastelRed
             chooseActivityButton.setTitleColor(.white, for: .normal)
-            chooseActivityButton.setTitleColor(.darkGray, for: .disabled)
+            chooseActivityButton.setTitleColor(.mainRed, for: .disabled)
             chooseActivityButton.addTarget(self, action: #selector(onChooseActivityButtonClicked), for: .touchUpInside)
 //            chooseActivityButton.addShadow()
         }

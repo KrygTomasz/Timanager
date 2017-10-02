@@ -51,9 +51,13 @@ class ActivityManagerViewController: MainViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(R.nib.activityTVCell(), forCellReuseIdentifier: R.reuseIdentifier.activityTVCell.identifier)
+            tableView.keyboardDismissMode = .interactive
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.estimatedRowHeight = UITableViewAutomaticDimension
+            tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, newActivityButton.frame.height, 0.0)
+            tableView.backgroundColor = .mainRed
             tableView.delegate = self
             tableView.dataSource = self
-            tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, newActivityButton.frame.height, 0.0)
         }
     }
     @IBOutlet weak var newActivityButton: UIButton! {

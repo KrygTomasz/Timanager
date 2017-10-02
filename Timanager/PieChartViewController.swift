@@ -33,7 +33,7 @@ class PieChartViewController: MainViewController {
             pieChartView.drawHoleEnabled = false
             pieChartView.usePercentValuesEnabled = true
 //            pieChartView.drawEntryLabelsEnabled = false
-//            pieChartView.highlightPerTapEnabled = false
+            pieChartView.highlightPerTapEnabled = false
             pieChartView.chartDescription?.text = ""
             pieChartView.delegate = self
             

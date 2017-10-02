@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -16,32 +16,32 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityTVCell" id="KGk-i7-Jjw" customClass="ActivityTVCell" customModule="Timanager" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityTVCell" rowHeight="70" id="KGk-i7-Jjw" customClass="ActivityTVCell" customModule="Timanager" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rjo-IC-oBo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUy-yD-P3B">
-                                <rect key="frame" x="4" y="4" width="312" height="35.5"/>
+                                <rect key="frame" x="4" y="4" width="312" height="61.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9bo-hP-DJA">
-                                <rect key="frame" x="8" y="0.0" width="304" height="43.5"/>
+                                <rect key="frame" x="8" y="4" width="304" height="61.5"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="9bo-hP-DJA" secondAttribute="bottom" id="11u-nh-jFY"/>
+                            <constraint firstAttribute="bottom" secondItem="9bo-hP-DJA" secondAttribute="bottom" constant="4" id="11u-nh-jFY"/>
                             <constraint firstAttribute="trailing" secondItem="BUy-yD-P3B" secondAttribute="trailing" constant="4" id="2KY-MJ-h9h"/>
-                            <constraint firstItem="9bo-hP-DJA" firstAttribute="top" secondItem="Rjo-IC-oBo" secondAttribute="top" id="RaO-6Y-Lkd"/>
+                            <constraint firstItem="9bo-hP-DJA" firstAttribute="top" secondItem="Rjo-IC-oBo" secondAttribute="top" constant="4" id="RaO-6Y-Lkd"/>
                             <constraint firstItem="BUy-yD-P3B" firstAttribute="top" secondItem="Rjo-IC-oBo" secondAttribute="top" constant="4" id="U1n-Iv-RlC"/>
                             <constraint firstItem="9bo-hP-DJA" firstAttribute="leading" secondItem="Rjo-IC-oBo" secondAttribute="leading" constant="8" id="bVN-Jz-CH0"/>
                             <constraint firstAttribute="trailing" secondItem="9bo-hP-DJA" secondAttribute="trailing" constant="8" id="eUX-fK-uyg"/>
@@ -52,6 +52,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="Rjo-IC-oBo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Uaa-PL-Ofz"/>
                     <constraint firstItem="Rjo-IC-oBo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Usz-Z3-lHR"/>
                     <constraint firstAttribute="trailing" secondItem="Rjo-IC-oBo" secondAttribute="trailing" id="lTb-Vd-NQC"/>
                     <constraint firstItem="Rjo-IC-oBo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wE0-2U-LoT"/>
@@ -63,6 +64,7 @@
                 <outlet property="nameBackgroundView" destination="BUy-yD-P3B" id="qjj-IA-We8"/>
                 <outlet property="nameTextField" destination="9bo-hP-DJA" id="tVj-mB-oQd"/>
             </connections>
+            <point key="canvasLocation" x="35" y="67"/>
         </tableViewCell>
     </objects>
 </document>

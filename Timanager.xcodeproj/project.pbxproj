@@ -12,6 +12,8 @@
 		223A7DA71F12737D00879EAD /* NumberFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */; };
 		224D09D01F7FAAB100361542 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D09CF1F7FAAB100361542 /* BarChartViewController.swift */; };
 		224FD2B71F142CBF0096EE45 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD2B61F142CBF0096EE45 /* Date+Extensions.swift */; };
+		227D18511F82B8B500F2D2C7 /* SettingsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227D184F1F82B8B500F2D2C7 /* SettingsCVCell.swift */; };
+		227D18521F82B8B500F2D2C7 /* SettingsCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227D18501F82B8B500F2D2C7 /* SettingsCVCell.xib */; };
 		22EB39331F1136C50079C458 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39321F1136C50079C458 /* AppDelegate.swift */; };
 		22EB39381F1136C50079C458 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EB39361F1136C50079C458 /* Main.storyboard */; };
 		22EB393B1F1136C50079C458 /* Timanager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22EB39391F1136C50079C458 /* Timanager.xcdatamodeld */; };
@@ -74,6 +76,8 @@
 		224FD2B61F142CBF0096EE45 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		22606A571F12D3B400C1C201 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		22606A581F12D3B400C1C201 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
+		227D184F1F82B8B500F2D2C7 /* SettingsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCVCell.swift; sourceTree = "<group>"; };
+		227D18501F82B8B500F2D2C7 /* SettingsCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCVCell.xib; sourceTree = "<group>"; };
 		22EB392F1F1136C50079C458 /* Timanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22EB39321F1136C50079C458 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22EB39371F1136C50079C458 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +155,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		227D184E1F82B87A00F2D2C7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				227D184F1F82B8B500F2D2C7 /* SettingsCVCell.swift */,
+				227D18501F82B8B500F2D2C7 /* SettingsCVCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		22EB39261F1136C50079C458 = {
 			isa = PBXGroup;
 			children = (
@@ -232,8 +245,9 @@
 		22EB39651F11397A0079C458 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				22EB39A41F1174170079C458 /* R.generated.swift */,
 				22EB39321F1136C50079C458 /* AppDelegate.swift */,
+				22F55CBC1F81275600403F9D /* BalloonMarker.swift */,
+				22EB39A41F1174170079C458 /* R.generated.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -245,7 +259,6 @@
 				223A7DA21F12468F00879EAD /* UIView+Extensions.swift */,
 				223A7DA61F12737D00879EAD /* NumberFormatter+Extensions.swift */,
 				224FD2B61F142CBF0096EE45 /* Date+Extensions.swift */,
-				22F55CBC1F81275600403F9D /* BalloonMarker.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -312,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				22EB39991F1170D50079C458 /* Views */,
+				227D184E1F82B87A00F2D2C7 /* Cells */,
 				22EB39A21F1172300079C458 /* SettingsIdentifiers.swift */,
 			);
 			name = Settings;
@@ -498,6 +512,7 @@
 				22EB39AC1F1191300079C458 /* ActivityTVCell.xib in Resources */,
 				22EB393D1F1136C50079C458 /* Assets.xcassets in Resources */,
 				22EB39381F1136C50079C458 /* Main.storyboard in Resources */,
+				227D18521F82B8B500F2D2C7 /* SettingsCVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +707,7 @@
 				22EB39691F1139F70079C458 /* MenuViewController.swift in Sources */,
 				22F55CBD1F81275600403F9D /* BalloonMarker.swift in Sources */,
 				22EB39891F1151CD0079C458 /* UIColor+Extensions.swift in Sources */,
+				227D18511F82B8B500F2D2C7 /* SettingsCVCell.swift in Sources */,
 				224FD2B71F142CBF0096EE45 /* Date+Extensions.swift in Sources */,
 				22EB398F1F115E1E0079C458 /* StatisticsViewController.swift in Sources */,
 				22EB39A11F1172090079C458 /* ActivityManagerIdentifiers.swift in Sources */,

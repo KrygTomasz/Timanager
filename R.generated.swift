@@ -93,12 +93,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
     /// Nib `ActivityTVCell`.
     static let activityTVCell = _R.nib._ActivityTVCell()
     /// Nib `MenuCVCell`.
     static let menuCVCell = _R.nib._MenuCVCell()
+    /// Nib `SettingsCVCell`.
+    static let settingsCVCell = _R.nib._SettingsCVCell()
     
     /// `UINib(name: "ActivityTVCell", in: bundle)`
     static func activityTVCell(_: Void = ()) -> UIKit.UINib {
@@ -110,13 +112,20 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.menuCVCell)
     }
     
+    /// `UINib(name: "SettingsCVCell", in: bundle)`
+    static func settingsCVCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.settingsCVCell)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `MenuCVCell`.
     static let menuCVCell: Rswift.ReuseIdentifier<MenuCVCell> = Rswift.ReuseIdentifier(identifier: "MenuCVCell")
+    /// Reuse identifier `SettingsCVCell`.
+    static let settingsCVCell: Rswift.ReuseIdentifier<SettingsCVCell> = Rswift.ReuseIdentifier(identifier: "SettingsCVCell")
     /// Reuse identifier `activityTVCell`.
     static let activityTVCell: Rswift.ReuseIdentifier<ActivityTVCell> = Rswift.ReuseIdentifier(identifier: "activityTVCell")
     
@@ -176,7 +185,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 18 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 22 localization keys.
     struct localizable {
       /// Value: Aktywności
       static let activities = Rswift.StringResource(key: "activities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -186,6 +195,8 @@ struct R: Rswift.Validatable {
       static let activity = Rswift.StringResource(key: "activity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Brak rozpoczętej aktywności
       static let noCurrentActivity = Rswift.StringResource(key: "noCurrentActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Czy na pewno chcesz usunąć dane aplikacji? Tej operacji nie będzie można cofnąć!
+      static let eraseDataDescription = Rswift.StringResource(key: "eraseDataDescription", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Dodaj aktywność
       static let addActivity = Rswift.StringResource(key: "addActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Godzina rozpoczęcia
@@ -194,6 +205,8 @@ struct R: Rswift.Validatable {
       static let info = Rswift.StringResource(key: "info", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Informacje o aplikacji
       static let aboutApp = Rswift.StringResource(key: "aboutApp", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Nie
+      static let no = Rswift.StringResource(key: "no", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Nowa aktywność
       static let newActivity = Rswift.StringResource(key: "newActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Podaj nazwę aktywności
@@ -204,6 +217,8 @@ struct R: Rswift.Validatable {
       static let statistics = Rswift.StringResource(key: "statistics", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Stop
       static let stop = Rswift.StringResource(key: "stop", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Tak
+      static let yes = Rswift.StringResource(key: "yes", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Ustawienia
       static let settings = Rswift.StringResource(key: "settings", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Wróć
@@ -214,6 +229,8 @@ struct R: Rswift.Validatable {
       static let pieChart = Rswift.StringResource(key: "pieChart", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Wykres słupkowy
       static let barChart = Rswift.StringResource(key: "barChart", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Wymaż dane
+      static let eraseData = Rswift.StringResource(key: "eraseData", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
       /// Value: Aktywności
       static func activities(_: Void = ()) -> String {
@@ -235,6 +252,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("noCurrentActivity", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Czy na pewno chcesz usunąć dane aplikacji? Tej operacji nie będzie można cofnąć!
+      static func eraseDataDescription(_: Void = ()) -> String {
+        return NSLocalizedString("eraseDataDescription", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Dodaj aktywność
       static func addActivity(_: Void = ()) -> String {
         return NSLocalizedString("addActivity", bundle: R.hostingBundle, comment: "")
@@ -253,6 +275,11 @@ struct R: Rswift.Validatable {
       /// Value: Informacje o aplikacji
       static func aboutApp(_: Void = ()) -> String {
         return NSLocalizedString("aboutApp", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Nie
+      static func no(_: Void = ()) -> String {
+        return NSLocalizedString("no", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Nowa aktywność
@@ -280,6 +307,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("stop", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Tak
+      static func yes(_: Void = ()) -> String {
+        return NSLocalizedString("yes", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Ustawienia
       static func settings(_: Void = ()) -> String {
         return NSLocalizedString("settings", bundle: R.hostingBundle, comment: "")
@@ -303,6 +335,11 @@ struct R: Rswift.Validatable {
       /// Value: Wykres słupkowy
       static func barChart(_: Void = ()) -> String {
         return NSLocalizedString("barChart", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Wymaż dane
+      static func eraseData(_: Void = ()) -> String {
+        return NSLocalizedString("eraseData", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -414,6 +451,20 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> MenuCVCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MenuCVCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _SettingsCVCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = SettingsCVCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "SettingsCVCell"
+      let name = "SettingsCVCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> SettingsCVCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingsCVCell
       }
       
       fileprivate init() {}

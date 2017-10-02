@@ -58,6 +58,8 @@ class ChooseActivityViewController: MainViewController {
             tableView.backgroundColor = .mainPastelRed
             tableView.keyboardDismissMode = .interactive
             tableView.register(R.nib.activityTVCell(), forCellReuseIdentifier: R.reuseIdentifier.activityTVCell.identifier)
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.estimatedRowHeight = UITableViewAutomaticDimension
             tableView.delegate = self
             tableView.dataSource = self
         }

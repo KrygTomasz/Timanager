@@ -93,7 +93,7 @@ class BarChartViewController: MainViewController {
         barChartDataSet.colors = barChartColors
         
         let barChartData = BarChartData(dataSet: barChartDataSet)
-        barChartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
+//        barChartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
 //        barChartDataSet.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
 //        barChartDataSet.setValueTextColor(UIColor.black)
         barChartView.data = barChartData
@@ -195,7 +195,7 @@ extension BarChartViewController: ChartViewDelegate {
             return
         }
         
-        let marker:BalloonMarker = BalloonMarker(color: UIColor.white, font: UIFont(name: "Helvetica", size: 12)!, textColor: UIColor.black, insets: UIEdgeInsets(top: 7.0, left: 0.0, bottom: 7.0, right: 0.0))
+        let marker:BalloonMarker = BalloonMarker(color: UIColor.clear, font: UIFont(name: "Helvetica", size: 12)!, textColor: UIColor.black, insets: UIEdgeInsets(top: 7.0, left: 0.0, bottom: 7.0, right: 0.0))
         marker.minimumSize = CGSize(width: 36.0, height: 36.0)
         marker.setLabel("")
         chartView.marker = marker

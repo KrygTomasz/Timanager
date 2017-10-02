@@ -24,3 +24,7 @@
 "noCurrentActivity" = "Brak rozpoczętej aktywności";
 "pieChart" = "Wykres kołowy";
 "barChart" = "Wykres słupkowy";
+"eraseData" = "Wymaż dane";
+"eraseDataDescription" = "Czy na pewno chcesz usunąć dane aplikacji? Tej operacji nie będzie można cofnąć!";
+"yes" = "Tak";
+"no" = "Nie";

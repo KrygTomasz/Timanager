@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 
 extension Activity {
 
@@ -18,6 +18,20 @@ extension Activity {
 
     @NSManaged public var name: String?
     @NSManaged public var plannedActivity: NSSet?
+    
+    static func clear() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<Activity>(entityName: "Activity")
+        request.returnsObjectsAsFaults = false
+        do {
+            let activities = try context.fetch(request)
+            for activity in activities {
+                context.delete(activity)
+            }
+        } catch let error as NSError {
+            print("Failed to delete activities. Error : \(error) \(error.userInfo)")
+        }
+    }
     
     func fill(using name: String?) {
         self.name = name
