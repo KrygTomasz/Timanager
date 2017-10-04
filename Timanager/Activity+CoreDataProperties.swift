@@ -28,6 +28,7 @@ extension Activity {
             for activity in activities {
                 context.delete(activity)
             }
+            try context.save()
         } catch let error as NSError {
             print("Failed to delete activities. Error : \(error) \(error.userInfo)")
         }

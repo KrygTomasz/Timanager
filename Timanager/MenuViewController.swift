@@ -11,6 +11,12 @@ import CoreData
 
 class MenuViewController: MainViewController {
 
+    @IBOutlet weak var mainImageView: UIImageView! {
+        didSet {
+            mainImageView.contentMode = .topRight
+            mainImageView.image = #imageLiteral(resourceName: "menuBackground")
+        }
+    }
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.register(R.nib.menuCVCell(), forCellWithReuseIdentifier: R.reuseIdentifier.menuCVCell.identifier)
@@ -20,7 +26,7 @@ class MenuViewController: MainViewController {
     }
     @IBOutlet weak var activityView: UIView! {
         didSet {
-            activityView.backgroundColor = .gray
+            activityView.backgroundColor = UIColor.black.withAlphaComponent(0.75)
             activityView.roundCornersWithLayerMask(cornerRadii: 10.0, corners: [.topLeft, .topRight])
         }
     }
@@ -121,17 +127,20 @@ class MenuViewController: MainViewController {
             print("Unable to Perform Fetch Request for PlannedActivites")
             print("\(fetchError), \(fetchError.localizedDescription)")
         }
+        UIView.addParallaxToView(vw: mainImageView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.navigationController?.navigationBar.barTintColor = .black
-        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     func onChooseActivityButtonClicked() {
