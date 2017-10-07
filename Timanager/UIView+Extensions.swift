@@ -54,7 +54,7 @@ extension UIView {
     }
     
     static func addParallaxToView(vw: UIView) {
-        let amount = 30
+        let amount = 40
         
         let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
         horizontal.minimumRelativeValue = -amount

@@ -29,24 +29,24 @@ class BarChartViewController: MainViewController {
     }
     @IBOutlet weak var barChartView: BarChartView! {
         didSet {
-//            barChartView.highlightPerTapEnabled = false
-            barChartView.chartDescription?.text = ""
             barChartView.delegate = self
-            
+            barChartView.chartDescription?.text = ""
+            barChartView.legend.enabled = false
             barChartView.leftAxis.axisMinimum = 0
             barChartView.rightAxis.axisMinimum = 0
+            barChartView.leftAxis.axisMaximum = 0
+            barChartView.rightAxis.axisMaximum = 0
             barChartView.leftAxis.drawGridLinesEnabled = false
             barChartView.leftAxis.drawAxisLineEnabled = false
             barChartView.rightAxis.drawGridLinesEnabled = false
             barChartView.rightAxis.drawAxisLineEnabled = false
             barChartView.xAxis.drawGridLinesEnabled = false
             barChartView.xAxis.drawAxisLineEnabled = false
-            barChartView.xAxis.drawLabelsEnabled = true
+            barChartView.xAxis.drawLabelsEnabled = false
             barChartView.xAxis.granularity = 1.0
             barChartView.drawMarkers = true
             barChartView.highlightPerDragEnabled = false
             barChartView.doubleTapToZoomEnabled = false
-            
             barChartView.isHidden = true
         }
     }
@@ -70,6 +70,7 @@ class BarChartViewController: MainViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var fetchedResultsController: NSFetchedResultsController<Activity>?
+    var maximumValue: Int64 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,18 +88,20 @@ class BarChartViewController: MainViewController {
     func setChart(activities: [Activity]?) {
         
         let dataEntries = getChartDataEntries(forActivities: activities)
-        let barChartDataSet = BarChartDataSet(values: dataEntries, label: "")
-//        barChartDataSet.sliceSpace = 3.0
+        let barChartDataSet = BarChartDataSet(values: dataEntries, label: R.string.localizable.activities())
+        barChartDataSet.drawValuesEnabled = false
         let barChartColors = UIColor.generateColorSet(ofSize: dataEntries.count, saturation: 0.5, brightness: 1, alpha: 1)
         barChartDataSet.colors = barChartColors
         
         let barChartData = BarChartData(dataSet: barChartDataSet)
-//        barChartData.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
-//        barChartDataSet.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
-//        barChartDataSet.setValueTextColor(UIColor.black)
+
         barChartView.data = barChartData
 //        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["asd","dfg","htreg","yutr","etrr","wert","asd","dfg","htreg","yutr","etrr","wert"])
-//        barChartView.leftAxis.valueFormatter = PercentFormatter(max: 40000)
+        let max = Double(maximumValue)
+        barChartView.leftAxis.valueFormatter = PercentFormatter(max: max)
+        barChartView.rightAxis.valueFormatter = PercentFormatter(max: max)
+        barChartView.leftAxis.axisMaximum = max
+        barChartView.rightAxis.axisMaximum = max
         
 //        barChartView.barData?.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
         barChartView.animate(yAxisDuration: 1.5, easingOption: .easeInOutQuint)
@@ -109,6 +112,7 @@ class BarChartViewController: MainViewController {
         
         var dataEntries: [BarChartDataEntry] = []
         var dataNumber: Double = 0
+        maximumValue = 0
         
         guard let activities = activities else {
             return []
@@ -151,6 +155,7 @@ class BarChartViewController: MainViewController {
                     duration += (plannedActivity.stopDate - plannedActivity.startDate)
                 }
             }
+            maximumValue += duration
             let dataEntry = BarChartDataEntry(x: dataNumber, y: Double(duration), data: activity.name as AnyObject)
             
             dataEntries.append(dataEntry)
