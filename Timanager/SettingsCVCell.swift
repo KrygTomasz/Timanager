@@ -10,8 +10,19 @@ import UIKit
 
 class SettingsCVCell: UICollectionViewCell {
 
-    @IBOutlet weak var container: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var container: UIView! {
+        didSet {
+            container.backgroundColor = .clear
+            container.layer.borderColor = UIColor.white.cgColor
+            container.layer.borderWidth = 1.0
+            container.layer.cornerRadius = 8.0
+        }
+    }
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.textColor = .white
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

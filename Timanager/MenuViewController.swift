@@ -127,7 +127,7 @@ class MenuViewController: MainViewController {
             print("Unable to Perform Fetch Request for PlannedActivites")
             print("\(fetchError), \(fetchError.localizedDescription)")
         }
-        UIView.addParallaxToView(vw: mainImageView)
+        mainImageView.addParallaxEffect()
     }
     
     override func viewWillAppear(_ animated: Bool) {

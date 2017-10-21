@@ -16,9 +16,11 @@ class PieChartViewController: MainViewController {
         didSet {
             dateTextField.delegate = self
             dateTextField.textColor = .white
-            dateTextField.addShadow()
             dateTextField.text = "Wybierz datę"
             dateTextField.tintColor = .clear
+            dateTextField.layer.borderColor = UIColor.white.cgColor
+            dateTextField.layer.borderWidth = 1.0
+            dateTextField.layer.cornerRadius = 4.0
             
             datePicker = UIDatePicker()
             datePicker?.datePickerMode = .date
@@ -32,6 +34,7 @@ class PieChartViewController: MainViewController {
             pieChartView.holeRadiusPercent = 0
             pieChartView.drawHoleEnabled = false
             pieChartView.usePercentValuesEnabled = true
+            pieChartView.legend.textColor = .white
 //            pieChartView.drawEntryLabelsEnabled = false
             pieChartView.highlightPerTapEnabled = false
             pieChartView.chartDescription?.text = ""
@@ -45,7 +48,7 @@ class PieChartViewController: MainViewController {
     var date: Date = Date() {
         didSet {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd MMM, yyyy"
+            dateFormatter.dateFormat = " dd MMM, yyyy "
             let dateString = dateFormatter.string(from: date)
             dateTextField.text = dateString
             animateChart()

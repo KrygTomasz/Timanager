@@ -16,9 +16,11 @@ class BarChartViewController: MainViewController {
         didSet {
             dateTextField.delegate = self
             dateTextField.textColor = .white
-            dateTextField.addShadow()
             dateTextField.text = "Wybierz datę"
             dateTextField.tintColor = .clear
+            dateTextField.layer.borderColor = UIColor.white.cgColor
+            dateTextField.layer.borderWidth = 1.0
+            dateTextField.layer.cornerRadius = 4.0
             
             datePicker = UIDatePicker()
             datePicker?.datePickerMode = .date
@@ -55,7 +57,7 @@ class BarChartViewController: MainViewController {
     var date: Date = Date() {
         didSet {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd MMM, yyyy"
+            dateFormatter.dateFormat = " dd MMM, yyyy "
             let dateString = dateFormatter.string(from: date)
             dateTextField.text = dateString
             animateChart()
@@ -74,9 +76,6 @@ class BarChartViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let mainColor = self.color {
-            self.view.addGradientBackground(using: [mainColor.cgColor, UIColor.white.cgColor])
-        }
         date = Date()
         addDoneButtonToKeyboard()
     }
@@ -86,57 +85,35 @@ class BarChartViewController: MainViewController {
     }
     
     func setChart(activities: [Activity]?) {
-        
         let dataEntries = getChartDataEntries(forActivities: activities)
         let barChartDataSet = BarChartDataSet(values: dataEntries, label: R.string.localizable.activities())
         barChartDataSet.drawValuesEnabled = false
         let barChartColors = UIColor.generateColorSet(ofSize: dataEntries.count, saturation: 0.5, brightness: 1, alpha: 1)
         barChartDataSet.colors = barChartColors
-        
         let barChartData = BarChartData(dataSet: barChartDataSet)
-
         barChartView.data = barChartData
-//        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["asd","dfg","htreg","yutr","etrr","wert","asd","dfg","htreg","yutr","etrr","wert"])
-        let max = Double(maximumValue)
-        barChartView.leftAxis.valueFormatter = PercentFormatter(max: max)
-        barChartView.rightAxis.valueFormatter = PercentFormatter(max: max)
-        barChartView.leftAxis.axisMaximum = max
-        barChartView.rightAxis.axisMaximum = max
-        
-//        barChartView.barData?.setValueFormatter(DefaultValueFormatter(formatter: NumberFormatter.getPercentFormatter()))
+        prepareYAxis()
         barChartView.animate(yAxisDuration: 1.5, easingOption: .easeInOutQuint)
-        
     }
     
     func getChartDataEntries(forActivities activities: [Activity]?) -> [ChartDataEntry] {
-        
         var dataEntries: [BarChartDataEntry] = []
         var dataNumber: Double = 0
         maximumValue = 0
-        
         guard let activities = activities else {
             return []
         }
-        
         let dateInterval = getDateInterval(forDate: self.date)
         let predicate = NSPredicate(format: "startDate >= %d AND stopDate <= %d",
                                     Int64(dateInterval.minDate.timeIntervalSince1970),
                                     Int64(dateInterval.maxDate.timeIntervalSince1970))
-        
         let endDayPredicate = NSPredicate(format: "startDate <= %d AND stopDate >= %d",
                                           Int64(dateInterval.maxDate.timeIntervalSince1970),
                                           Int64(dateInterval.maxDate.timeIntervalSince1970))
-        
         let beginDayPredicate = NSPredicate(format: "startDate <= %d AND stopDate >= %d",
                                             Int64(dateInterval.minDate.timeIntervalSince1970),
                                             Int64(dateInterval.minDate.timeIntervalSince1970))
-        
         for activity in activities {
-            
-            //            guard let plannedActivities = activity.plannedActivity?.allObjects as? [PlannedActivity] else {
-            //                continue
-            //            }
-            
             let filteredPlannedActivities = activity.plannedActivity?.filtered(using: predicate)
             let filteredEndDayPlannedActivities = activity.plannedActivity?.filtered(using: endDayPredicate)
             let filteredBeginDayPlannedActivities = activity.plannedActivity?.filtered(using: beginDayPredicate)
@@ -145,7 +122,6 @@ class BarChartViewController: MainViewController {
                 else {
                     return []
             }
-            
             if hasNotFinishedAnyActivity(in: plannedActivities) {
                 continue
             }
@@ -157,12 +133,10 @@ class BarChartViewController: MainViewController {
             }
             maximumValue += duration
             let dataEntry = BarChartDataEntry(x: dataNumber, y: Double(duration), data: activity.name as AnyObject)
-            
             dataEntries.append(dataEntry)
             dataNumber += 1
         }
         return dataEntries
-        
     }
     
     func hasNotFinishedAnyActivity(in plannedActivities: [PlannedActivity]) -> Bool {
@@ -178,11 +152,19 @@ class BarChartViewController: MainViewController {
     }
     
     func getDateInterval(forDate date: Date) -> (minDate: Date, maxDate: Date) {
-        
         let minDate = Date.getStartDate(forDate: date)
         let maxDate = Date.getEndDate(forDate: date)
         return (minDate, maxDate)
-        
+    }
+    
+    func prepareYAxis() {
+        let max = Double(maximumValue)
+        barChartView.leftAxis.valueFormatter = PercentFormatter(max: max)
+        barChartView.rightAxis.valueFormatter = PercentFormatter(max: max)
+        barChartView.leftAxis.axisMaximum = max
+        barChartView.rightAxis.axisMaximum = max
+        barChartView.leftAxis.labelTextColor = .white
+        barChartView.rightAxis.labelTextColor = .white
     }
     
     func animateChart() {
@@ -195,12 +177,11 @@ class BarChartViewController: MainViewController {
 extension BarChartViewController: ChartViewDelegate {
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        
         guard let data = entry.data as? String else {
             return
         }
         
-        let marker:BalloonMarker = BalloonMarker(color: UIColor.clear, font: UIFont(name: "Helvetica", size: 12)!, textColor: UIColor.black, insets: UIEdgeInsets(top: 7.0, left: 0.0, bottom: 7.0, right: 0.0))
+        let marker:BalloonMarker = BalloonMarker(color: UIColor.clear, font: UIFont(name: "Helvetica", size: 12)!, textColor: UIColor.white, insets: UIEdgeInsets(top: 7.0, left: 0.0, bottom: 7.0, right: 0.0))
         marker.minimumSize = CGSize(width: 36.0, height: 36.0)
         marker.setLabel("")
         chartView.marker = marker
@@ -214,7 +195,6 @@ extension BarChartViewController: ChartViewDelegate {
 extension BarChartViewController: NSFetchedResultsControllerDelegate {
     
     func initFetchedResultsController() {
-        
         let fetchRequest = NSFetchRequest<Activity>(entityName: "Activity")
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -228,7 +208,6 @@ extension BarChartViewController: NSFetchedResultsControllerDelegate {
             print("Unable to Perform Fetch Request for PlannedActivites")
             print("\(fetchError), \(fetchError.localizedDescription)")
         }
-        
     }
     
 }

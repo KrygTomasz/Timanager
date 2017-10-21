@@ -19,29 +19,23 @@ extension UIButton {
 extension UIView {
     
     func addShadow() {
-        
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 3, height: 2)
         self.layer.shadowRadius = 3
         self.layer.shouldRasterize = false
         self.layer.shadowOpacity = 0.8
         self.layer.masksToBounds = false
-        
     }
     
     func removeShadow() {
-        
         self.layer.shadowColor = UIColor.clear.cgColor
-        
     }
     
     func addGradientBackground(using colors: [CGColor]) {
-        
         let backgroundLayer = UIColor.gradient(using: colors)
         self.backgroundColor = UIColor.clear
         backgroundLayer.frame = self.frame
         self.layer.insertSublayer(backgroundLayer, at: 0)
-        
     }
     
     func roundCornersWithLayerMask(cornerRadii: CGFloat, corners: UIRectCorner) {
@@ -53,7 +47,7 @@ extension UIView {
         layer.mask = maskLayer
     }
     
-    static func addParallaxToView(vw: UIView) {
+    func addParallaxEffect() {
         let amount = 40
         
         let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
@@ -66,7 +60,7 @@ extension UIView {
         
         let group = UIMotionEffectGroup()
         group.motionEffects = [horizontal, vertical]
-        vw.addMotionEffect(group)
+        self.addMotionEffect(group)
     }
     
 }

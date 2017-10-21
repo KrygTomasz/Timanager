@@ -155,7 +155,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wfC-oc-AWI">
-                                                <rect key="frame" x="32" y="8" width="311" height="26"/>
+                                                <rect key="frame" x="165" y="8" width="45" height="26"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -163,10 +163,9 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="wfC-oc-AWI" secondAttribute="trailing" constant="32" id="CDj-aQ-M0b"/>
-                                            <constraint firstItem="wfC-oc-AWI" firstAttribute="leading" secondItem="qd8-AG-Waa" secondAttribute="leading" constant="32" id="fxy-a4-t2o"/>
                                             <constraint firstAttribute="bottom" secondItem="wfC-oc-AWI" secondAttribute="bottom" constant="8" id="iFO-3A-vXx"/>
                                             <constraint firstItem="wfC-oc-AWI" firstAttribute="top" secondItem="qd8-AG-Waa" secondAttribute="top" constant="8" id="oS5-xk-Vn9"/>
+                                            <constraint firstItem="wfC-oc-AWI" firstAttribute="centerX" secondItem="qd8-AG-Waa" secondAttribute="centerX" id="uI3-q9-jhh"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -222,7 +221,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DVm-Oc-lTV">
-                                                <rect key="frame" x="32" y="8" width="311" height="26"/>
+                                                <rect key="frame" x="165" y="8" width="45" height="26"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -230,8 +229,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="DVm-Oc-lTV" secondAttribute="trailing" constant="32" id="8fp-tZ-b72"/>
-                                            <constraint firstItem="DVm-Oc-lTV" firstAttribute="leading" secondItem="FZf-FJ-KKi" secondAttribute="leading" constant="32" id="V51-5z-avE"/>
+                                            <constraint firstItem="DVm-Oc-lTV" firstAttribute="centerX" secondItem="FZf-FJ-KKi" secondAttribute="centerX" id="TyD-mK-Y6U"/>
                                             <constraint firstAttribute="bottom" secondItem="DVm-Oc-lTV" secondAttribute="bottom" constant="8" id="WhW-oT-zL5"/>
                                             <constraint firstItem="DVm-Oc-lTV" firstAttribute="top" secondItem="FZf-FJ-KKi" secondAttribute="top" constant="8" id="ZlE-xA-EXE"/>
                                         </constraints>
