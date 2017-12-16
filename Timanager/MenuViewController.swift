@@ -60,6 +60,7 @@ class MenuViewController: MainViewController {
 //            chooseActivityButton.addShadow()
         }
     }
+    @IBOutlet weak var startStopStackView: UIStackView!
     @IBOutlet weak var startButton: UIButton! {
         didSet {
             startButton.setTitle("", for: .normal)
@@ -105,17 +106,17 @@ class MenuViewController: MainViewController {
             guard let activity = currentActivity?.activity else {
                 currentActivityLabel.text = R.string.localizable.noCurrentActivity()
                 timeLabel.text = ""
-                enableButton(startButton, enable: true)
-                enableButton(stopButton, enable: false)
-                enableButton(chooseActivityButton, enable: true)
+                showStartStopButton(stopButton, enable: false)
+                showStartStopButton(startButton, enable: true)
+                chooseActivityButton.isEnabled = true
                 return
             }
             let name = activity.name ?? ""
             choosenActivity = activity
             currentActivityLabel.text = "\(R.string.localizable.activity()): \(name)"
-            enableButton(startButton, enable: false)
-            enableButton(stopButton, enable: true)
-            enableButton(chooseActivityButton, enable: false)
+            showStartStopButton(startButton, enable: false)
+            showStartStopButton(stopButton, enable: true)
+            chooseActivityButton.isEnabled = false
             startTimer()
             onTimerUpdate()
         }
@@ -227,9 +228,11 @@ class MenuViewController: MainViewController {
         return (hours, minutes, seconds)
     }
     
-    func enableButton(_ button: UIButton, enable: Bool) {
-        
-        button.isEnabled = enable
+    func showStartStopButton(_ button: UIButton, enable: Bool) {
+        UIView.animate(withDuration: 0.33) {
+            button.isHidden = !enable
+            self.startStopStackView.layoutIfNeeded()
+        }
     }
 
 }
