@@ -101,8 +101,8 @@ extension SettingsViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func showResetDialog() {
-        let alert = UIAlertController(title: R.string.localizable.eraseData(), message: R.string.localizable.eraseDataDescription(), preferredStyle: .actionSheet)
-        let acceptAction = UIAlertAction(title: R.string.localizable.yes(), style: .default, handler: {
+        let alert = UIAlertController(title: R.string.localizable.eraseData(), message: R.string.localizable.eraseDataDescription(), preferredStyle: .alert)
+        let acceptAction = UIAlertAction(title: R.string.localizable.yes(), style: .destructive, handler: {
             action in
             Activity.clear()
             alert.dismiss(animated: true, completion: nil)

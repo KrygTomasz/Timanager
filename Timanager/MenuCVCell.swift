@@ -14,19 +14,19 @@ struct MenuCVCellData {
         case 0:
             title = R.string.localizable.statistics()
             image = R.image.pieChart()
-            color = .mainYellow
+            color = .statistics
         case 1:
             title = R.string.localizable.manageActivities()
             image = R.image.activity()
-            color = .mainRed
+            color = .activities
         case 2:
             title = R.string.localizable.settings()
             image = R.image.settings()
-            color = .mainBlue
+            color = .settings
         case 3:
             title = R.string.localizable.aboutApp()
             image = R.image.info()
-            color = .mainGreen
+            color = .info
         default:
             break
         }

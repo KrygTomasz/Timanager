@@ -6,6 +6,7 @@
   Copyright © 2017 Kryg Tomek. All rights reserved.
 */
 
+"appName" = "TiManager";
 "statistics" = "Statystyki";
 "manageActivities" = "Aktywności";
 "settings" = "Ustawienia";

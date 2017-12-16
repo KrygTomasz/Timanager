@@ -21,8 +21,8 @@ class ActivityTVCell: UITableViewCell {
     @IBOutlet weak var nameBackgroundView: UIView! {
         didSet {
             nameBackgroundView.layer.borderWidth = 1.0
-            nameBackgroundView.layer.borderColor = UIColor.mainRed.cgColor
-            nameBackgroundView.backgroundColor = .mainPastelRed
+            nameBackgroundView.layer.borderColor = UIColor.main.cgColor
+            nameBackgroundView.backgroundColor = .tint
             nameBackgroundView.layer.cornerRadius = 8
         }
     }

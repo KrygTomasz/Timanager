@@ -17,7 +17,7 @@ class ChooseActivityViewController: MainViewController {
 
     @IBOutlet var contentView: UIView! {
         didSet {
-            contentView.backgroundColor = UIColor.mainPastelRed
+            contentView.backgroundColor = self.color
         }
     }
     @IBOutlet weak var closeButton: UIButton! {
@@ -33,16 +33,16 @@ class ChooseActivityViewController: MainViewController {
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.delegate = self
-            searchBar.barTintColor = .mainPastelRed
+            searchBar.barTintColor = self.color
             searchBar.layer.borderWidth = 1
-            searchBar.layer.borderColor = UIColor.mainPastelRed.cgColor
+            searchBar.layer.borderColor = self.color?.cgColor
 //            searchBar.setImage(#imageLiteral(resourceName: "search"), for: .search, state: .normal)
             for subview in searchBar.subviews {
                 for subsubview in subview.subviews {
                     if let textField = subsubview as? UITextField {
                         textField.tintColor = .white
                         textField.textColor = .white
-                        textField.backgroundColor = .mainRed
+                        textField.backgroundColor = .main
                         if let imageView = textField.leftView as? UIImageView {
                             let searchImage = #imageLiteral(resourceName: "search").withRenderingMode(.alwaysTemplate)
                             imageView.image = searchImage
@@ -55,7 +55,7 @@ class ChooseActivityViewController: MainViewController {
     }
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.backgroundColor = .mainPastelRed
+            tableView.backgroundColor = .clear
             tableView.keyboardDismissMode = .interactive
             tableView.register(R.nib.activityTVCell(), forCellReuseIdentifier: R.reuseIdentifier.activityTVCell.identifier)
             tableView.rowHeight = UITableViewAutomaticDimension
@@ -140,14 +140,14 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
         guard let selectedCell = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
             return
         }
-        selectedCell.nameBackgroundView.backgroundColor = .mainRed
+        selectedCell.nameBackgroundView.backgroundColor = .main
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         guard let selectedCell = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
             return
         }
-        selectedCell.nameBackgroundView.backgroundColor = .mainPastelRed
+        selectedCell.nameBackgroundView.backgroundColor = .main
     }
     
 }

@@ -51,11 +51,11 @@ class ActivityManagerViewController: MainViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(R.nib.activityTVCell(), forCellReuseIdentifier: R.reuseIdentifier.activityTVCell.identifier)
-            tableView.keyboardDismissMode = .interactive
+//            tableView.keyboardDismissMode = .interactive
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.estimatedRowHeight = UITableViewAutomaticDimension
             tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, newActivityButton.frame.height, 0.0)
-            tableView.backgroundColor = .mainRed
+            tableView.backgroundColor = self.color
             tableView.delegate = self
             tableView.dataSource = self
         }
@@ -70,16 +70,14 @@ class ActivityManagerViewController: MainViewController {
     }
     @IBOutlet weak var mainNewActivityView: UIView! {
         didSet {
-            let path = UIBezierPath(roundedRect:mainNewActivityView.bounds,
-                                    byRoundingCorners:[.topLeft, .topRight],
-                                    cornerRadii: CGSize(width: 20, height:  20))
-            
-            let maskLayer = CAShapeLayer()
-            
-            maskLayer.path = path.cgPath
-            mainNewActivityView.layer.mask = maskLayer
-            
-            mainNewActivityView.backgroundColor = UIColor.mainRed
+            if #available(iOS 11.0, *) {
+                mainNewActivityView.layer.cornerRadius = 20
+                mainNewActivityView.clipsToBounds = true
+                mainNewActivityView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            } else {
+                // Fallback on earlier versions
+            }
+            mainNewActivityView.backgroundColor = UIColor.main
         }
     }
     @IBOutlet weak var newActivityView: UIView! {
@@ -99,7 +97,7 @@ class ActivityManagerViewController: MainViewController {
         didSet {
             addActivityButton.layer.cornerRadius = 10.0
             addActivityButton.setTitle(R.string.localizable.addActivity(), for: .normal)
-            addActivityButton.setTitleColor(UIColor.mainRed, for: .normal)
+            addActivityButton.setTitleColor(UIColor.main, for: .normal)
             addActivityButton.backgroundColor = .white
             addActivityButton.addTarget(self, action: #selector(onAddActivityButtonClicked), for: .touchUpInside)
         }
@@ -107,17 +105,20 @@ class ActivityManagerViewController: MainViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var fetchedResultsController: NSFetchedResultsController<Activity>?
-    
     var isShowingNewActivity: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initObservers()
         initNavigationBar()
 //        self.setGradientBackground()
         initFetchedResultsController()
         newActivityBottom.constant = -newActivityView.bounds.height
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        mainNewActivityView.roundCornersWithLayerMask(cornerRadii: 20.0, corners: [.topLeft, .topRight])
     }
     
     func initObservers() {

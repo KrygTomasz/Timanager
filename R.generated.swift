@@ -31,10 +31,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 9 images.
+  /// This `R.image` struct is generated, and contains static references to 10 images.
   struct image {
     /// Image `activity`.
     static let activity = Rswift.ImageResource(bundle: R.hostingBundle, name: "activity")
+    /// Image `appIcon`.
+    static let appIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "appIcon")
     /// Image `down`.
     static let down = Rswift.ImageResource(bundle: R.hostingBundle, name: "down")
     /// Image `info`.
@@ -55,6 +57,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "activity", bundle: ..., traitCollection: ...)`
     static func activity(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.activity, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "appIcon", bundle: ..., traitCollection: ...)`
+    static func appIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.appIcon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "down", bundle: ..., traitCollection: ...)`
@@ -192,7 +199,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 22 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 23 localization keys.
     struct localizable {
       /// Value: Aktywności
       static let activities = Rswift.StringResource(key: "activities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -226,6 +233,8 @@ struct R: Rswift.Validatable {
       static let stop = Rswift.StringResource(key: "stop", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Tak
       static let yes = Rswift.StringResource(key: "yes", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: TiManager
+      static let appName = Rswift.StringResource(key: "appName", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Ustawienia
       static let settings = Rswift.StringResource(key: "settings", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Wróć
@@ -317,6 +326,11 @@ struct R: Rswift.Validatable {
       /// Value: Tak
       static func yes(_: Void = ()) -> String {
         return NSLocalizedString("yes", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: TiManager
+      static func appName(_: Void = ()) -> String {
+        return NSLocalizedString("appName", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Ustawienia
@@ -486,6 +500,7 @@ struct _R: Rswift.Validatable {
       try activityManagerStoryboard.validate()
       try settingsStoryboard.validate()
       try statisticsStoryboard.validate()
+      try launchScreen.validate()
     }
     
     struct activityManagerStoryboard: Rswift.StoryboardResourceType, Rswift.Validatable {
@@ -504,11 +519,15 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
+    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "appIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'appIcon' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }

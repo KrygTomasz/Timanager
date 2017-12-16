@@ -13,8 +13,14 @@ class MenuViewController: MainViewController {
 
     @IBOutlet weak var mainImageView: UIImageView! {
         didSet {
-            mainImageView.contentMode = .topRight
+            mainImageView.contentMode = .scaleAspectFill
             mainImageView.image = #imageLiteral(resourceName: "menuBackground")
+        }
+    }
+    @IBOutlet weak var appNameLabel: UILabel! {
+        didSet {
+            appNameLabel.text = R.string.localizable.appName()
+            appNameLabel.textColor = .main
         }
     }
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -26,8 +32,8 @@ class MenuViewController: MainViewController {
     }
     @IBOutlet weak var activityView: UIView! {
         didSet {
-            activityView.backgroundColor = UIColor.black.withAlphaComponent(0.75)
-            activityView.roundCornersWithLayerMask(cornerRadii: 10.0, corners: [.topLeft, .topRight])
+            activityView.backgroundColor = UIColor.main.withAlphaComponent(0.75)
+//            activityView.roundCornersWithLayerMask(cornerRadii: 10.0, corners: [.topLeft, .topRight])
         }
     }
     @IBOutlet weak var currentActivityLabel: UILabel! {
@@ -46,10 +52,10 @@ class MenuViewController: MainViewController {
             chooseActivityButton.setTitle(R.string.localizable.chooseActivity(), for: .normal)
             chooseActivityButton.layer.cornerRadius = 8
             chooseActivityButton.layer.borderWidth = 1.0
-            chooseActivityButton.layer.borderColor = UIColor.mainRed.cgColor
-            chooseActivityButton.backgroundColor = .mainPastelRed
+            chooseActivityButton.layer.borderColor = UIColor.main.cgColor
+            chooseActivityButton.backgroundColor = .tint
             chooseActivityButton.setTitleColor(.white, for: .normal)
-            chooseActivityButton.setTitleColor(.mainRed, for: .disabled)
+            chooseActivityButton.setTitleColor(.main, for: .disabled)
             chooseActivityButton.addTarget(self, action: #selector(onChooseActivityButtonClicked), for: .touchUpInside)
 //            chooseActivityButton.addShadow()
         }
@@ -96,7 +102,7 @@ class MenuViewController: MainViewController {
     }
     var currentActivity: PlannedActivity? {
         didSet {
-            guard let name = currentActivity?.activity?.name else {
+            guard let activity = currentActivity?.activity else {
                 currentActivityLabel.text = R.string.localizable.noCurrentActivity()
                 timeLabel.text = ""
                 enableButton(startButton, enable: true)
@@ -104,6 +110,8 @@ class MenuViewController: MainViewController {
                 enableButton(chooseActivityButton, enable: true)
                 return
             }
+            let name = activity.name ?? ""
+            choosenActivity = activity
             currentActivityLabel.text = "\(R.string.localizable.activity()): \(name)"
             enableButton(startButton, enable: false)
             enableButton(stopButton, enable: true)
@@ -117,7 +125,6 @@ class MenuViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addGradientBackground(using: [UIColor.darkGray.cgColor, UIColor.white.cgColor])
         let fetchRequest = NSFetchRequest<PlannedActivity>(entityName: "PlannedActivity")
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "stopDate == 0")
@@ -150,7 +157,7 @@ class MenuViewController: MainViewController {
         guard let vc = storyboard.instantiateViewController(withIdentifier: MenuIdentifiers.ChooseActivityVC) as? ChooseActivityViewController else {
             return
         }
-        vc.prepare(using: .black)
+        vc.prepare(using: .chooseActivities)
         vc.delegate = self
 //        let navController = UINavigationController(rootViewController: vc)
         self.modalPresentationStyle = .overCurrentContext
@@ -221,6 +228,7 @@ class MenuViewController: MainViewController {
     }
     
     func enableButton(_ button: UIButton, enable: Bool) {
+        
         button.isEnabled = enable
     }
 
@@ -307,7 +315,6 @@ extension MenuViewController {
         }
         vc.prepare(using: color)
         self.present(vc, animated: true, completion: nil)
-//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func pushActivityManagerVC(usingColor color: UIColor?) {
@@ -317,7 +324,6 @@ extension MenuViewController {
         }
         vc.prepare(using: color)
         self.present(vc, animated: true, completion: nil)
-//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func pushSettingsVC(usingColor color: UIColor?) {
@@ -327,7 +333,6 @@ extension MenuViewController {
         }
         vc.prepare(using: color)
         self.present(vc, animated: true, completion: nil)
-//        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

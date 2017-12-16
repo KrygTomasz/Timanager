@@ -66,9 +66,6 @@ class PieChartViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let mainColor = self.color {
-            self.view.addGradientBackground(using: [mainColor.cgColor, UIColor.white.cgColor])
-        }
         date = Date()
         addDoneButtonToKeyboard()
     }
