@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,52 +31,38 @@
                                 <rect key="frame" x="16" y="8" width="424" height="259"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgr-ge-t39">
-                                        <rect key="frame" x="0.0" y="179" width="424" height="80"/>
+                                        <rect key="frame" x="0.0" y="81.5" width="424" height="96"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3h-gz-wTw">
-                                                <rect key="frame" x="8" y="8" width="78" height="64"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="64" id="g4A-z3-Wfk"/>
-                                                </constraints>
+                                                <rect key="frame" x="8" y="8" width="78" height="80"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="E3h-gz-wTw" firstAttribute="top" secondItem="sgr-ge-t39" secondAttribute="top" constant="8" id="3fp-cP-4tc"/>
-                                            <constraint firstAttribute="bottom" secondItem="E3h-gz-wTw" secondAttribute="bottom" constant="8" id="C51-90-OPI"/>
-                                            <constraint firstItem="E3h-gz-wTw" firstAttribute="leading" secondItem="sgr-ge-t39" secondAttribute="leading" constant="8" id="Vgg-1e-Sjo"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOl-dv-Lwd">
-                                        <rect key="frame" x="0.0" y="0.0" width="424" height="179"/>
-                                        <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-bl-P7a">
-                                                <rect key="frame" x="179" y="15" width="229" height="229"/>
+                                                <rect key="frame" x="336" y="8" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="UBC-bl-P7a" secondAttribute="height" multiplier="1:1" id="2G1-0f-aF2"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="UBC-bl-P7a" secondAttribute="trailing" constant="16" id="NoJ-VY-621"/>
+                                            <constraint firstItem="E3h-gz-wTw" firstAttribute="top" secondItem="sgr-ge-t39" secondAttribute="top" constant="8" id="3fp-cP-4tc"/>
+                                            <constraint firstAttribute="bottom" secondItem="E3h-gz-wTw" secondAttribute="bottom" constant="8" id="C51-90-OPI"/>
+                                            <constraint firstItem="UBC-bl-P7a" firstAttribute="top" secondItem="sgr-ge-t39" secondAttribute="top" constant="8" id="G8A-3p-UIG"/>
+                                            <constraint firstAttribute="bottom" secondItem="UBC-bl-P7a" secondAttribute="bottom" constant="8" id="SqJ-hH-qzM"/>
+                                            <constraint firstAttribute="height" constant="96" id="SuW-yy-l8S"/>
+                                            <constraint firstItem="E3h-gz-wTw" firstAttribute="leading" secondItem="sgr-ge-t39" secondAttribute="leading" constant="8" id="Vgg-1e-Sjo"/>
+                                            <constraint firstAttribute="trailing" secondItem="UBC-bl-P7a" secondAttribute="trailing" constant="8" id="pLW-pb-fHn"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="sgr-ge-t39" firstAttribute="leading" secondItem="22c-n5-hcf" secondAttribute="leading" id="1NJ-Uu-bGh"/>
-                                    <constraint firstAttribute="bottom" secondItem="sgr-ge-t39" secondAttribute="bottom" id="9cQ-TU-p78"/>
-                                    <constraint firstItem="EOl-dv-Lwd" firstAttribute="top" secondItem="22c-n5-hcf" secondAttribute="top" id="GIB-gq-NOR"/>
-                                    <constraint firstAttribute="bottom" secondItem="UBC-bl-P7a" secondAttribute="bottom" constant="15" id="HFa-S0-nez"/>
+                                    <constraint firstItem="sgr-ge-t39" firstAttribute="centerY" secondItem="22c-n5-hcf" secondAttribute="centerY" id="DUt-Fa-Bhu"/>
                                     <constraint firstAttribute="trailing" secondItem="sgr-ge-t39" secondAttribute="trailing" id="OJz-8H-KjP"/>
-                                    <constraint firstAttribute="trailing" secondItem="EOl-dv-Lwd" secondAttribute="trailing" id="ZDe-d2-e0V"/>
-                                    <constraint firstItem="EOl-dv-Lwd" firstAttribute="leading" secondItem="22c-n5-hcf" secondAttribute="leading" id="cqJ-Om-frM"/>
-                                    <constraint firstItem="sgr-ge-t39" firstAttribute="top" secondItem="EOl-dv-Lwd" secondAttribute="bottom" id="grO-MZ-NZn"/>
-                                    <constraint firstItem="UBC-bl-P7a" firstAttribute="height" secondItem="22c-n5-hcf" secondAttribute="height" constant="-30" id="ylp-pp-DWG"/>
                                 </constraints>
                             </view>
                         </subviews>

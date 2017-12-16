@@ -58,6 +58,7 @@ class MenuViewController: MainViewController {
         didSet {
             startButton.setTitle("", for: .normal)
             startButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+            startButton.imageView?.contentMode = .scaleAspectFit
             startButton.tintColor = .mainDarkGreen
             startButton.layer.cornerRadius = 10.0
             startButton.backgroundColor = .mainPastelGreen
@@ -70,6 +71,7 @@ class MenuViewController: MainViewController {
         didSet {
             stopButton.setTitle("", for: .normal)
             stopButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            stopButton.imageView?.contentMode = .scaleAspectFit
             stopButton.tintColor = .mainDarkRed
             stopButton.layer.cornerRadius = 10.0
             stopButton.backgroundColor = .mainPastelRed
