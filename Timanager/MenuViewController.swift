@@ -57,7 +57,6 @@ class MenuViewController: MainViewController {
             chooseActivityButton.setTitleColor(.white, for: .normal)
             chooseActivityButton.setTitleColor(.main, for: .disabled)
             chooseActivityButton.addTarget(self, action: #selector(onChooseActivityButtonClicked), for: .touchUpInside)
-//            chooseActivityButton.addShadow()
         }
     }
     @IBOutlet weak var startStopStackView: UIStackView!
@@ -71,7 +70,6 @@ class MenuViewController: MainViewController {
             startButton.backgroundColor = .mainPastelGreen
             startButton.setTitleColor(.white, for: .normal)
             startButton.addTarget(self, action: #selector(onStartButtonClicked), for: .touchUpInside)
-//            startButton.addShadow()
         }
     }
     @IBOutlet weak var stopButton: UIButton! {
@@ -84,7 +82,6 @@ class MenuViewController: MainViewController {
             stopButton.backgroundColor = .mainPastelRed
             stopButton.setTitleColor(.white, for: .normal)
             stopButton.addTarget(self, action: #selector(onStopButtonClicked), for: .touchUpInside)
-//            stopButton.addShadow()
         }
     }
     
@@ -95,8 +92,10 @@ class MenuViewController: MainViewController {
     var choosenActivity: Activity? {
         didSet {
             guard let name = choosenActivity?.name else {
+                setStartStopButtons()
                 return
             }
+            setStartStopButtons()
             chooseActivityButton.setTitle("\(name)", for: .normal)
             chooseActivityButton.setTitleColor(.white, for: .normal)
         }
@@ -106,22 +105,18 @@ class MenuViewController: MainViewController {
             guard let activity = currentActivity?.activity else {
                 currentActivityLabel.text = R.string.localizable.noCurrentActivity()
                 timeLabel.text = ""
-                showStartStopButton(stopButton, enable: false)
-                showStartStopButton(startButton, enable: true)
+                setStartStopButtons()
                 chooseActivityButton.isEnabled = true
                 return
             }
             let name = activity.name ?? ""
-            choosenActivity = activity
             currentActivityLabel.text = "\(R.string.localizable.activity()): \(name)"
-            showStartStopButton(startButton, enable: false)
-            showStartStopButton(stopButton, enable: true)
+            setStartStopButtons()
             chooseActivityButton.isEnabled = false
             startTimer()
             onTimerUpdate()
         }
     }
-    
     var timer: Timer?
     
     override func viewDidLoad() {
@@ -131,6 +126,7 @@ class MenuViewController: MainViewController {
         fetchRequest.predicate = NSPredicate(format: "stopDate == 0")
         do {
             let objects = try context.fetch(fetchRequest)
+            choosenActivity = objects.first?.activity
             currentActivity = objects.first
         } catch {
             let fetchError = error as NSError
@@ -152,6 +148,11 @@ class MenuViewController: MainViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         UIApplication.shared.statusBarStyle = .lightContent
     }
+
+}
+
+//MARK: Buttons clicked methods
+extension MenuViewController {
     
     func onChooseActivityButtonClicked() {
         let storyboard = R.storyboard.main()
@@ -160,9 +161,6 @@ class MenuViewController: MainViewController {
         }
         vc.prepare(using: .chooseActivities)
         vc.delegate = self
-//        let navController = UINavigationController(rootViewController: vc)
-        self.modalPresentationStyle = .overCurrentContext
-        vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)
     }
     
@@ -199,11 +197,16 @@ class MenuViewController: MainViewController {
         stopTimer()
     }
     
-    func startTimer() {
+}
+
+//MARK: Timer methods
+extension MenuViewController {
+    
+    fileprivate func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerUpdate), userInfo: nil, repeats: true)
     }
     
-    func stopTimer() {
+    fileprivate func stopTimer() {
         timer?.invalidate()
     }
     
@@ -218,23 +221,50 @@ class MenuViewController: MainViewController {
         let hours = String(format: "%02d", parsedDuration.hours)
         let minutes = String(format: "%02d", parsedDuration.minutes)
         let seconds = String(format: "%02d", parsedDuration.seconds)
-        timeLabel.text = "Czas trwania: \(hours):\(minutes):\(seconds)"
+        timeLabel.text = R.string.localizable.durationTime() + ": \(hours):\(minutes):\(seconds)"
     }
     
-    func parseDuration(using seconds: TimeInterval) -> (hours: Int, minutes: Int, seconds: Int) {
+    fileprivate func parseDuration(using seconds: TimeInterval) -> (hours: Int, minutes: Int, seconds: Int) {
         let hours = Int(seconds/3600)
         let minutes = Int(seconds/60)%60
         let seconds = Int(seconds)%60
         return (hours, minutes, seconds)
     }
     
-    func showStartStopButton(_ button: UIButton, enable: Bool) {
-        UIView.animate(withDuration: 0.33) {
-            button.isHidden = !enable
-            self.startStopStackView.layoutIfNeeded()
+}
+
+//MARK: Start/Stop buttons management
+extension MenuViewController {
+    
+    fileprivate func setStartStopButtons() {
+        if let _ = currentActivity {
+            startStopStackView.isHidden = false
+            showStartStopButton(startButton, enable: false, animated: true)
+            showStartStopButton(stopButton, enable: true, animated: true)
+        } else {
+            if let _ = choosenActivity {
+                startStopStackView.isHidden = false
+                showStartStopButton(startButton, enable: true, animated: true)
+                showStartStopButton(stopButton, enable: false, animated: true)
+            } else {
+                startStopStackView.isHidden = true
+                showStartStopButton(startButton, enable: false, animated: false)
+                showStartStopButton(stopButton, enable: false, animated: false)
+            }
         }
     }
-
+    
+    fileprivate func showStartStopButton(_ button: UIButton, enable: Bool, animated: Bool) {
+        if animated {
+            UIView.animate(withDuration: 0.33) {
+                button.isHidden = !enable
+                self.startStopStackView.layoutIfNeeded()
+            }
+        } else {
+            button.isHidden = !enable
+        }
+    }
+    
 }
 
 // MARK: CollectionView Delegates
@@ -262,7 +292,6 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
         guard let menuCell = collectionView.cellForItem(at: indexPath) as? MenuCVCell else {
             return
         }
@@ -311,7 +340,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
 //MARK: Pushed ViewControllers
 extension MenuViewController {
     
-    func pushTimeManagerVC(usingColor color: UIColor?) {
+    fileprivate func pushTimeManagerVC(usingColor color: UIColor?) {
         let storyboard = R.storyboard.statisticsStoryboard()
         guard let vc = storyboard.instantiateViewController(withIdentifier: StatisticsIdentifiers.StatisticsVC) as? StatisticsViewController else {
             return
@@ -320,7 +349,7 @@ extension MenuViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    func pushActivityManagerVC(usingColor color: UIColor?) {
+    fileprivate func pushActivityManagerVC(usingColor color: UIColor?) {
         let storyboard = R.storyboard.activityManagerStoryboard()
         guard let vc = storyboard.instantiateViewController(withIdentifier: ActivityManagerIdentifiers.ActivityManagerVC) as? ActivityManagerViewController else {
             return
@@ -329,7 +358,7 @@ extension MenuViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    func pushSettingsVC(usingColor color: UIColor?) {
+    fileprivate func pushSettingsVC(usingColor color: UIColor?) {
         let storyboard = R.storyboard.settingsStoryboard()
         guard let vc = storyboard.instantiateViewController(withIdentifier: SettingsIdentifiers.SettingsVC) as? SettingsViewController else {
             return

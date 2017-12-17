@@ -23,6 +23,7 @@
 "startHour" = "Godzina rozpoczęcia";
 "activity" = "Aktywność";
 "noCurrentActivity" = "Brak rozpoczętej aktywności";
+"durationTime" = "Czas trwania";
 "pieChart" = "Wykres kołowy";
 "barChart" = "Wykres słupkowy";
 "eraseData" = "Wymaż dane";

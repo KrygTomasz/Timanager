@@ -222,7 +222,6 @@ extension ActivityManagerViewController: UITableViewDelegate, UITableViewDataSou
         guard let activityCell = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
             return
         }
-        let object = fetchedResultsController?.object(at: indexPath)
         activityCell.nameTextField.isEnabled = true
         activityCell.nameTextField.becomeFirstResponder()
     }

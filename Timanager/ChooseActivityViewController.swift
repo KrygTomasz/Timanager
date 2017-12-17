@@ -101,7 +101,7 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         guard let activityCell = cell as? ActivityTVCell,
-            let searchText = searchBar.text else {
+            let _ = searchBar.text else {
                 return
         }
         activityCell.contentView.heroID = "choosenActivity"
@@ -126,8 +126,7 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        guard let selectedCell = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
+        guard let _ = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
             return
         }
         let object = filteredActivities[indexPath.row]

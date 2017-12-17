@@ -104,23 +104,18 @@ class PieChartViewController: MainViewController {
                                     Int64(dateInterval.minDate.timeIntervalSince1970),
                                     Int64(dateInterval.maxDate.timeIntervalSince1970))
         
-        let endDayPredicate = NSPredicate(format: "startDate <= %d AND stopDate >= %d",
-                                          Int64(dateInterval.maxDate.timeIntervalSince1970),
-                                          Int64(dateInterval.maxDate.timeIntervalSince1970))
-        
-        let beginDayPredicate = NSPredicate(format: "startDate <= %d AND stopDate >= %d",
-                                            Int64(dateInterval.minDate.timeIntervalSince1970),
-                                            Int64(dateInterval.minDate.timeIntervalSince1970))
+//        let endDayPredicate = NSPredicate(format: "startDate <= %d AND stopDate >= %d",
+//                                          Int64(dateInterval.maxDate.timeIntervalSince1970),
+//                                          Int64(dateInterval.maxDate.timeIntervalSince1970))
+//
+//        let beginDayPredicate = NSPredicate(format: "startDate <= %d AND stopDate >= %d",
+//                                            Int64(dateInterval.minDate.timeIntervalSince1970),
+//                                            Int64(dateInterval.minDate.timeIntervalSince1970))
         
         for activity in activities {
-            
-//            guard let plannedActivities = activity.plannedActivity?.allObjects as? [PlannedActivity] else {
-//                continue
-//            }
-
             let filteredPlannedActivities = activity.plannedActivity?.filtered(using: predicate)
-            let filteredEndDayPlannedActivities = activity.plannedActivity?.filtered(using: endDayPredicate)
-            let filteredBeginDayPlannedActivities = activity.plannedActivity?.filtered(using: beginDayPredicate)
+//            let filteredEndDayPlannedActivities = activity.plannedActivity?.filtered(using: endDayPredicate)
+//            let filteredBeginDayPlannedActivities = activity.plannedActivity?.filtered(using: beginDayPredicate)
             guard let plannedActivitiesSet = filteredPlannedActivities as NSSet?,
                 let plannedActivities = plannedActivitiesSet.allObjects as? [PlannedActivity]
             else {

@@ -28,18 +28,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ltl-fY-g8V">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="812"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KzH-om-y5f">
-                                        <rect key="frame" x="-60" y="-60" width="495" height="932"/>
+                                        <rect key="frame" x="0.0" y="-60" width="0.0" height="932"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TiManager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="niV-7k-dlO">
-                                        <rect key="frame" x="109.00000000000001" y="31.999999999999996" width="157.33333333333337" height="54.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="31.999999999999996" width="157.33333333333334" height="54.666666666666657"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBoldItalic" family="Avenir Next Condensed" pointSize="40"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="acY-Xd-pSj">
-                                        <rect key="frame" x="0.0" y="86.666666666666686" width="375" height="462.00000000000006"/>
+                                        <rect key="frame" x="0.0" y="86.666666666666686" width="0.0" height="462.00000000000006"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qyv-Aq-LD5">
                                             <size key="itemSize" width="50" height="50"/>
@@ -50,19 +50,19 @@
                                         <cells/>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTM-Wr-Mn8">
-                                        <rect key="frame" x="0.0" y="556.66666666666663" width="375" height="256"/>
+                                        <rect key="frame" x="0.0" y="556.66666666666663" width="0.0" height="256"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QgO-uc-kPg">
-                                                <rect key="frame" x="16" y="8" width="343" height="128"/>
+                                                <rect key="frame" x="0.0" y="8" width="0.0" height="136"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Aktywność: Wyprowadzanie psa na spacerAktywność: Wyprowadzanie psa na spacer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp2-Ph-cQG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="92"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Godzina rozpoczęcia: 23:42" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsE-QM-jAv">
-                                                        <rect key="frame" x="0.0" y="92" width="343" height="36"/>
+                                                        <rect key="frame" x="0.0" y="100" width="0.0" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="tiS-oI-rgL"/>
                                                         </constraints>
@@ -72,47 +72,49 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pr8-DT-A0B">
-                                                <rect key="frame" x="16" y="144" width="343" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="0Ho-ee-s1e"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
-                                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6a4-VM-qOY">
-                                                <rect key="frame" x="16" y="200" width="343" height="40"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bTJ-RF-8Er">
+                                                <rect key="frame" x="0.0" y="152" width="0.0" height="88"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7F8-Bo-bqr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="40"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pr8-DT-A0B">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="0Ho-ee-s1e"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
+                                                        <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRz-zT-Ywh">
-                                                        <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="40"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6a4-VM-qOY">
+                                                        <rect key="frame" x="0.0" y="48" width="0.0" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7F8-Bo-bqr">
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
+                                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRz-zT-Ywh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
+                                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="UwB-Hc-qRf"/>
+                                                        </constraints>
+                                                    </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="UwB-Hc-qRf"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="6a4-VM-qOY" firstAttribute="top" secondItem="Pr8-DT-A0B" secondAttribute="bottom" constant="16" id="9ok-Zc-Oly"/>
-                                            <constraint firstAttribute="trailing" secondItem="Pr8-DT-A0B" secondAttribute="trailing" constant="16" id="9rw-95-3Ew"/>
-                                            <constraint firstAttribute="bottom" secondItem="6a4-VM-qOY" secondAttribute="bottom" constant="16" id="Bgi-Yz-OLH"/>
-                                            <constraint firstItem="Pr8-DT-A0B" firstAttribute="leading" secondItem="eTM-Wr-Mn8" secondAttribute="leading" constant="16" id="Gfr-94-LKl"/>
+                                            <constraint firstAttribute="trailing" secondItem="bTJ-RF-8Er" secondAttribute="trailing" constant="16" id="HbT-W2-fOE"/>
+                                            <constraint firstItem="bTJ-RF-8Er" firstAttribute="top" secondItem="QgO-uc-kPg" secondAttribute="bottom" constant="8" id="RZN-WD-Fwe"/>
+                                            <constraint firstAttribute="bottom" secondItem="bTJ-RF-8Er" secondAttribute="bottom" constant="16" id="S7E-Xa-3Ed"/>
                                             <constraint firstAttribute="height" constant="256" id="UQa-dx-Zda"/>
                                             <constraint firstItem="QgO-uc-kPg" firstAttribute="leading" secondItem="eTM-Wr-Mn8" secondAttribute="leading" constant="16" id="Xz8-nY-Csr"/>
                                             <constraint firstAttribute="trailing" secondItem="QgO-uc-kPg" secondAttribute="trailing" constant="16" id="aOj-7h-3Li"/>
-                                            <constraint firstAttribute="trailing" secondItem="6a4-VM-qOY" secondAttribute="trailing" constant="16" id="b4X-2M-5nV"/>
                                             <constraint firstItem="QgO-uc-kPg" firstAttribute="top" secondItem="eTM-Wr-Mn8" secondAttribute="top" constant="8" id="bEM-Wi-sKJ"/>
-                                            <constraint firstItem="Pr8-DT-A0B" firstAttribute="top" secondItem="QgO-uc-kPg" secondAttribute="bottom" constant="8" id="ojJ-i6-kXq"/>
-                                            <constraint firstItem="6a4-VM-qOY" firstAttribute="leading" secondItem="eTM-Wr-Mn8" secondAttribute="leading" constant="16" id="we7-bK-usE"/>
+                                            <constraint firstItem="bTJ-RF-8Er" firstAttribute="leading" secondItem="eTM-Wr-Mn8" secondAttribute="leading" constant="16" id="wPA-aQ-2bP"/>
                                         </constraints>
                                     </view>
                                 </subviews>

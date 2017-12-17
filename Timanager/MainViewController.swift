@@ -10,13 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var color: UIColor? {
-        didSet {
-            if let mainColor = self.color {
-//                self.view.addGradientBackground(using: [mainColor.cgColor, UIColor.white.cgColor])
-            }
-        }
-    }
+    var color: UIColor?
 
     override func viewDidLoad() {
         super.viewDidLoad()

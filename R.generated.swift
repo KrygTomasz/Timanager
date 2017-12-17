@@ -199,7 +199,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 23 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 24 localization keys.
     struct localizable {
       /// Value: Aktywności
       static let activities = Rswift.StringResource(key: "activities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -209,6 +209,8 @@ struct R: Rswift.Validatable {
       static let activity = Rswift.StringResource(key: "activity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Brak rozpoczętej aktywności
       static let noCurrentActivity = Rswift.StringResource(key: "noCurrentActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Czas trwania
+      static let durationTime = Rswift.StringResource(key: "durationTime", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Czy na pewno chcesz usunąć dane aplikacji? Tej operacji nie będzie można cofnąć!
       static let eraseDataDescription = Rswift.StringResource(key: "eraseDataDescription", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Dodaj aktywność
@@ -266,6 +268,11 @@ struct R: Rswift.Validatable {
       /// Value: Brak rozpoczętej aktywności
       static func noCurrentActivity(_: Void = ()) -> String {
         return NSLocalizedString("noCurrentActivity", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Czas trwania
+      static func durationTime(_: Void = ()) -> String {
+        return NSLocalizedString("durationTime", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Czy na pewno chcesz usunąć dane aplikacji? Tej operacji nie będzie można cofnąć!
