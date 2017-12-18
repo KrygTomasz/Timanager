@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+protocol ActivityManagerDelegate: class {
+    func deleteActivity(_ activity: Activity)
+}
+
 class ActivityManagerViewController: MainViewController {
 
     @IBOutlet var containerView: UIView! {
@@ -106,6 +110,7 @@ class ActivityManagerViewController: MainViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var fetchedResultsController: NSFetchedResultsController<Activity>?
     var isShowingNewActivity: Bool = false
+    weak var delegate: ActivityManagerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -235,12 +240,7 @@ extension ActivityManagerViewController: UITableViewDelegate, UITableViewDataSou
             guard let object = fetchedResultsController?.object(at: indexPath) else {
                 return
             }
-            context.delete(object)
-            do {
-                try object.managedObjectContext?.save()
-            } catch {
-                print("Error saving activity object")
-            }
+            delegate?.deleteActivity(object)
         }
     }
     
@@ -252,7 +252,7 @@ extension ActivityManagerViewController: NSFetchedResultsControllerDelegate {
     func initFetchedResultsController() {
         
         let fetchRequest = NSFetchRequest<Activity>(entityName: "Activity")
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: "caseInsensitiveCompare:")
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController?.delegate = self

@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 
 extension PlannedActivity {
 
@@ -24,5 +24,23 @@ extension PlannedActivity {
         self.activity = activity
         self.startDate = startDate
     }
+    
+    static func clear() -> Bool {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<PlannedActivity>(entityName: "PlannedActivity")
+        request.returnsObjectsAsFaults = false
+        do {
+            let activities = try context.fetch(request)
+            for activity in activities {
+                context.delete(activity)
+            }
+            try context.save()
+            return true
+        } catch let error as NSError {
+            print("Failed to delete activities. Error : \(error) \(error.userInfo)")
+        }
+        return false
+    }
 
 }
+

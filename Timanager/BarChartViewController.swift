@@ -16,7 +16,7 @@ class BarChartViewController: MainViewController {
         didSet {
             dateTextField.delegate = self
             dateTextField.textColor = .white
-            dateTextField.text = "Wybierz datę"
+            dateTextField.text = ""
             dateTextField.tintColor = .clear
             dateTextField.layer.borderColor = UIColor.white.cgColor
             dateTextField.layer.borderWidth = 1.0
@@ -131,7 +131,10 @@ class BarChartViewController: MainViewController {
                     duration += (plannedActivity.stopDate - plannedActivity.startDate)
                 }
             }
-            maximumValue += duration
+            if maximumValue < duration {
+                maximumValue = duration
+            }
+//            maximumValue += duration
             let dataEntry = BarChartDataEntry(x: dataNumber, y: Double(duration), data: activity.name as AnyObject)
             dataEntries.append(dataEntry)
             dataNumber += 1

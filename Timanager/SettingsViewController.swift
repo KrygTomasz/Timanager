@@ -9,6 +9,10 @@
 import UIKit
 import Hero
 
+protocol SettingsDelegate: class {
+    func truncateEverything(_ viewController: UIViewController)
+}
+
 class SettingsViewController: MainViewController {
 
     @IBOutlet var containerView: UIView! {
@@ -55,6 +59,8 @@ class SettingsViewController: MainViewController {
             collectionView.dataSource = self
         }
     }
+    
+    weak var delegate: SettingsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,8 +110,8 @@ extension SettingsViewController: UICollectionViewDelegate, UICollectionViewData
         let alert = UIAlertController(title: R.string.localizable.eraseData(), message: R.string.localizable.eraseDataDescription(), preferredStyle: .alert)
         let acceptAction = UIAlertAction(title: R.string.localizable.yes(), style: .destructive, handler: {
             action in
-            Activity.clear()
             alert.dismiss(animated: true, completion: nil)
+            self.delegate?.truncateEverything(self)
         })
         let cancelAction = UIAlertAction(title: R.string.localizable.no(), style: .default, handler: {
             action in

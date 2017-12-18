@@ -199,7 +199,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 24 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 27 localization keys.
     struct localizable {
       /// Value: Aktywności
       static let activities = Rswift.StringResource(key: "activities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -225,14 +225,20 @@ struct R: Rswift.Validatable {
       static let no = Rswift.StringResource(key: "no", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Nowa aktywność
       static let newActivity = Rswift.StringResource(key: "newActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: OK
+      static let ok = Rswift.StringResource(key: "ok", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Podaj nazwę aktywności
       static let typeActivityName = Rswift.StringResource(key: "typeActivityName", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Pomyślnie usunięto dane aplikacji.
+      static let successfulDataDeletion = Rswift.StringResource(key: "successfulDataDeletion", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Start
       static let start = Rswift.StringResource(key: "start", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Statystyki
       static let statistics = Rswift.StringResource(key: "statistics", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Stop
       static let stop = Rswift.StringResource(key: "stop", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Sukces
+      static let success = Rswift.StringResource(key: "success", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Tak
       static let yes = Rswift.StringResource(key: "yes", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: TiManager
@@ -310,9 +316,19 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("newActivity", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: OK
+      static func ok(_: Void = ()) -> String {
+        return NSLocalizedString("ok", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Podaj nazwę aktywności
       static func typeActivityName(_: Void = ()) -> String {
         return NSLocalizedString("typeActivityName", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Pomyślnie usunięto dane aplikacji.
+      static func successfulDataDeletion(_: Void = ()) -> String {
+        return NSLocalizedString("successfulDataDeletion", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Start
@@ -328,6 +344,11 @@ struct R: Rswift.Validatable {
       /// Value: Stop
       static func stop(_: Void = ()) -> String {
         return NSLocalizedString("stop", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Sukces
+      static func success(_: Void = ()) -> String {
+        return NSLocalizedString("success", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Tak

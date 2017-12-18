@@ -19,7 +19,7 @@ extension Activity {
     @NSManaged public var name: String?
     @NSManaged public var plannedActivity: NSSet?
     
-    static func clear() {
+    static func clear() -> Bool {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<Activity>(entityName: "Activity")
         request.returnsObjectsAsFaults = false
@@ -29,9 +29,11 @@ extension Activity {
                 context.delete(activity)
             }
             try context.save()
+            return true
         } catch let error as NSError {
             print("Failed to delete activities. Error : \(error) \(error.userInfo)")
         }
+        return false
     }
     
     func fill(using name: String?) {

@@ -92,6 +92,8 @@ class MenuViewController: MainViewController {
     var choosenActivity: Activity? {
         didSet {
             guard let name = choosenActivity?.name else {
+                chooseActivityButton.setTitle(R.string.localizable.chooseActivity(), for: .normal)
+                chooseActivityButton.setTitleColor(.white, for: .normal)
                 setStartStopButtons()
                 return
             }
@@ -354,6 +356,7 @@ extension MenuViewController {
         guard let vc = storyboard.instantiateViewController(withIdentifier: ActivityManagerIdentifiers.ActivityManagerVC) as? ActivityManagerViewController else {
             return
         }
+        vc.delegate = self
         vc.prepare(using: color)
         self.present(vc, animated: true, completion: nil)
     }
@@ -363,6 +366,7 @@ extension MenuViewController {
         guard let vc = storyboard.instantiateViewController(withIdentifier: SettingsIdentifiers.SettingsVC) as? SettingsViewController else {
             return
         }
+        vc.delegate = self
         vc.prepare(using: color)
         self.present(vc, animated: true, completion: nil)
     }
@@ -374,6 +378,47 @@ extension MenuViewController: ChooseActivityDelegate {
     
     func chooseActivity(_ activity: Activity) {
         choosenActivity = activity
+    }
+    
+}
+
+//MARK: ActivityManager View delegate
+extension MenuViewController: ActivityManagerDelegate {
+    
+    func deleteActivity(_ activity: Activity) {
+        context.delete(activity)
+        do {
+            try activity.managedObjectContext?.save()
+            if choosenActivity?.name == activity.name {
+                choosenActivity = nil
+                currentActivity = nil
+            }
+        } catch {
+            print("Error deleting activity object")
+        }
+    }
+    
+}
+
+//MARK: Settings View delegate
+extension MenuViewController: SettingsDelegate {
+    
+    func truncateEverything(_ viewController: UIViewController) {
+        if Activity.clear() && PlannedActivity.clear() {
+            choosenActivity = nil
+            currentActivity = nil
+            showSuccessfulTruncateAlert(on: viewController)
+        }
+    }
+    
+    private func showSuccessfulTruncateAlert(on viewController: UIViewController) {
+        let alert = UIAlertController(title: R.string.localizable.success()+"!", message: R.string.localizable.successfulDataDeletion(), preferredStyle: .alert)
+        let acceptAction = UIAlertAction(title: R.string.localizable.ok(), style: .default, handler: {
+            action in
+            alert.dismiss(animated: true, completion: nil)
+        })
+        alert.addAction(acceptAction)
+        viewController.present(alert, animated: true, completion: nil)
     }
     
 }

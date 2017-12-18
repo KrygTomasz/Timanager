@@ -30,3 +30,6 @@
 "eraseDataDescription" = "Czy na pewno chcesz usunąć dane aplikacji? Tej operacji nie będzie można cofnąć!";
 "yes" = "Tak";
 "no" = "Nie";
+"success" = "Sukces";
+"successfulDataDeletion" = "Pomyślnie usunięto dane aplikacji.";
+"ok" = "OK";
