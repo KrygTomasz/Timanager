@@ -34,16 +34,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="424" height="259"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3h-gz-wTw">
-                                                <rect key="frame" x="8" y="107.5" width="157" height="44"/>
+                                                <rect key="frame" x="8" y="107.5" width="78" height="44"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Hu-xq-KO2">
-                                                <rect key="frame" x="173" y="8" width="243" height="243"/>
+                                                <rect key="frame" x="165" y="0.0" width="259" height="259"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-bl-P7a">
-                                                        <rect key="frame" x="73.5" y="73.5" width="96" height="96"/>
+                                                        <rect key="frame" x="147" y="81.5" width="96" height="96"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="UBC-bl-P7a" secondAttribute="height" multiplier="1:1" id="2G1-0f-aF2"/>
                                                             <constraint firstAttribute="height" constant="96" id="qcp-0M-uGv"/>
@@ -52,22 +52,19 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UBC-bl-P7a" secondAttribute="bottom" id="2vR-HT-b44"/>
-                                                    <constraint firstItem="UBC-bl-P7a" firstAttribute="centerX" secondItem="2Hu-xq-KO2" secondAttribute="centerX" id="RY8-dv-Png"/>
+                                                    <constraint firstAttribute="trailing" secondItem="UBC-bl-P7a" secondAttribute="trailing" constant="16" id="2zg-pb-goR"/>
                                                     <constraint firstAttribute="width" secondItem="2Hu-xq-KO2" secondAttribute="height" multiplier="1:1" id="SNb-q9-zJB"/>
-                                                    <constraint firstItem="UBC-bl-P7a" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2Hu-xq-KO2" secondAttribute="top" id="aY2-2B-0M8"/>
-                                                    <constraint firstItem="UBC-bl-P7a" firstAttribute="centerY" secondItem="2Hu-xq-KO2" secondAttribute="centerY" id="gMO-nl-9WK"/>
+                                                    <constraint firstItem="UBC-bl-P7a" firstAttribute="centerY" secondItem="2Hu-xq-KO2" secondAttribute="centerY" id="cj3-GY-zyd"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="2Hu-xq-KO2" firstAttribute="leading" secondItem="E3h-gz-wTw" secondAttribute="trailing" constant="8" id="CwZ-hS-OQM"/>
                                             <constraint firstItem="E3h-gz-wTw" firstAttribute="centerY" secondItem="sgr-ge-t39" secondAttribute="centerY" id="Egr-qi-NgG"/>
-                                            <constraint firstAttribute="trailing" secondItem="2Hu-xq-KO2" secondAttribute="trailing" constant="8" id="GpW-mI-eOY"/>
+                                            <constraint firstAttribute="trailing" secondItem="2Hu-xq-KO2" secondAttribute="trailing" id="GpW-mI-eOY"/>
                                             <constraint firstItem="E3h-gz-wTw" firstAttribute="leading" secondItem="sgr-ge-t39" secondAttribute="leading" constant="8" id="Vgg-1e-Sjo"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2Hu-xq-KO2" secondAttribute="bottom" constant="8" id="hKy-RP-8pP"/>
-                                            <constraint firstItem="2Hu-xq-KO2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sgr-ge-t39" secondAttribute="top" constant="8" id="pGX-nB-1Xu"/>
+                                            <constraint firstAttribute="bottom" secondItem="2Hu-xq-KO2" secondAttribute="bottom" id="hKy-RP-8pP"/>
+                                            <constraint firstItem="2Hu-xq-KO2" firstAttribute="top" secondItem="sgr-ge-t39" secondAttribute="top" id="pGX-nB-1Xu"/>
                                         </constraints>
                                     </view>
                                 </subviews>

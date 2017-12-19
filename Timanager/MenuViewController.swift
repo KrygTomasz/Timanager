@@ -325,7 +325,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = collectionView.bounds.width
-        let cellHeight = collectionView.bounds.height/3
+        let cellHeight = collectionView.bounds.height
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
