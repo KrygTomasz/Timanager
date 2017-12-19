@@ -48,7 +48,7 @@ class MenuViewController: MainViewController {
     }
     @IBOutlet weak var chooseActivityButton: UIButton! {
         didSet {
-            chooseActivityButton.heroID = "choosenActivity"
+//            chooseActivityButton.heroID = "choosenActivity"
             chooseActivityButton.setTitle(R.string.localizable.chooseActivity(), for: .normal)
             chooseActivityButton.layer.cornerRadius = 8
             chooseActivityButton.layer.borderWidth = 1.0
@@ -147,7 +147,7 @@ class MenuViewController: MainViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
         UIApplication.shared.statusBarStyle = .lightContent
     }
 
@@ -163,7 +163,8 @@ extension MenuViewController {
         }
         vc.prepare(using: .chooseActivities)
         vc.delegate = self
-        present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+//        present(vc, animated: true, completion: nil)
     }
     
     func onStartButtonClicked() {
@@ -303,9 +304,9 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             tempCell.resetHeroIds()
         }
-        menuCell.titleImageView.heroID = "navigationImageView"
-        menuCell.titleLabel.heroID = "navigationTitle"
-        menuCell.bottomView.heroID = "navigation"
+//        menuCell.titleImageView.heroID = "navigationImageView"
+//        menuCell.titleLabel.heroID = "navigationTitle"
+//        menuCell.bottomView.heroID = "navigation"
        let data = MenuCVCellData(forIndexPath: indexPath)
         switch indexPath.row {
         case 0:
@@ -348,7 +349,8 @@ extension MenuViewController {
             return
         }
         vc.prepare(using: color)
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+//        self.present(vc, animated: true, completion: nil)
     }
     
     fileprivate func pushActivityManagerVC(usingColor color: UIColor?) {
@@ -358,7 +360,8 @@ extension MenuViewController {
         }
         vc.delegate = self
         vc.prepare(using: color)
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+//        self.present(vc, animated: true, completion: nil)
     }
     
     fileprivate func pushSettingsVC(usingColor color: UIColor?) {
@@ -368,7 +371,8 @@ extension MenuViewController {
         }
         vc.delegate = self
         vc.prepare(using: color)
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+//        self.present(vc, animated: true, completion: nil)
     }
     
 }

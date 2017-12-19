@@ -85,7 +85,8 @@ class ChooseActivityViewController: MainViewController {
     }
     
     func onCloseButtonClicked() {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true, completion: nil)
     }
 
 }
@@ -104,7 +105,7 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
             let _ = searchBar.text else {
                 return
         }
-        activityCell.contentView.heroID = "choosenActivity"
+//        activityCell.contentView.heroID = "choosenActivity"
         let object = filteredActivities[indexPath.row]
         activityCell.prepare(withName: object.name)
         
@@ -132,7 +133,8 @@ extension ChooseActivityViewController: UITableViewDelegate, UITableViewDataSour
         let object = filteredActivities[indexPath.row]
         delegate?.chooseActivity(object)
         tableView.deselectRow(at: indexPath, animated: false)
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {

@@ -13,7 +13,7 @@ class StatisticsViewController: MainViewController {
 
     @IBOutlet var containerView: UIView! {
         didSet {
-            containerView.heroID = "navigation"
+//            containerView.heroID = "navigation"
             containerView.backgroundColor = self.color
         }
     }
@@ -24,14 +24,14 @@ class StatisticsViewController: MainViewController {
     }
     @IBOutlet weak var navigationLabel: UILabel! {
         didSet {
-            navigationLabel.heroID = "navigationTitle"
+//            navigationLabel.heroID = "navigationTitle"
             navigationLabel.textColor = .white
             navigationLabel.text = R.string.localizable.statistics()
         }
     }
     @IBOutlet weak var navigationImageView: UIImageView! {
         didSet {
-            navigationImageView.heroID = "navigationImageView"
+//            navigationImageView.heroID = "navigationImageView"
             navigationImageView.image = #imageLiteral(resourceName: "pieChart")
             navigationImageView.image = navigationImageView.image?.withRenderingMode(.alwaysTemplate)
             navigationImageView.tintColor = .white
@@ -126,7 +126,8 @@ class StatisticsViewController: MainViewController {
     }
     
     func onCloseButtonClicked() {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true, completion: nil)
     }
     
     func onSegmentedControlChange() {

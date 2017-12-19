@@ -561,7 +561,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MenuViewController
+      typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let chooseActivityVC = StoryboardViewControllerResource<ChooseActivityViewController>(identifier: "ChooseActivityVC")
