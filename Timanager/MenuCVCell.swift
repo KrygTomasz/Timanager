@@ -15,14 +15,17 @@ struct MenuCVCellData {
             title = R.string.localizable.statistics()
             image = R.image.pieChart()
             color = .statistics
+            imageColor = .black
         case 1:
             title = R.string.localizable.manageActivities()
             image = R.image.activity()
             color = .activities
+            imageColor = .gray
         case 2:
             title = R.string.localizable.settings()
             image = R.image.settings()
             color = .settings
+            imageColor = .lightGray
         case 3:
             title = R.string.localizable.aboutApp()
             image = R.image.info()
@@ -35,6 +38,7 @@ struct MenuCVCellData {
     var title: String = ""
     var image: UIImage?
     var color: UIColor?
+    var imageColor: UIColor?
 }
 
 class MenuCVCell: UICollectionViewCell {
@@ -68,7 +72,7 @@ class MenuCVCell: UICollectionViewCell {
         bottomView.backgroundColor = data.color
         titleLabel.text = data.title
         titleLabel.textColor = .white
-        prepareImage(data.image, color: data.color)
+        prepareImage(data.image, color: data.imageColor)
         container.backgroundColor = .clear
         prepareContainer()
         
@@ -83,7 +87,7 @@ class MenuCVCell: UICollectionViewCell {
     fileprivate func prepareImage(_ image: UIImage?, color: UIColor?) {
         titleImageView.image = image
         titleImageView.image = titleImageView.image?.withRenderingMode(.alwaysTemplate)
-        titleImageView.tintColor = .white
+        titleImageView.tintColor = color
     }
     
     fileprivate func prepareContainer() {
