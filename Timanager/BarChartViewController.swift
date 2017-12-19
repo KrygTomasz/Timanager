@@ -88,7 +88,7 @@ class BarChartViewController: MainViewController {
         let dataEntries = getChartDataEntries(forActivities: activities)
         let barChartDataSet = BarChartDataSet(values: dataEntries, label: R.string.localizable.activities())
         barChartDataSet.drawValuesEnabled = false
-        let barChartColors = UIColor.generateColorSet(ofSize: dataEntries.count, saturation: 0.5, brightness: 1, alpha: 1)
+        let barChartColors = UIColor.generateColorSet(basedOn: .blue, ofSize: dataEntries.count)
         barChartDataSet.colors = barChartColors
         let barChartData = BarChartData(dataSet: barChartDataSet)
         barChartView.data = barChartData

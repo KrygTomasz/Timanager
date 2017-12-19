@@ -80,7 +80,7 @@ class PieChartViewController: MainViewController {
         
         let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
         pieChartDataSet.sliceSpace = 3.0
-        let pieChartColors = UIColor.generateColorSet(ofSize: dataEntries.count, saturation: 0.5, brightness: 1, alpha: 1)
+        let pieChartColors = UIColor.generateColorSet(basedOn: .red, ofSize: dataEntries.count)
         pieChartDataSet.colors = pieChartColors
         
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
