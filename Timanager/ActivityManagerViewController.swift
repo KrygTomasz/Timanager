@@ -163,7 +163,20 @@ class ActivityManagerViewController: MainViewController {
         } catch {
             print("Error saving activity object")
         }
+        newActivityTextField.resignFirstResponder()
+        onNewActivityButtonClicked()
+        showSuccessfulAddAlert()
         newActivityTextField.text = ""
+    }
+    
+    private func showSuccessfulAddAlert() {
+        let alert = UIAlertController(title: R.string.localizable.success()+"!", message: R.string.localizable.successfulAdd(), preferredStyle: .alert)
+        let acceptAction = UIAlertAction(title: R.string.localizable.ok(), style: .default, handler: {
+            action in
+            alert.dismiss(animated: true, completion: nil)
+        })
+        alert.addAction(acceptAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func activityExists(name: String?) -> Bool {

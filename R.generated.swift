@@ -199,7 +199,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 27 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 28 localization keys.
     struct localizable {
       /// Value: Aktywności
       static let activities = Rswift.StringResource(key: "activities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -207,6 +207,8 @@ struct R: Rswift.Validatable {
       static let manageActivities = Rswift.StringResource(key: "manageActivities", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Aktywność
       static let activity = Rswift.StringResource(key: "activity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Aktywność została dodana pomyślnie
+      static let successfulAdd = Rswift.StringResource(key: "successfulAdd", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Brak rozpoczętej aktywności
       static let noCurrentActivity = Rswift.StringResource(key: "noCurrentActivity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Czas trwania
@@ -269,6 +271,11 @@ struct R: Rswift.Validatable {
       /// Value: Aktywność
       static func activity(_: Void = ()) -> String {
         return NSLocalizedString("activity", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Aktywność została dodana pomyślnie
+      static func successfulAdd(_: Void = ()) -> String {
+        return NSLocalizedString("successfulAdd", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Brak rozpoczętej aktywności
