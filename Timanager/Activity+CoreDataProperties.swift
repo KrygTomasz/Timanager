@@ -17,6 +17,7 @@ extension Activity {
     }
 
     @NSManaged public var name: String?
+    @NSManaged public var isChoosen: NSNumber?
     @NSManaged public var plannedActivity: NSSet?
     
     static func clear() -> Bool {
@@ -34,6 +35,40 @@ extension Activity {
             print("Failed to delete activities. Error : \(error) \(error.userInfo)")
         }
         return false
+    }
+    
+    func markAsChoosen() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<Activity>(entityName: "Activity")
+        request.returnsObjectsAsFaults = false
+        do {
+            let activities = try context.fetch(request)
+            for activity in activities {
+                activity.isChoosen = NSNumber(value: false)
+            }
+            isChoosen = NSNumber(value: true)
+            try context.save()
+            
+        } catch let error as NSError {
+            print("Failed to delete activities. Error : \(error) \(error.userInfo)")
+        }
+    }
+    
+    static func getChoosen() -> Activity? {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<Activity>(entityName: "Activity")
+        request.returnsObjectsAsFaults = false
+        do {
+            let activities = try context.fetch(request)
+            for activity in activities {
+                if activity.isChoosen == NSNumber(value: true) {
+                    return activity
+                }
+            }
+        } catch let error as NSError {
+            print("Failed to delete activities. Error : \(error) \(error.userInfo)")
+        }
+        return nil
     }
     
     func fill(using name: String?) {

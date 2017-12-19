@@ -97,6 +97,7 @@ class MenuViewController: MainViewController {
                 setStartStopButtons()
                 return
             }
+            choosenActivity?.markAsChoosen()
             setStartStopButtons()
             chooseActivityButton.setTitle("\(name)", for: .normal)
             chooseActivityButton.setTitleColor(.white, for: .normal)
@@ -128,7 +129,7 @@ class MenuViewController: MainViewController {
         fetchRequest.predicate = NSPredicate(format: "stopDate == 0")
         do {
             let objects = try context.fetch(fetchRequest)
-            choosenActivity = objects.first?.activity
+            choosenActivity = Activity.getChoosen()
             currentActivity = objects.first
         } catch {
             let fetchError = error as NSError
@@ -241,13 +242,13 @@ extension MenuViewController {
     fileprivate func setStartStopButtons() {
         if let _ = currentActivity {
             startStopStackView.isHidden = false
-            showStartStopButton(startButton, enable: false, animated: true)
-            showStartStopButton(stopButton, enable: true, animated: true)
+            showStartStopButton(startButton, enable: false, animated: false)
+            showStartStopButton(stopButton, enable: true, animated: false)
         } else {
             if let _ = choosenActivity {
                 startStopStackView.isHidden = false
-                showStartStopButton(startButton, enable: true, animated: true)
-                showStartStopButton(stopButton, enable: false, animated: true)
+                showStartStopButton(startButton, enable: true, animated: false)
+                showStartStopButton(stopButton, enable: false, animated: false)
             } else {
                 startStopStackView.isHidden = true
                 showStartStopButton(startButton, enable: false, animated: false)
