@@ -158,7 +158,7 @@ extension ChooseActivityViewController: NSFetchedResultsControllerDelegate {
     func initFetchedResultsController() {
         
         let fetchRequest = NSFetchRequest<Activity>(entityName: "Activity")
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: "caseInsensitiveCompare:")
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController?.delegate = self
