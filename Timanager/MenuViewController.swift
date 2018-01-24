@@ -241,13 +241,13 @@ extension MenuViewController {
     fileprivate func setStartStopButtons() {
         if let _ = currentActivity {
             startStopStackView.isHidden = false
-            showStartStopButton(startButton, enable: false, animated: true)
-            showStartStopButton(stopButton, enable: true, animated: true)
+            showStartStopButton(startButton, enable: false, animated: false)
+            showStartStopButton(stopButton, enable: true, animated: false)
         } else {
             if let _ = choosenActivity {
                 startStopStackView.isHidden = false
-                showStartStopButton(startButton, enable: true, animated: true)
-                showStartStopButton(stopButton, enable: false, animated: true)
+                showStartStopButton(startButton, enable: true, animated: false)
+                showStartStopButton(stopButton, enable: false, animated: false)
             } else {
                 startStopStackView.isHidden = true
                 showStartStopButton(startButton, enable: false, animated: false)
