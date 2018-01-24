@@ -228,8 +228,8 @@ extension ActivityManagerViewController: UITableViewDelegate, UITableViewDataSou
         guard let activityCell = tableView.cellForRow(at: indexPath) as? ActivityTVCell else {
             return
         }
-        activityCell.nameTextField.isEnabled = true
-        activityCell.nameTextField.becomeFirstResponder()
+//        activityCell.nameTextField.isEnabled = true
+//        activityCell.nameTextField.becomeFirstResponder()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

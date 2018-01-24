@@ -32,11 +32,16 @@ class ActivityTVCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(false, animated: animated)
+        super.setSelected(selected, animated: animated)
+        if selected {
+            nameBackgroundView.backgroundColor = .main
+        } else {
+            nameBackgroundView.backgroundColor = .tint
+        }
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(false, animated: animated)
+//        super.setHighlighted(false, animated: animated)
     }
     
     var activity: Activity?
