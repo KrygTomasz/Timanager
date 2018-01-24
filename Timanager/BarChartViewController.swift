@@ -50,6 +50,7 @@ class BarChartViewController: MainViewController {
             barChartView.highlightPerDragEnabled = false
             barChartView.doubleTapToZoomEnabled = false
             barChartView.isHidden = true
+            barChartView.isUserInteractionEnabled = false
         }
     }
     

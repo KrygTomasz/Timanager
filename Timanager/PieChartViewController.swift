@@ -31,15 +31,16 @@ class PieChartViewController: MainViewController {
     }
     @IBOutlet weak var pieChartView: PieChartView! {
         didSet {
-            pieChartView.holeRadiusPercent = 0
-            pieChartView.drawHoleEnabled = false
+            pieChartView.holeRadiusPercent = 0.75
+            pieChartView.drawHoleEnabled = true
+            pieChartView.holeColor = UIColor.clear
             pieChartView.usePercentValuesEnabled = true
             pieChartView.legend.textColor = .white
 //            pieChartView.drawEntryLabelsEnabled = false
             pieChartView.highlightPerTapEnabled = false
             pieChartView.chartDescription?.text = ""
             pieChartView.delegate = self
-            
+            pieChartView.isUserInteractionEnabled = false
             pieChartView.isHidden = true
         }
     }
