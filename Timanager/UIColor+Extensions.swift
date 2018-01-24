@@ -30,25 +30,31 @@ extension UIColor
     }
     
     public class var main: UIColor {
-        return UIColor(hex: "#052D4F")
+        return .black
+//        return UIColor(hex: "#052D4F")
     }
     public class var tint: UIColor {
-        return UIColor(hex: "#286496")
+        return .brown
+//        return UIColor(hex: "#286496")
     }
     public class var statistics: UIColor {
-        return UIColor(hex: "#286496")
+        return .yellow
+//        return UIColor(hex: "#286496")
     }
     public class var activities: UIColor {
-        return UIColor(hex: "#193F5E")
+        return .red
+//        return UIColor(hex: "#193F5E")
     }
     public class var settings: UIColor {
-        return UIColor(hex: "#052D4F")
+        return .blue
+//        return UIColor(hex: "#052D4F")
     }
-    public class var info: UIColor {
+    public class var info: UIColor { // <- zostaw to, nieużywane nigdzie
         return UIColor(hex: "#55BF53")
     }
     public class var chooseActivities: UIColor {
-        return UIColor(hex: "#337FBF")
+        return .green
+//        return UIColor(hex: "#337FBF")
     }
     public class var mainDarkGreen: UIColor {
         return UIColor(hex: "#096E16")
